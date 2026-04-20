@@ -7,7 +7,18 @@ export type IArc = {
 
 export type ISaga = {
   id: string
-  title: string
-  description: string
   arcs: IArc[]
+  title: string
+  sagaId: string;
+  description: string
+  handleRedirectToSagaDetails: (sagaId: string) => void
+}
+
+export interface IHomeView {
+  data?: ISaga[]
+  handleRedirectToSagaDetails: (sagaId: string) => void
+}
+
+export interface ISagaList {
+  handleRedirectToSagaDetails: (sagaId: string) => void
 }
