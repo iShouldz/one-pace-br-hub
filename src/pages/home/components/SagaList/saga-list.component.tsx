@@ -3,9 +3,11 @@ import ArcBlockComponent from "../arc-block/arc-block.component"
 
 const SagaList = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       {onePieceSagas.map((saga) => (
-        <ArcBlockComponent key={saga.id} {...saga} />
+        <>
+          <ArcBlockComponent key={saga.id} {...saga} />
+        </>
       ))}
     </div>
   )
