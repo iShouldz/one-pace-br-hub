@@ -11,7 +11,7 @@ const SagaDetailsController = () => {
     () => onePieceSagas.find((saga) => saga.id === sagaId),
     [sagaId]
   )
-
+  console.log(currentSagaData)
   const handleBack = () => {
     console.log("back")
     navigate(-1)

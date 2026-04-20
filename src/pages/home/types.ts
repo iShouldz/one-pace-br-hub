@@ -15,7 +15,7 @@ export type ISaga = {
 }
 
 export interface IHomeView {
-  data?: ISaga[]
+  data: ISaga[]
   handleRedirectToSagaDetails: (sagaId: string) => void
 }
 
