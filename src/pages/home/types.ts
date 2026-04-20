@@ -8,5 +8,6 @@ export type IArc = {
 export type ISaga = {
   id: string
   title: string
+  description: string
   arcs: IArc[]
 }

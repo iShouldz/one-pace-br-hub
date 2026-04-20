@@ -4,6 +4,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "eastBlueSaga",
     title: "Saga East Blue",
+    description:
+      "A grande porta de entrada para o universo de One Piece, onde Luffy conhece seus primeiros companheiros e define o espírito da tripulação. É uma fase de descobertas, formação de laços e aventuras clássicas no mar.",
     arcs: [
       {
         id: "romanceDawn",
@@ -68,6 +70,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "alabastaSaga",
     title: "Saga Alabasta",
+    description:
+      "Com a Grand Line mais perigosa, a tripulação encara intrigas políticas, desertos e alianças inesperadas. A jornada ganha escala e mostra como os conflitos locais podem afetar todo um reino.",
     arcs: [
       {
         id: "reverseMountain",
@@ -120,6 +124,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "skypeaSaga",
     title: "Saga Skypiea",
+    description:
+      "Uma etapa de exploração pura e senso de aventura, levando os Chapéus de Palha a cenários fantásticos acima das nuvens. Mistura mistério, lendas e batalhas com clima único dentro da obra.",
     arcs: [
       {
         id: "jaya",
@@ -141,6 +147,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "waterSevenSaga",
     title: "Saga Water 7",
+    description:
+      "A narrativa fica mais emocional e intensa, com decisões difíceis, conflitos internos e confrontos diretos com grandes forças. É uma fase marcante de amadurecimento da tripulação.",
     arcs: [
       {
         id: "longLongLand",
@@ -175,6 +183,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "thrilerBarkSaga",
     title: "Saga Thriller Bark",
+    description:
+      "Com atmosfera de terror e humor característico, essa saga mistura criaturas bizarras, ilha sombria e lutas criativas. Um arco com identidade própria e ritmo de aventura sobrenatural.",
     arcs: [
       {
         id: "thrillerBark",
@@ -188,6 +198,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "marineFordSaga",
     title: "Saga Guerra de Marineford",
+    description:
+      "Uma fase de grandes acontecimentos no mundo de One Piece, com alta tensão e impacto global. A história amplia seu escopo e aprofunda o peso das escolhas de cada personagem.",
     arcs: [
       {
         id: "sabaodyArchipelago",
@@ -237,6 +249,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "fishmanIslandSaga",
     title: "Saga Ilha dos Homens-Peixe",
+    description:
+      "Após um período importante de preparação, a tripulação retorna mais madura para uma nova etapa no fundo do oceano. A saga combina aventura submarina, cultura local e temas sociais fortes.",
     arcs: [
       {
         id: "returnSabaody",
@@ -257,6 +271,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "pirateAlianceSaga",
     title: "Saga Alianca Pirata (Dressrosa)",
+    description:
+      "Com alianças estratégicas e objetivos maiores, os confrontos ficam mais táticos e complexos. É uma fase de expansão do universo, com vários núcleos e consequências em cadeia.",
     arcs: [
       {
         id: "punkHazard",
@@ -277,6 +293,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "wholeCakeIslandSaga",
     title: "Saga Whole Cake Island",
+    description:
+      "Uma saga de alto risco em território hostil, com foco em resgate, família e lealdade. O visual excêntrico contrasta com conflitos emocionais e batalhas intensas.",
     arcs: [
       {
         id: "zou",
@@ -304,6 +322,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "wanoSaga",
     title: "Saga Pais de Wano",
+    description:
+      "Inspirada no Japão feudal, essa fase traz política, tradição e guerra em grande escala. A história reúne várias frentes de batalha e entrega um dos cenários mais grandiosos da série.",
     arcs: [
       {
         id: "wano",
@@ -317,6 +337,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "eggHeadSaga",
     title: "Saga Final (Egghead)",
+    description:
+      "Com estética futurista e ritmo acelerado, Egghead abre uma nova era na narrativa. A saga conecta ciência, poder e mistérios do mundo com repercussões cada vez maiores.",
     arcs: [
       {
         id: "eggHead",
@@ -330,6 +352,8 @@ export const onePieceSagas: ISaga[] = [
   {
     id: "specialsSaga",
     title: "Especiais e Fillers Historicos",
+    description:
+      "Uma coleção de histórias paralelas e episódios especiais que enriquecem o universo de One Piece. Ideal para quem quer mais contexto, curiosidades e aventuras fora da linha principal.",
     arcs: [
       {
         id: "fanLetter",
