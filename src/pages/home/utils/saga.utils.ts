@@ -1,17 +1,6 @@
-export type Arc = {
-  id: string
-  title: string
-  imagePath?: string
-  description: string
-}
+import type { ISaga } from "../types";
 
-export type Saga = {
-  id: string
-  title: string
-  arcs: Arc[]
-}
-
-export const onePieceSagas: Saga[] = [
+export const onePieceSagas: ISaga[] = [
   {
     id: "eastBlueSaga",
     title: "Saga East Blue",

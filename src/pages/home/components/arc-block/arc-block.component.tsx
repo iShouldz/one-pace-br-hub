@@ -4,13 +4,19 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import type { Saga } from "../../utils/saga.utils"
+import type { ISaga } from "../../types"
+import { ArrowRight } from "lucide-react"
 
-const ArcBlockComponent = ({ arcs, title }: Saga) => {
+const ArcBlockComponent = ({ arcs, title }: ISaga) => {
   return (
     <section className="flex flex-col gap-4 px-5 pt-6 pb-16 sm:px-8">
       <div className="space-y-1">
-        <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+        <div className="flex items-center justify-between gap-4">
+          <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>{" "}
+          <div className="flex items-center gap-4">
+            <p>Ver mais</p> <ArrowRight />
+          </div>
+        </div>
         <p className="text-sm text-white/60">{arcs.length} arcos</p>
       </div>
 
