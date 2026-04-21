@@ -2,6 +2,7 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import { Button } from "@/components/ui/button"
 import {
   ArrowLeft,
+  ArrowUpRightIcon,
   DownloadIcon,
   ImageOff,
   InfoIcon,
@@ -22,13 +23,20 @@ const ArcDetailsView = ({
   handleDownloadEpisodes,
   handleDownloadSubtitles,
 }: IArcDetailsView) => {
-  const informations = data?.informations ?? []
+  const informations = [
+    ...(data?.informations ?? []),
+    {
+      title: "Sobre o One Pace",
+      description:
+        "Esse hub é apenas um agregador para legendas pt-br, apenas facilitamos o acesso às legendas criadas pela comunidade. Todos os creditos para o ",
+    },
+  ]
 
   return (
     <BackgroundHeaderComponent direction="left">
       <main className="absolute inset-0 overflow-y-auto">
         <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-8 px-6 py-8 md:px-10 lg:px-16 lg:py-12">
-          <article className="flex flex-col gap-4 lg:max-w-3xl">
+          <article className="flex flex-col gap-4">
             <Button
               variant="link"
               className="w-fit px-0 text-white"
@@ -60,28 +68,29 @@ const ArcDetailsView = ({
                 )}
               </div>
             </aside>
-            <article className="rounded-2xl border border-white/10 bg-black/35 p-5 backdrop-blur md:p-6">
-              <h3 className="text-lg font-semibold text-white">
-                Baixar este arco
-              </h3>
-              <p className="mt-2 text-sm text-white/70">
-                Escolha o que deseja baixar. Ao baixar os episodios, marcamos
-                este arco automaticamente como concluido.
-              </p>
+            <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-5 backdrop-blur md:p-6">
+              <div>
+                <h3 className="text-lg font-semibold text-white">
+                  Baixar este arco
+                </h3>
+                <p className="mt-2 text-sm text-white/70">
+                  Escolha o que deseja baixar. Ao baixar os episodios, marcamos
+                  este arco automaticamente como concluido.
+                </p>
 
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Button size="lg" onClick={handleDownloadEpisodes}>
-                  <DownloadIcon /> Download episodios
-                </Button>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  onClick={handleDownloadSubtitles}
-                >
-                  <Subtitles /> Download legendas
-                </Button>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Button size="lg" onClick={handleDownloadEpisodes}>
+                    <DownloadIcon /> Download episodios
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    onClick={handleDownloadSubtitles}
+                  >
+                    <Subtitles /> Download legendas
+                  </Button>
+                </div>
               </div>
-
               {informations.length > 0 && (
                 <div className="mt-6 grid gap-3">
                   {informations.map((info) => (
@@ -91,7 +100,19 @@ const ArcDetailsView = ({
                       </ItemMedia>
                       <ItemContent>
                         <ItemTitle>{info.title}</ItemTitle>
-                        <ItemDescription>{info.description}</ItemDescription>
+                        <ItemDescription>
+                          {info.description}{" "}
+                          {info.description.includes("creditos") && (
+                            <a
+                              target="_blank"
+                              href="https://onepace.net/"
+                              className="inline-flex items-center gap-1 text-zinc-300 hover:text-zinc-500"
+                            >
+                              One Pace
+                              <ArrowUpRightIcon data-icon="inline-end" />
+                            </a>
+                          )}
+                        </ItemDescription>
                       </ItemContent>
                     </Item>
                   ))}
