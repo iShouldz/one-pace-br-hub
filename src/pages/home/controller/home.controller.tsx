@@ -9,7 +9,7 @@ import { StorageKeys } from "@/utils/storage-keys.utils"
 const HomeController = () => {
   const navigate = useNavigate()
   const [showAllSagas, setShowAllSagas] = useState<boolean>(
-    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) || false
+    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) || true
   )
   const [orderSagas, setOrderSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.ORDER_SAGAS) || false
