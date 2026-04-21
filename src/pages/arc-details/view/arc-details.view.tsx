@@ -9,7 +9,7 @@ import {
   ListIcon,
   Subtitles,
 } from "lucide-react"
-import type { IArcDetailsView } from "../types"
+import type { IArcDetailsView, IOnePaceArc } from "../types"
 import {
   Item,
   ItemActions,
@@ -25,6 +25,8 @@ import type { IInformationProps } from "@/pages/home/types"
 
 const ArcDetailsView = ({
   data,
+  arcId,
+  sagaId,
   handleBack,
   handleRedirectToHome,
   handleDownloadEpisodes,
@@ -46,12 +48,14 @@ const ArcDetailsView = ({
   const [hasDoneArc, setHasDoneArc] = useState(false)
 
   useEffect(() => {
-    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE)
-    if (Array.isArray(completedArcs)) {
-      setHasDoneArc(completedArcs.some((id) => String(id) === String(data?.id)))
-    } else {
-      setHasDoneArc(false)
-    }
+    const completedArcs: IOnePaceArc[] = getFromLocalStorage(
+      StorageKeys.COMPLETED_ONE_PACE
+    )
+    setHasDoneArc(
+      completedArcs
+        .find((saga) => saga.id === sagaId)
+        ?.arcos.includes(arcId!) ?? false
+    )
   }, [data?.id])
 
   const handleDownloadEpisodesAndMarkDone = () => {

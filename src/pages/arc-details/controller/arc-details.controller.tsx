@@ -62,6 +62,8 @@ const ArcDetailsController = () => {
 
   return (
     <ArcDetailsView
+      arcId={arcId}
+      sagaId={sagaId}
       data={currentArcData}
       handleBack={handleBack}
       handleRedirectToHome={handleRedirectToHome}

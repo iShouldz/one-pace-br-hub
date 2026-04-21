@@ -1,6 +1,8 @@
 import type { IArc } from "../home/types"
 
 export interface IArcDetailsView {
+  arcId?: string
+  sagaId?: string
   handleBack: () => void
   data: IArc | undefined
   handleRedirectToHome: () => void
@@ -10,11 +12,7 @@ export interface IArcDetailsView {
   handleRedirectButtonAction: (path?: string) => void
 }
 
-export interface IOnePaceSaga {
-  
-}
-
 export interface IOnePaceArc {
-  id: string;
+  id: string
   arcos: string[]
 }
