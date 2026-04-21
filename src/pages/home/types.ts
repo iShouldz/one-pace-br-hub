@@ -3,6 +3,12 @@ export type IArc = {
   title: string
   imagePath?: string
   description: string
+  informations?: IInformationProps[]
+}
+
+export interface IInformationProps {
+  title: string
+  description: string
 }
 
 export type ISaga = {

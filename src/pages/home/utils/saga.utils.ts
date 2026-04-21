@@ -24,6 +24,13 @@ const eastBlueSaga: ISaga = {
       id: "syrupVillage",
       title: "Syrup Village",
       imagePath: "/images/banners/season03-poster.webp",
+      informations: [
+        {
+          title: "Arquivo com senha",
+          description:
+            "Para descriptografar o zip, utilize a senha: otto.fansub@2024",
+        },
+      ],
       description:
         "Usopp tenta defender sua pacifica vila de um plano maligno orquestrado pelo cruel Capitao Kuro, contando com a ajuda de seus novos amigos da tripulacao do Chapeu de Palha.",
     },
@@ -31,6 +38,13 @@ const eastBlueSaga: ISaga = {
       id: "gaimon",
       title: "Gaimon",
       imagePath: "/images/banners/season04-poster.webp",
+      informations: [
+        {
+          title: "Arquivo com senha",
+          description:
+            "Para descriptografar o zip, utilize a senha: otto.fansub@2024",
+        },
+      ],
       description:
         "Uma breve aventura onde a tripulacao desembarca na Ilha dos Animais Raros e conhece Gaimon, um ex-pirata excentrico preso em um bau de tesouro ha mais de 20 anos.",
     },
@@ -38,6 +52,13 @@ const eastBlueSaga: ISaga = {
       id: "baratie",
       title: "Baratie",
       imagePath: "/images/banners/season05-poster.webp",
+      informations: [
+        {
+          title: "Arquivo com senha",
+          description:
+            "Para descriptografar o zip, utilize a senha: otto.fansub@2024",
+        },
+      ],
       description:
         "A tripulacao visita o famoso restaurante flutuante Baratie em busca de um cozinheiro naval. La, conhecem Sanji e precisam defender o navio da frota de Don Krieg.",
     },

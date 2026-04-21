@@ -25,6 +25,7 @@ const ArcDetailsController = () => {
     }
 
     saveToLocalStorage(StorageKeys.COMPLETED_ARCS, [...completedArcs, arcId])
+    window.dispatchEvent(new Event("completed-arcs-updated"))
   }, [arcId])
 
   const handleDownloadSubtitles = useCallback(() => {}, [])
