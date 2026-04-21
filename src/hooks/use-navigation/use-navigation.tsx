@@ -1,4 +1,3 @@
-import React from "react"
 import { useNavigate } from "react-router"
 
 const useNavigation = () => {
@@ -8,7 +7,11 @@ const useNavigation = () => {
     navigate(-1)
   }
 
-  return { handleBack }
+  const handleRedirect = (path: string) => {
+    navigate(path)
+  }
+
+  return { handleBack, handleRedirect }
 }
 
 export default useNavigation

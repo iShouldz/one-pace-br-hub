@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router"
 import HomeView from "../view/home.view"
 import { useCallback } from "react"
-import { routePath } from "@/utils/routes.utils"
+import { routePath } from "@/utils/enum/routes.utils"
 
 const HomeController = () => {
   const navigate = useNavigate()
