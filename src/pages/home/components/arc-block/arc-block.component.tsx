@@ -14,18 +14,19 @@ const ArcBlockComponent = ({
     <section className="flex flex-col gap-4 px-5 pt-6 pb-16 sm:px-8">
       <div className="space-y-1">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>{" "}
+          <h2 className="lg:text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2>{" "}
           <div className="flex items-center gap-4">
             <Button
               variant="link"
               size="sm"
+              className="md:text-2xl lg:text-sm"
               onClick={() => handleRedirectToSagaDetails(sagaId)}
             >
               <p className="text-white">Ver mais</p> <ArrowRight />
             </Button>
           </div>
         </div>
-        <p className="text-sm text-white/60">{arcs.length} arcos</p>
+        <p className="lg:text-sm text-white/60 md:text-3xl">{arcs.length} arcos</p>
       </div>
 
       <CarouselArcComponent

@@ -31,6 +31,24 @@ const ArcDetailsController = () => {
     const arcData = onePieceSagas
       .find((saga) => saga.id === sagaId)
       ?.arcs.find((arc) => arc.id === arcId)
+
+    const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
+
+    if (sagaIndex === -1) {
+      completedArcs.push({
+        id: sagaId!,
+        arcos: [arcId!],
+      } as any)
+    } else {
+      const sagaObj = completedArcs[sagaIndex]
+      if (!sagaObj.arcos.includes(arcId!)) {
+        sagaObj.arcos.push(arcId!)
+      }
+    }
+
+    saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
+    window.dispatchEvent(new Event("completed-one-pace-updated"))
+
     if (arcData?.scrapping) {
       let linksToOpen = magnetLinks
 
@@ -50,22 +68,6 @@ const ArcDetailsController = () => {
       return []
     }
 
-    const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
-
-    if (sagaIndex === -1) {
-      completedArcs.push({
-        id: sagaId!,
-        arcos: [arcId!],
-      } as any)
-    } else {
-      const sagaObj = completedArcs[sagaIndex]
-      if (!sagaObj.arcos.includes(arcId!)) {
-        sagaObj.arcos.push(arcId!)
-      }
-    }
-
-    saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
-    window.dispatchEvent(new Event("completed-one-pace-updated"))
     return []
   }, [
     arcId,

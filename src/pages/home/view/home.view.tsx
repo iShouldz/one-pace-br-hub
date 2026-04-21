@@ -27,7 +27,7 @@ const HomeView = ({
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="flex gap-2">
+                <NavigationMenuTrigger className="flex gap-2 ">
                   <SettingsIcon /> Configurações
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="rounded-xl border border-white/10 bg-black/90 p-0 shadow-lg">
@@ -64,7 +64,7 @@ const HomeView = ({
           </div>
         </section>
 
-        <section className="pt-[45svh]">
+        <section className="lg:pt-[45svh] md:pt-[35svh]">
           <SagaList
             showAllSagas={showAllSagas}
             onePieceSagas={onePieceSagas}
