@@ -32,6 +32,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ButtonGroup } from "@/components/ui/button-group"
+import { toast } from "sonner"
 
 const ArcDetailsView = ({
   data,
@@ -39,7 +40,9 @@ const ArcDetailsView = ({
   sagaId,
   handleBack,
   handleRedirectToHome,
+  magnetLinks,
   handleDownloadEpisodes,
+  handleCopyMagnetLinks,
   handleDownloadSubtitles,
   handleRedirectToSagaList,
   handleRedirectButtonAction,
@@ -56,6 +59,7 @@ const ArcDetailsView = ({
   ]
 
   const [hasDoneArc, setHasDoneArc] = useState(false)
+  const [isLoadingMagnets, setIsLoadingMagnets] = useState(false)
 
   useEffect(() => {
     const completedArcs: IOnePaceArc[] =
@@ -68,8 +72,20 @@ const ArcDetailsView = ({
   }, [data?.id])
 
   const handleDownloadEpisodesAndMarkDone = async () => {
+    setIsLoadingMagnets(true)
     await handleDownloadEpisodes()
+    setIsLoadingMagnets(false)
     setHasDoneArc(true)
+  }
+
+  const handleCopyMagnetLinksClick = async () => {
+    const copied = await handleCopyMagnetLinks(magnetLinks)
+    if (!copied) {
+      toast("Não foi possível copiar automaticamente", {
+        description:
+          "Copie manualmente os links abaixo e cole no seu cliente torrent.",
+      })
+    }
   }
 
   return (
@@ -162,22 +178,47 @@ const ArcDetailsView = ({
                         </DialogDescription>
                       </DialogHeader>
                       <DialogFooter>
-                        <ButtonGroup>
-                          <Button
-                            type="submit"
-                            onClick={handleDownloadEpisodesAndMarkDone}
-                          >
-                            Download Multiplo
-                          </Button>
-                          <Button
-                            type="submit"
-                            onClick={() =>
-                              handleRedirectButtonAction(data?.linkDownload)
-                            }
-                          >
-                            Download Manual
-                          </Button>
-                        </ButtonGroup>
+                        <div className="flex w-full flex-col gap-4">
+                          {magnetLinks.length > 0 && (
+                            <div className="space-y-2">
+                              <p className="text-sm text-white/80">
+                                Links encontrados. Você pode copiar automaticamente
+                                ou manualmente:
+                              </p>
+                              <textarea
+                                className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-3 text-xs text-white"
+                                readOnly
+                                value={magnetLinks.join("\n")}
+                              />
+                            </div>
+                          )}
+                          <ButtonGroup>
+                            <Button
+                              type="button"
+                              onClick={handleDownloadEpisodesAndMarkDone}
+                              disabled={isLoadingMagnets}
+                            >
+                              {isLoadingMagnets
+                                ? "Buscando links..."
+                                : "Buscar links"}
+                            </Button>
+                            <Button
+                              type="button"
+                              onClick={handleCopyMagnetLinksClick}
+                              disabled={!magnetLinks.length}
+                            >
+                              Copiar links
+                            </Button>
+                            <Button
+                              type="button"
+                              onClick={() =>
+                                handleRedirectButtonAction(data?.linkDownload)
+                              }
+                            >
+                              Download Manual
+                            </Button>
+                          </ButtonGroup>
+                        </div>
                       </DialogFooter>
                     </DialogContent>
 

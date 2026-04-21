@@ -35,15 +35,19 @@ const ArcDetailsController = () => {
       let linksToOpen = magnetLinks
 
       try {
-        const html = await fetchPageContent(arcData.linkDownload)
-        linksToOpen = extractMagnetLinks(html)
-        setMagnetLinks(linksToOpen)
-        return await tryCopyMagnetsToClipboard(linksToOpen)
+        if (!linksToOpen.length) {
+          const html = await fetchPageContent(arcData.linkDownload)
+          linksToOpen = extractMagnetLinks(html)
+          setMagnetLinks(linksToOpen)
+        }
+        return linksToOpen
       } catch (error) {
         console.error("Erro ao buscar/extrair magnet links:", error)
+        return []
       }
     } else if (arcData?.linkDownload) {
       handleRedirect(arcData.linkDownload, { external: true })
+      return []
     }
 
     const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
@@ -62,7 +66,22 @@ const ArcDetailsController = () => {
 
     saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
     window.dispatchEvent(new Event("completed-one-pace-updated"))
-  }, [arcId, sagaId, magnetLinks, handleRedirect])
+    return []
+  }, [
+    arcId,
+    sagaId,
+    magnetLinks,
+    handleRedirect,
+    fetchPageContent,
+    extractMagnetLinks,
+  ])
+
+  const handleCopyMagnetLinks = useCallback(
+    async (links: string[]) => {
+      return tryCopyMagnetsToClipboard(links)
+    },
+    [tryCopyMagnetsToClipboard]
+  )
 
   const handleDownloadSubtitles = useCallback(() => {}, [])
 
@@ -89,7 +108,9 @@ const ArcDetailsController = () => {
       data={currentArcData}
       handleBack={handleBack}
       handleRedirectToHome={handleRedirectToHome}
+      magnetLinks={magnetLinks}
       handleDownloadEpisodes={handleDownloadEpisodes}
+      handleCopyMagnetLinks={handleCopyMagnetLinks}
       handleDownloadSubtitles={handleDownloadSubtitles}
       handleRedirectToSagaList={handleRedirectToSagaList}
       handleRedirectButtonAction={handleRedirectButtonAction}

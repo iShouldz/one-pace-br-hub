@@ -6,7 +6,9 @@ export interface IArcDetailsView {
   handleBack: () => void
   data: IArc | undefined
   handleRedirectToHome: () => void
-  handleDownloadEpisodes: () => void
+  magnetLinks: string[]
+  handleDownloadEpisodes: () => Promise<string[]>
+  handleCopyMagnetLinks: (links: string[]) => Promise<boolean>
   handleDownloadSubtitles: () => void
   handleRedirectToSagaList: () => void
   handleRedirectButtonAction: (path?: string) => void
