@@ -26,6 +26,7 @@ export type ISaga = {
 }
 
 export interface IHomeView {
+  orderSagas: boolean
   showAllSagas: boolean
   onePieceSagas: ISaga[]
   handleToggleOrderList: () => void
