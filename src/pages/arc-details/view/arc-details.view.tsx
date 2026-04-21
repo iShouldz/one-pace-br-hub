@@ -75,7 +75,13 @@ const ArcDetailsView = ({
                 </h3>
                 <p className="mt-2 text-sm text-white/70">
                   Escolha o que deseja baixar. Ao baixar os episodios, marcamos
-                  este arco automaticamente como concluido.
+                  este arco automaticamente como concluido. As legendas são
+                  renomeadas para facilitar a identificação, mas não são
+                  embutidas nos episodios, ou seja, é necessário usar um player
+                  que suporte legendas externas, como o VLC, por exemplo. Para
+                  serviços como o Jellyfin, é necessário colocar as legendas na
+                  mesma pasta dos episodios para que sejam reconhecidas
+                  automaticamente.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-3">

@@ -2,6 +2,7 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
 
+
 const HomeView = ({
   handleRedirectToArcDetails,
   handleRedirectToSagaDetails,
