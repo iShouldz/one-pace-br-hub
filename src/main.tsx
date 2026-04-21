@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
       <RouterProvider router={routes} />
-       <Toaster />
+      <Toaster />
     </ThemeProvider>
   </StrictMode>
 )

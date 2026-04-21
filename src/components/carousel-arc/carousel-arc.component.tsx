@@ -31,7 +31,6 @@ const CarouselArcComponent = ({
             />
           </CarouselItem>
         ))}
-        
       </CarouselContent>
     </Carousel>
   )
