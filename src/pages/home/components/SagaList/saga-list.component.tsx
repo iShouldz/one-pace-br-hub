@@ -2,7 +2,10 @@ import type { ISagaList } from "../../types"
 import { onePieceSagas } from "../../utils/saga.utils"
 import ArcBlockComponent from "../arc-block/arc-block.component"
 
-const SagaList = ({ handleRedirectToSagaDetails }: ISagaList) => {
+const SagaList = ({
+  handleRedirectToArcDetails,
+  handleRedirectToSagaDetails,
+}: ISagaList) => {
   return (
     <div className="flex flex-col gap-2">
       {onePieceSagas.map((saga) => (
@@ -11,6 +14,7 @@ const SagaList = ({ handleRedirectToSagaDetails }: ISagaList) => {
             {...saga}
             key={saga.id}
             sagaId={saga.id}
+            handleRedirectToArcDetails={handleRedirectToArcDetails}
             handleRedirectToSagaDetails={handleRedirectToSagaDetails}
           />
         </>

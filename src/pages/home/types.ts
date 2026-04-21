@@ -9,16 +9,18 @@ export type ISaga = {
   id: string
   arcs: IArc[]
   title: string
-  sagaId?: string;
+  sagaId?: string
   description: string
   handleRedirectToSagaDetails?: (sagaId: string) => void
 }
 
 export interface IHomeView {
-  data: ISaga[]
+  // data: ISaga[]
   handleRedirectToSagaDetails: (sagaId: string) => void
+  handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }
 
 export interface ISagaList {
   handleRedirectToSagaDetails: (sagaId: string) => void
+  handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }

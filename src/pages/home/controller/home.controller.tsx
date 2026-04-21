@@ -1,16 +1,29 @@
 import { useNavigate } from "react-router"
 import HomeView from "../view/home.view"
 import { useCallback } from "react"
+import { routePath } from "@/utils/routes.utils"
 
 const HomeController = () => {
   const navigate = useNavigate()
   const handleRedirectToSagaDetails = useCallback(
     (sagaId: string) => {
-      navigate(`/saga/${sagaId}`)
+      navigate(routePath.sagaDetails(sagaId))
     },
     [navigate]
   )
-  return <HomeView handleRedirectToSagaDetails={handleRedirectToSagaDetails} />
+
+  const handleRedirectToArcDetails = useCallback(
+    (sagaId: string, arcId: string) => {
+      navigate(routePath.arcDetails(sagaId, arcId))
+    },
+    [navigate]
+  )
+  return (
+    <HomeView
+      handleRedirectToSagaDetails={handleRedirectToSagaDetails}
+      handleRedirectToArcDetails={handleRedirectToArcDetails}
+    />
+  )
 }
 
 export default HomeController

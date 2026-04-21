@@ -6,7 +6,11 @@ import {
 } from "@/components/ui/carousel"
 import type { ICarouselArc } from "./types"
 
-const CarouselArcComponent = ({ arcs }: ICarouselArc) => {
+const CarouselArcComponent = ({
+  arcs,
+  sagaId,
+  handleRedirectToArcDetails,
+}: ICarouselArc) => {
   return (
     <Carousel
       opts={{
@@ -20,7 +24,10 @@ const CarouselArcComponent = ({ arcs }: ICarouselArc) => {
             key={arc.id}
             className="basis-[74%] pl-2 sm:basis-[48%] md:basis-[34%] md:pl-3 lg:basis-[26%] xl:basis-[20%]"
           >
-            <Card className="group relative overflow-hidden rounded-2xl border-white/12 bg-white/5 p-0 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:shadow-black/50">
+            <Card
+              className="group relative overflow-hidden rounded-2xl border-white/12 bg-white/5 p-0 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:shadow-black/50"
+              onClick={() => handleRedirectToArcDetails(sagaId, arc.id)}
+            >
               <div className="relative">
                 <img
                   src={arc.imagePath ?? "/images/banners/poster.webp"}

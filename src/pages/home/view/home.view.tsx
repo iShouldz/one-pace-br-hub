@@ -2,7 +2,10 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
 
-const HomeView = ({ handleRedirectToSagaDetails }: IHomeView) => {
+const HomeView = ({
+  handleRedirectToArcDetails,
+  handleRedirectToSagaDetails,
+}: IHomeView) => {
   return (
     <BackgroundHeaderComponent>
       <main className="relative z-10">
@@ -19,7 +22,10 @@ const HomeView = ({ handleRedirectToSagaDetails }: IHomeView) => {
         </section>
 
         <section className="pt-[60svh]">
-          <SagaList handleRedirectToSagaDetails={handleRedirectToSagaDetails} />
+          <SagaList
+            handleRedirectToArcDetails={handleRedirectToArcDetails}
+            handleRedirectToSagaDetails={handleRedirectToSagaDetails}
+          />
         </section>
       </main>
     </BackgroundHeaderComponent>
