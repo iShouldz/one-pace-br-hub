@@ -37,6 +37,7 @@ const CardArcComponent = ({
         <img
           src={arc.imagePath ?? "/images/banners/poster.webp"}
           alt={arc.title}
+          loading="lazy"
           className={`aspect-2/3 w-full object-cover transition duration-500 group-hover:scale-105 ${!hasDoneArc ? "grayscale" : ""}`}
         />
 

@@ -3,11 +3,11 @@ import SagaDetailsView from "../view/saga-details.view"
 import { onePieceSagas } from "@/pages/home/utils/saga.utils"
 import { useCallback, useMemo } from "react"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
-import { routePath } from "@/utils/enum/routes.utils"
+import { routePath, RoutesUrl } from "@/utils/enum/routes.utils"
 
 const SagaDetailsController = () => {
   const { sagaId } = useParams()
-  const { handleBack, handleRedirect } = useNavigation()
+  const { handleRedirect } = useNavigation()
 
   const currentSagaData = useMemo(
     () => onePieceSagas.find((saga) => saga.id === sagaId),
@@ -20,6 +20,10 @@ const SagaDetailsController = () => {
     },
     [handleRedirect]
   )
+
+  const handleBack = useCallback(() => {
+    handleRedirect(RoutesUrl.HOME)
+  }, [handleRedirect])
 
   return (
     <SagaDetailsView

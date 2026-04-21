@@ -27,7 +27,7 @@ const HomeView = ({
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="flex gap-2 ">
+                <NavigationMenuTrigger className="flex gap-2">
                   <SettingsIcon /> Configurações
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="rounded-xl border border-white/10 bg-black/90 p-0 shadow-lg">
@@ -58,13 +58,14 @@ const HomeView = ({
               <img
                 src="/one-pace-logo.png"
                 alt="One Pace Logo"
+                loading="lazy"
                 className="w-64 max-w-full object-contain sm:w-90 md:w-125"
               />
             </div>
           </div>
         </section>
 
-        <section className="lg:pt-[45svh] md:pt-[35svh]">
+        <section className="md:pt-[35svh] lg:pt-[45svh]">
           <SagaList
             showAllSagas={showAllSagas}
             onePieceSagas={onePieceSagas}

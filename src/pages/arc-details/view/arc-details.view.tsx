@@ -115,6 +115,7 @@ const ArcDetailsView = ({
                   <img
                     src={data.imagePath}
                     alt={data.title}
+                    loading="lazy"
                     className={`aspect-2/3 w-full object-cover transition-all duration-500 ${!hasDoneArc ? "grayscale" : ""}`}
                   />
                 ) : (
@@ -182,8 +183,8 @@ const ArcDetailsView = ({
                           {magnetLinks.length > 0 && (
                             <div className="space-y-2">
                               <p className="text-sm text-white/80">
-                                Links encontrados. Você pode copiar automaticamente
-                                ou manualmente:
+                                Links encontrados. Você pode copiar
+                                automaticamente ou manualmente:
                               </p>
                               <textarea
                                 className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-3 text-xs text-white"

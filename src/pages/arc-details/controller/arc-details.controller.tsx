@@ -11,7 +11,7 @@ import useTorrent from "../hooks/use-torrent"
 
 const ArcDetailsController = () => {
   const { sagaId, arcId } = useParams()
-  const { handleBack, handleRedirect } = useNavigation()
+  const { handleRedirect } = useNavigation()
   const [magnetLinks, setMagnetLinks] = useState<string[]>([])
   const { extractMagnetLinks, fetchPageContent, tryCopyMagnetsToClipboard } =
     useTorrent()
@@ -89,11 +89,15 @@ const ArcDetailsController = () => {
 
   const handleRedirectToHome = useCallback(() => {
     handleRedirect(RoutesUrl.HOME)
-  }, [])
+  }, [handleRedirect])
+
+  const handleBack = useCallback(() => {
+    handleRedirect(RoutesUrl.SAGA_DETAILS.replace(":sagaId", sagaId!))
+  }, [handleRedirect, sagaId])
 
   const handleRedirectToSagaList = useCallback(() => {
     handleRedirect(RoutesUrl.SAGA_DETAILS.replace(":sagaId", sagaId!))
-  }, [sagaId])
+  }, [handleRedirect, sagaId])
 
   const handleRedirectButtonAction = useCallback(
     (path?: string) => {
@@ -109,8 +113,8 @@ const ArcDetailsController = () => {
       sagaId={sagaId}
       data={currentArcData}
       handleBack={handleBack}
-      handleRedirectToHome={handleRedirectToHome}
       magnetLinks={magnetLinks}
+      handleRedirectToHome={handleRedirectToHome}
       handleDownloadEpisodes={handleDownloadEpisodes}
       handleCopyMagnetLinks={handleCopyMagnetLinks}
       handleDownloadSubtitles={handleDownloadSubtitles}
