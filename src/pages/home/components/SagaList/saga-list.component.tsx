@@ -13,12 +13,11 @@ const SagaList = ({
   return (
     <div className="flex flex-col gap-2">
       {onePieceSagas.map((saga) => {
-        const completedOnePace: IOnePaceArc[] = getFromLocalStorage(
-          StorageKeys.COMPLETED_ONE_PACE
-        )
+        const completedOnePace: IOnePaceArc[] =
+          getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
         if (
-          completedOnePace.find((item) => item.id === saga.id)?.arcos.length ===
-            saga.arcs.length &&
+          completedOnePace?.find((item) => item.id === saga.id)?.arcos
+            .length === saga.arcs.length &&
           !showAllSagas
         ) {
           return null

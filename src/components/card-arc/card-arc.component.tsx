@@ -11,9 +11,8 @@ const CardArcComponent = ({
   handleRedirectToArcDetails,
 }: ICardArc) => {
   const hasDoneArc = useMemo(() => {
-    const completedArcs: IOnePaceArc[] = getFromLocalStorage(
-      StorageKeys.COMPLETED_ONE_PACE
-    )
+    const completedArcs: IOnePaceArc[] =
+      getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
 
     if (completedArcs.map((item) => item.id).indexOf(sagaId) === -1) {
       return false

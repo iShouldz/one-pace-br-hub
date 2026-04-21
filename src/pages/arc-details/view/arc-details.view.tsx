@@ -58,12 +58,11 @@ const ArcDetailsView = ({
   const [hasDoneArc, setHasDoneArc] = useState(false)
 
   useEffect(() => {
-    const completedArcs: IOnePaceArc[] = getFromLocalStorage(
-      StorageKeys.COMPLETED_ONE_PACE
-    )
+    const completedArcs: IOnePaceArc[] =
+      getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
     setHasDoneArc(
       completedArcs
-        .find((saga) => saga.id === sagaId)
+        ?.find((saga) => saga.id === sagaId)
         ?.arcos.includes(arcId!) ?? false
     )
   }, [data?.id])
