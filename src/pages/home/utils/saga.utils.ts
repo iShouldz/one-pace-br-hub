@@ -25,7 +25,9 @@ const eastBlueSaga: ISaga = {
     {
       id: "syrupVillage",
       title: "Syrup Village",
-      imagePath: "/images/banners/season03-poster.webp",linkDownload: "https://drive.google.com/file/d/1sOkAfncbFhtXTO9MDr_1a_seyP8iXJjk/view?usp=sharing",
+      imagePath: "/images/banners/season03-poster.webp",
+      linkDownload:
+        "https://drive.google.com/file/d/1sOkAfncbFhtXTO9MDr_1a_seyP8iXJjk/view?usp=sharing",
       informations: [
         {
           title: "Arquivo com senha",
@@ -54,7 +56,9 @@ const eastBlueSaga: ISaga = {
     {
       id: "baratie",
       title: "Baratie",
-      imagePath: "/images/banners/season05-poster.webp",linkDownload: "https://drive.google.com/file/d/1l0PzkuQ_kC_vIly5w4RYcwLfseIGu01I/view?usp=sharing",
+      imagePath: "/images/banners/season05-poster.webp",
+      linkDownload:
+        "https://drive.google.com/file/d/1l0PzkuQ_kC_vIly5w4RYcwLfseIGu01I/view?usp=sharing",
       informations: [
         {
           title: "Arquivo com senha",
@@ -68,7 +72,9 @@ const eastBlueSaga: ISaga = {
     {
       id: "arlongPark",
       title: "Arlong Park",
-      imagePath: "/images/banners/season06-poster.webp",linkDownload: "https://drive.google.com/file/d/1CYjpCaHeml-W1Fr4p9Ag0inFQN9Gf8fK/view?usp=sharing",
+      imagePath: "/images/banners/season06-poster.webp",
+      linkDownload:
+        "https://drive.google.com/file/d/1CYjpCaHeml-W1Fr4p9Ag0inFQN9Gf8fK/view?usp=sharing",
 
       description:
         "Os Chapeus de Palha viajam para a Vila Cocoyasi para confrontar os Piratas do Arlong. Eles precisam quebrar o controle tiranico do homem-peixe para libertar Nami e sua ilha.",
@@ -83,7 +89,8 @@ const eastBlueSaga: ISaga = {
     },
     {
       id: "Loguetown",
-      title: "Loguetown",linkDownload: "https://nyaa.si/view/1282922",
+      title: "Loguetown",
+      linkDownload: "https://nyaa.si/view/1282922",
       imagePath: "/images/banners/season08-poster.webp",
       description:
         "A parada final antes de entrar na Grand Line. Na cidade onde o Rei dos Piratas Gol D. Roger nasceu e foi executado, velhos e novos inimigos se reunem para desafiar Luffy.",
@@ -101,6 +108,7 @@ const alabastaSaga: ISaga = {
       id: "reverseMountain",
       title: "Reverse Mountain",
       imagePath: "/images/banners/season09-poster.webp",
+      linkDownload: "https://nyaa.si/view/1762745",
       description:
         "A tripulacao finalmente cruza a montanha que divide os oceanos e entra na Grand Line, onde conhecem Laboon, uma baleia gigante que espera pelo retorno de velhos amigos.",
     },
@@ -108,7 +116,7 @@ const alabastaSaga: ISaga = {
       id: "whiskyPeak",
       title: "Whisky Peak",
       imagePath: "/images/banners/season10-poster.webp",
-
+      linkDownload: "https://nyaa.si/view/951046",
       description:
         "Os Chapeus de Palha desembarcam em uma cidade aparentemente amigavel que festeja a chegada de piratas, mas logo descobrem as reais intencoes dos agentes da Baroque Works.",
     },
@@ -116,7 +124,7 @@ const alabastaSaga: ISaga = {
       id: "trialsKobyMeppo",
       title: "Diary of Koby-Meppo",
       imagePath: "/images/banners/season11-poster.webp",
-
+      linkDownload: "https://nyaa.si/view/1679185",
       description:
         "Acompanhe o duro treinamento de Koby e Helmeppo na sede da Marinha sob a tutela rigorosa do Vice-Almirante Garp.",
     },
@@ -124,7 +132,7 @@ const alabastaSaga: ISaga = {
       id: "littleGarden",
       title: "Little Garden",
       imagePath: "/images/banners/season12-poster.webp",
-
+      linkDownload: "https://nyaa.si/view/1304355",
       description:
         "A tripulacao chega a uma ilha pre-historica intocada pelo tempo, onde dois gigantes de Elbaf travam um duelo de honra continuo ha mais de 100 anos.",
     },
@@ -132,7 +140,8 @@ const alabastaSaga: ISaga = {
       id: "drumIsland",
       title: "Drum Island",
       imagePath: "/images/banners/season13-poster.webp",
-
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+drum+%5B1080p%5D",
+      scrapping: true,
       description:
         "Desesperados para encontrar um medico para curar Nami, a tripulacao aporta em uma ilha de inverno outrora governada por um tirano. La, conhecem a rena Tony Tony Chopper.",
     },
@@ -140,6 +149,9 @@ const alabastaSaga: ISaga = {
       id: "alabasta",
       title: "Alabasta",
       imagePath: "/images/banners/season14-poster.webp",
+      linkDownload:
+        "https://nyaa.si/?f=0&c=0_0&q=one+pace+arabasta+%5B1080p%5D+-april&s=id&o=asc",
+      scrapping: true,
       description:
         "Os Chapeus de Palha chegam ao reino desertico de Alabasta para cumprir a promessa feita a Princesa Vivi: impedir uma guerra civil orquestrada pelo Shichibukai Crocodile.",
     },
@@ -156,6 +168,8 @@ const skypeaSaga: ISaga = {
       id: "jaya",
       title: "Jaya",
       imagePath: "/images/banners/season15-poster.webp",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+jaya",
+      scrapping: true,
       description:
         "Buscando pistas sobre a mitica Ilha do Ceu, a tripulacao chega a Mock Town, um covil de piratas onde os sonhos de Luffy sao zombados e a era dos piratas romanticos e questionada.",
     },
@@ -163,7 +177,8 @@ const skypeaSaga: ISaga = {
       id: "skypea",
       title: "Skypiea",
       imagePath: "/images/banners/season16-poster.webp",
-
+      linkDownload: "https://nyaa.si/?q=one+pace+skypiea+-480p&f=0&c=0_0",
+      scrapping: true,
       description:
         "Impulsionados pelo Knock Up Stream, os Chapeus de Palha chegam as nuvens. La se envolvem na antiga guerra entre os habitantes do ceu e Shandians, e enfrentam o temivel 'Deus' Enel.",
     },
@@ -180,6 +195,8 @@ const waterSevenSaga: ISaga = {
       id: "longLongLand",
       title: "Long Ring Long Land",
       imagePath: "/images/banners/season17-poster.webp",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+long+ring+long+land",
+      scrapping: true,
       description:
         "A tripulacao e desafiada pelos trapaceiros Piratas Foxy para o Davy Back Fight, uma serie de jogos piratas excentricos onde as tripulacoes apostam seus proprios companheiros.",
     },
@@ -187,6 +204,8 @@ const waterSevenSaga: ISaga = {
       id: "waterSeven",
       title: "Water 7",
       imagePath: "/images/banners/season18-poster.webp",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+water+seven",
+      scrapping: true,
       description:
         "Na deslumbrante metropole da agua, a tripulacao busca consertar o Going Merry. No entanto, tensoes internas levam a separacao e um misterioso esquadrao de assassinos age nas sombras.",
     },
@@ -194,6 +213,8 @@ const waterSevenSaga: ISaga = {
       id: "eniesLobby",
       title: "Enies Lobby",
       imagePath: "/images/banners/season19-poster.webp",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+enies+lobby+-post",
+      scrapping: true,
       description:
         "Para resgatar Robin, os Chapeus de Palha invadem a impenetravel ilha judiciaria do Governo Mundial, declarando guerra aberta ao mundo inteiro ao confrontar a CP9.",
     },
@@ -201,6 +222,7 @@ const waterSevenSaga: ISaga = {
       id: "postEniesLobby",
       title: "Post-Enies Lobby",
       imagePath: "/images/banners/season20-poster.webp",
+      linkDownload: "https://nyaa.si/view/1168790",
       description:
         "Apos os eventos intensos na ilha judiciaria, a tripulacao descansa em Water 7, ganha novas recompensas gigantescas, conhece um fato chocante sobre o pai de Luffy e zarpa em um novo navio.",
     },
@@ -216,6 +238,7 @@ export const thrillerBarkSaga: ISaga = {
     {
       id: "thrillerBark",
       title: "Thriller Bark",
+      linkDownload: "https://nyaa.si/view/608554",
       imagePath: "/images/banners/season21-poster.webp",
       description:
         "Presos no assustador Florian Triangle, a tripulacao desembarca no gigantesco navio-ilha Thriller Bark. Eles precisam recuperar suas sombras roubadas pelo Shichibukai Gecko Moria e seu exercito de zumbis.",
@@ -232,6 +255,7 @@ const marineFordSaga: ISaga = {
     {
       id: "sabaodyArchipelago",
       title: "Sabaody Archipelago",
+      linkDownload: "https://nyaa.si/view/1167639",
       imagePath: "/images/banners/season22-poster.webp",
       description:
         "No ponto de encontro para o Novo Mundo, a tripulacao cruza com outros Supernovas e causa um grande incidente, resultando em uma derrota esmagadora para um Almirante da Marinha e a completa separacao do bando.",
@@ -240,12 +264,14 @@ const marineFordSaga: ISaga = {
       id: "amazonLily",
       title: "Amazon Lily",
       imagePath: "/images/banners/season23-poster.webp",
+      linkDownload: "https://nyaa.si/view/1140828",
       description:
         "Enviado para longe por Kuma, Luffy aterrissa em uma ilha habitada exclusivamente por mulheres guerreiras, governada pela hostil e bela Shichibukai Boa Hancock.",
     },
     {
       id: "impelDown",
       title: "Impel Down",
+      linkDownload: "https://nyaa.si/view/1140836",
       imagePath: "/images/banners/season24-poster.webp",
       description:
         "Com a noticia da execucao iminente de seu irmao Ace, Luffy se infiltra na terrivel prisao subaquatica de seguranca maxima do Governo Mundial, descendo por seus infernos com a ajuda de antigos inimigos.",
@@ -253,6 +279,7 @@ const marineFordSaga: ISaga = {
     {
       id: "adventureOfStrawHeats",
       title: "Adventure of Straw Hats",
+      linkDownload: "https://nyaa.si/view/1796385",
       imagePath: "/images/banners/season25-poster.webp",
       description:
         "Uma serie de contos que mostram as aventuras individuais dos Chapeus de Palha durante a separacao, revelando seus desafios e crescimento pessoal.",
@@ -260,6 +287,7 @@ const marineFordSaga: ISaga = {
     {
       id: "marineford",
       title: "Marineford",
+      linkDownload: "https://nyaa.si/view/1287648",
       imagePath: "/images/banners/season26-poster.webp",
       description:
         "A maior guerra da Grande Era dos Piratas comeca. Os Piratas do Barba Branca entram em confronto direto com o Quartel General da Marinha e os Shichibukais na tentativa de impedir a execucao de Portgas D. Ace.",
@@ -268,7 +296,8 @@ const marineFordSaga: ISaga = {
       id: "postWar",
       title: "Post-War",
       imagePath: "/images/banners/season27-poster.webp",
-
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+post+war",
+      scrapping: true,
       description:
         "Lido com as graves consequencias da guerra, o passado e a infancia de Luffy com Ace e Sabo sao revelados. A tripulacao, espalhada pelo mundo, recebe a mensagem de seu capitao e decide treinar por dois anos.",
     },
@@ -285,6 +314,7 @@ const fishmanIslandSaga: ISaga = {
       id: "returnSabaody",
       title: "Return to Sabaody",
       imagePath: "/images/banners/season28-poster.webp",
+      linkDownload: "https://nyaa.si/view/1524087",
       description:
         "Apos dois anos de intenso treinamento individual, os Chapeus de Palha retornam mais fortes ao Arquipelago de Sabaody para se reunirem e finalmente zarparem para o Novo Mundo.",
     },
@@ -292,6 +322,7 @@ const fishmanIslandSaga: ISaga = {
       id: "fishmanIsland",
       title: "Fish-Man Island",
       imagePath: "/images/banners/season29-poster.webp",
+      linkDownload: "https://nyaa.si/view/1031876",
       description:
         "A tripulacao mergulha nas profundezas oceanicas ate a belissima Ilha dos Homens-Peixe. Porem, eles se veem envolvidos em uma rebeliao de extremistas que pretendem derrubar o reino e dizimar a humanidade.",
     },
@@ -308,18 +339,21 @@ const alianceSaga: ISaga = {
       id: "punkHazard",
       title: "Punk Hazard",
       imagePath: "/images/banners/season30-poster.webp",
+      linkDownload: "https://nyaa.si/view/1140878",
       description:
         "Na primeira ilha do Novo Mundo, um mar de chamas de um lado e um deserto de gelo do outro, os Chapeus de Palha formam uma alianca com Trafalgar Law para sequestrar o perigoso cientista Caesar Clown.",
     },
     {
       id: "dressrosa",
       title: "Dressrosa",
+      linkDownload: "https://nyaa.si/view/972546",
       imagePath: "/images/banners/season31-poster.webp",
       description:
         "A alianca pirata chega ao aparentemente apaixonante reino de Dressrosa. Por tras dos sorrisos e brinquedos vivos, esconde-se o reinado sombrio do impiedoso Shichibukai Donquixote Doflamingo.",
     },
   ],
 }
+
 const wholeCakeSaga: ISaga = {
   id: "wholeCakeIslandSaga",
   title: "Saga Whole Cake Island",
@@ -330,6 +364,7 @@ const wholeCakeSaga: ISaga = {
       id: "zou",
       title: "Zou",
       imagePath: "/images/banners/season32-poster.webp",
+      linkDownload: "https://nyaa.si/view/1032088",
       description:
         "A tripulacao chega a Zou, uma civilizacao erguida nas costas de um elefante milenar gigantesco. Eles encontram a tribo dos Minks se recuperando de um ataque catastrofico e descobrem sobre os misteriosos Road Poneglyphs.",
     },
@@ -337,12 +372,22 @@ const wholeCakeSaga: ISaga = {
       id: "wholeCakeIsland",
       title: "Whole Cake Island",
       imagePath: "/images/banners/season33-poster.webp",
+      linkDownload: "https://nyaa.si/view/1313289",
       description:
         "Para impedir que Sanji seja forcado a um casamento politico, Luffy e um grupo de resgate se infiltram no bizarro e acucarado territorio governado pela temivel Yonkou Big Mom.",
     },
     {
+      id: "wapol-cover",
+      title: "Wapol's Omnivorous Hurrah",
+      imagePath: "/images/banners/poster.webp",
+      linkDownload: "https://nyaa.si/view/903285",
+      description:
+        "Um episodio especial que mostra a jornada de Wapol, o ex-rei de Drum, apos ser expulso de sua ilha. Ele tenta reconstruir seu reino com a ajuda de seus seguidores, mas enfrenta desafios inesperados.",
+    },
+    {
       id: "reverie",
       title: "Reverie",
+      linkDownload: "https://nyaa.si/view/1880864",
       imagePath: "/images/banners/season34-poster.webp",
       description:
         "Enquanto os reis de varias nacoes aliadas se reunem em Mary Geoise para o conselho mundial, o Exercito Revolucionario planeja um ataque direto aos Tenryuubitos, e forcas obscuras do governo entram em movimento.",
@@ -359,6 +404,27 @@ const wanoSaga: ISaga = {
     {
       id: "wano",
       title: "Wano Country",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=wano+%5BOne+Pace%5D+1080p",
+      scrapping: true,
+      imagePath: "/images/banners/season35-poster.webp",
+      description:
+        "A alianca ninja-pirata-mink-samurai finalmente se infiltra no fechado e isolado Pais de Wano. Seu objetivo definitivo: iniciar uma grande rebeliao e derrubar o tirano Kurozumi Orochi e o formidavel Yonkou Kaido das Feras.",
+    },
+    {
+      id: "wano-onigashima-paced",
+      title: "Wano (Onigashima)",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=wano+%5BOne+Pace%5D+1080p",
+      informations: [
+        {
+          title: "Onigashima",
+          actionButton:
+            "https://docs.google.com/spreadsheets/d/1HoYogAchoU5DWxVJzUy3eZcHMZk_hUmzUVnQm9KxeFI/edit?gid=0#gid=0",
+          buttonText: "Ver planilha",
+          description:
+            "One Pace nao possui o arco de Onigashima ainda, mas os episodios de Wano cobrem boa parte dos eventos. Para quem quer acompanhar a saga completa, recomendamos o onigashima paced, para saber de onde continuar, veja a planilha.",
+        },
+      ],
+      scrapping: true,
       imagePath: "/images/banners/season35-poster.webp",
       description:
         "A alianca ninja-pirata-mink-samurai finalmente se infiltra no fechado e isolado Pais de Wano. Seu objetivo definitivo: iniciar uma grande rebeliao e derrubar o tirano Kurozumi Orochi e o formidavel Yonkou Kaido das Feras.",
@@ -375,6 +441,8 @@ const eggHeadSaga: ISaga = {
     {
       id: "eggHead",
       title: "Egghead Island",
+      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+egghead",
+      scrapping: true,
       imagePath: "/images/banners/season36-poster.webp",
       description:
         "Os Chapeus de Palha, agora como a tripulacao de um Yonkou, chegam a futurista Ilha Egghead. La, encontram os laboratorios do genio Dr. Vegapunk e desencadeiam um Incidente sem precedentes que atrai as maiores forcas do Governo Mundial.",
@@ -391,6 +459,7 @@ const specialsSaga: ISaga = {
     {
       id: "fanLetter",
       title: "One Piece Fan Letter",
+      linkDownload: "https://nyaa.si/view/1905874",
       imagePath: "/images/banners/season-specials-poster.webp",
       description:
         "Um conto especial que mostra os eventos do retorno dos Chapeus de Palha em Sabaody pela perspectiva de civis comuns, especificamente uma jovem admiradora de Nami.",
@@ -399,6 +468,7 @@ const specialsSaga: ISaga = {
       id: "warship",
       title: "Warship Island",
       imagePath: "/images/banners/season-specials-poster.webp",
+      linkDownload: "https://nyaa.si/view/554204",
       description:
         "Os Chapeus de Palha ajudam Apis, uma pequena garota, a proteger Ryu, um dragao milenar ancestral, das garras de oficiais da Marinha que desejam o segredo da imortalidade.",
     },

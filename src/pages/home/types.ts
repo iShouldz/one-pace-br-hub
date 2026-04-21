@@ -4,12 +4,15 @@ export type IArc = {
   imagePath?: string
   description: string
   linkDownload: string
+  scrapping?: boolean
   informations?: IInformationProps[]
 }
 
 export interface IInformationProps {
   title: string
   description: string
+  buttonText?: string
+  actionButton?: string
 }
 
 export type ISaga = {

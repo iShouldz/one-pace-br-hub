@@ -39,6 +39,14 @@ const ArcDetailsController = () => {
     handleRedirect(RoutesUrl.SAGA_DETAILS.replace(":sagaId", sagaId!))
   }, [sagaId])
 
+  const handleRedirectButtonAction = useCallback(
+    (path?: string) => {
+      if (!path) return
+      handleRedirect(path)
+    },
+    [handleRedirect]
+  )
+
   return (
     <ArcDetailsView
       data={currentArcData}
@@ -47,6 +55,7 @@ const ArcDetailsController = () => {
       handleDownloadEpisodes={handleDownloadEpisodes}
       handleDownloadSubtitles={handleDownloadSubtitles}
       handleRedirectToSagaList={handleRedirectToSagaList}
+      handleRedirectButtonAction={handleRedirectButtonAction}
     />
   )
 }

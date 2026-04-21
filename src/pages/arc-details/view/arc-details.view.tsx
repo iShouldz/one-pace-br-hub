@@ -2,7 +2,6 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import { Button } from "@/components/ui/button"
 import {
   ArrowLeft,
-  ArrowUpRightIcon,
   DownloadIcon,
   HomeIcon,
   ImageOff,
@@ -13,6 +12,7 @@ import {
 import type { IArcDetailsView } from "../types"
 import {
   Item,
+  ItemActions,
   ItemContent,
   ItemDescription,
   ItemMedia,
@@ -21,21 +21,25 @@ import {
 import { getFromLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { useEffect, useState } from "react"
+import type { IInformationProps } from "@/pages/home/types"
 
 const ArcDetailsView = ({
   data,
   handleBack,
+  handleRedirectToHome,
   handleDownloadEpisodes,
   handleDownloadSubtitles,
-  handleRedirectToHome,
   handleRedirectToSagaList,
+  handleRedirectButtonAction,
 }: IArcDetailsView) => {
-  const informations = [
+  const informations: IInformationProps[] = [
     ...(data?.informations ?? []),
     {
       title: "Sobre o One Pace",
+      actionButton: "https://onepace.net/",
+      buttonText: "Visitar o site",
       description:
-        "Esse hub é apenas um agregador para legendas pt-br, apenas facilitamos o acesso às legendas criadas pela comunidade. Todos os creditos para o ",
+        "Esse hub é apenas um agregador para legendas pt-br, apenas facilitamos o acesso às legendas criadas pela comunidade. Todos os creditos para o One Pace",
     },
   ]
 
@@ -143,20 +147,23 @@ const ArcDetailsView = ({
                       </ItemMedia>
                       <ItemContent>
                         <ItemTitle>{info.title}</ItemTitle>
-                        <ItemDescription>
-                          {info.description}{" "}
-                          {info.description.includes("creditos") && (
-                            <a
-                              target="_blank"
-                              href="https://onepace.net/"
-                              className="inline-flex items-center gap-1 text-zinc-300 hover:text-zinc-500"
-                            >
-                              One Pace
-                              <ArrowUpRightIcon data-icon="inline-end" />
-                            </a>
-                          )}
+                        <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
+                          {info.description}
                         </ItemDescription>
                       </ItemContent>
+                      {info.buttonText && (
+                        <ItemActions>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() =>
+                              handleRedirectButtonAction(info.actionButton)
+                            }
+                          >
+                            {info.buttonText}
+                          </Button>
+                        </ItemActions>
+                      )}
                     </Item>
                   ))}
                 </div>

@@ -7,4 +7,5 @@ export interface IArcDetailsView {
   handleDownloadEpisodes: () => void
   handleDownloadSubtitles: () => void
   handleRedirectToSagaList: () => void
+  handleRedirectButtonAction: (path?: string) => void
 }
