@@ -1,3 +1,3 @@
 export const StorageKeys = {
-  COMPLETED_ARCS: "completed_arcs",
+  COMPLETED_ONE_PACE: "@completed-one-pace",
 }

@@ -6,6 +6,7 @@ import ArcDetailsView from "../view/arc-details.view"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { RoutesUrl } from "@/utils/enum/routes.utils"
+import type { IOnePaceArc } from "../types"
 
 const ArcDetailsController = () => {
   const { sagaId, arcId } = useParams()
@@ -20,14 +21,26 @@ const ArcDetailsController = () => {
   )
 
   const handleDownloadEpisodes = useCallback(() => {
-    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ARCS) || []
-    if (!arcId || completedArcs.includes(arcId)) {
-      return
+    let completedArcs: IOnePaceArc[] =
+      getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
+
+    const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
+
+    if (sagaIndex === -1) {
+      completedArcs.push({
+        id: sagaId!,
+        arcos: [arcId!],
+      })
+    } else {
+      const sagaObj = completedArcs[sagaIndex]
+      if (!sagaObj.arcos.includes(arcId!)) {
+        sagaObj.arcos.push(arcId!)
+      }
     }
 
-    saveToLocalStorage(StorageKeys.COMPLETED_ARCS, [...completedArcs, arcId])
-    window.dispatchEvent(new Event("completed-arcs-updated"))
-  }, [arcId])
+    saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
+    window.dispatchEvent(new Event("completed-one-pace-updated"))
+  }, [arcId, sagaId])
 
   const handleDownloadSubtitles = useCallback(() => {}, [])
 

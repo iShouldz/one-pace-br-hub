@@ -9,3 +9,12 @@ export interface IArcDetailsView {
   handleRedirectToSagaList: () => void
   handleRedirectButtonAction: (path?: string) => void
 }
+
+export interface IOnePaceSaga {
+  
+}
+
+export interface IOnePaceArc {
+  id: string;
+  arcos: string[]
+}

@@ -46,7 +46,7 @@ const ArcDetailsView = ({
   const [hasDoneArc, setHasDoneArc] = useState(false)
 
   useEffect(() => {
-    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ARCS)
+    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE)
     if (Array.isArray(completedArcs)) {
       setHasDoneArc(completedArcs.some((id) => String(id) === String(data?.id)))
     } else {

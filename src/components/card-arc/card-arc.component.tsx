@@ -4,19 +4,24 @@ import { useMemo } from "react"
 import { getFromLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { Check } from "lucide-react"
+import type { IOnePaceArc } from "@/pages/arc-details/types"
 const CardArcComponent = ({
   arc,
   sagaId,
   handleRedirectToArcDetails,
 }: ICardArc) => {
   const hasDoneArc = useMemo(() => {
-    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ARCS)
+    const completedArcs: IOnePaceArc[] = getFromLocalStorage(
+      StorageKeys.COMPLETED_ONE_PACE
+    )
 
-    if (!Array.isArray(completedArcs)) {
+    if (completedArcs.map((item) => item.id).indexOf(sagaId) === -1) {
       return false
     }
 
-    return completedArcs.some((id) => String(id) === String(arc.id))
+    return completedArcs.some((id) =>
+      id.arcos.some((arcId) => String(arcId) === String(arc.id))
+    )
   }, [arc.id])
   return (
     <Card

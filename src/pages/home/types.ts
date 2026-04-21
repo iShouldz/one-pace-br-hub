@@ -26,11 +26,17 @@ export type ISaga = {
 }
 
 export interface IHomeView {
+  showAllSagas: boolean
+  onePieceSagas: ISaga[]
+  handleToggleOrderList: () => void
+  handleHideCompletedSagas: () => void
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }
 
 export interface ISagaList {
+  showAllSagas: boolean
+  onePieceSagas: ISaga[]
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }
