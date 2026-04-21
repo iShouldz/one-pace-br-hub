@@ -1,16 +1,20 @@
 import useNavigation from "@/hooks/use-navigation/use-navigation"
 import { onePieceSagas } from "@/pages/home/utils/saga.utils"
-import { useCallback, useMemo } from "react"
+import { useCallback, useMemo, useState } from "react"
 import { useParams } from "react-router"
 import ArcDetailsView from "../view/arc-details.view"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { RoutesUrl } from "@/utils/enum/routes.utils"
 import type { IOnePaceArc } from "../types"
+import useTorrent from "../hooks/use-torrent"
 
 const ArcDetailsController = () => {
   const { sagaId, arcId } = useParams()
   const { handleBack, handleRedirect } = useNavigation()
+  const [magnetLinks, setMagnetLinks] = useState<string[]>([])
+  const { extractMagnetLinks, fetchPageContent, tryCopyMagnetsToClipboard } =
+    useTorrent()
 
   const currentArcData = useMemo(
     () =>
@@ -20,9 +24,27 @@ const ArcDetailsController = () => {
     [sagaId, arcId]
   )
 
-  const handleDownloadEpisodes = useCallback(() => {
+  const handleDownloadEpisodes = useCallback(async () => {
     let completedArcs: IOnePaceArc[] =
       getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
+
+    const arcData = onePieceSagas
+      .find((saga) => saga.id === sagaId)
+      ?.arcs.find((arc) => arc.id === arcId)
+    if (arcData?.scrapping) {
+      let linksToOpen = magnetLinks
+
+      try {
+        const html = await fetchPageContent(arcData.linkDownload)
+        linksToOpen = extractMagnetLinks(html)
+        setMagnetLinks(linksToOpen)
+        return await tryCopyMagnetsToClipboard(linksToOpen)
+      } catch (error) {
+        console.error("Erro ao buscar/extrair magnet links:", error)
+      }
+    } else if (arcData?.linkDownload) {
+      handleRedirect(arcData.linkDownload, { external: true })
+    }
 
     const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
 
@@ -30,7 +52,7 @@ const ArcDetailsController = () => {
       completedArcs.push({
         id: sagaId!,
         arcos: [arcId!],
-      })
+      } as any)
     } else {
       const sagaObj = completedArcs[sagaIndex]
       if (!sagaObj.arcos.includes(arcId!)) {
@@ -40,7 +62,7 @@ const ArcDetailsController = () => {
 
     saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
     window.dispatchEvent(new Event("completed-one-pace-updated"))
-  }, [arcId, sagaId])
+  }, [arcId, sagaId, magnetLinks, handleRedirect])
 
   const handleDownloadSubtitles = useCallback(() => {}, [])
 

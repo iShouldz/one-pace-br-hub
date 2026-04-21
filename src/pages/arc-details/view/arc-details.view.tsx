@@ -22,6 +22,16 @@ import { getFromLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { useEffect, useState } from "react"
 import type { IInformationProps } from "@/pages/home/types"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { ButtonGroup } from "@/components/ui/button-group"
 
 const ArcDetailsView = ({
   data,
@@ -58,8 +68,8 @@ const ArcDetailsView = ({
     )
   }, [data?.id])
 
-  const handleDownloadEpisodesAndMarkDone = () => {
-    handleDownloadEpisodes()
+  const handleDownloadEpisodesAndMarkDone = async () => {
+    await handleDownloadEpisodes()
     setHasDoneArc(true)
   }
 
@@ -116,9 +126,71 @@ const ArcDetailsView = ({
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Button size="lg" onClick={handleDownloadEpisodesAndMarkDone}>
-                    <DownloadIcon /> Episodios
-                  </Button>
+                  <Dialog>
+                    {data?.scrapping ? (
+                      <DialogTrigger asChild>
+                        <Button size="lg">
+                          <DownloadIcon /> Episodios
+                        </Button>
+                      </DialogTrigger>
+                    ) : null}
+                    <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle>Scrapping</DialogTitle>
+                        <DialogDescription className="flex flex-col gap-4">
+                          Esse arco provavelmente não esta concluido ou não foi
+                          feito um bundle unico. Vamos fazer o scrapping dos
+                          episodios para facilitar o download massivo dos
+                          episodios para você. Caso selecione o download
+                          multiplo, adicionaremos ao seu clipboard os links
+                          torrents. Caso prefira, ainda pode baixar
+                          individualmente abaixo.
+                          <Item variant="muted">
+                            <ItemMedia variant="icon">
+                              <InfoIcon />
+                            </ItemMedia>
+                            <ItemContent>
+                              <ItemTitle>O que é scrapping?</ItemTitle>
+                              <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
+                                O scraping de site torrent é o processo
+                                automatizado de extração de dados (como títulos,
+                                links magnet, tamanhos de arquivo e contagem de
+                                seeds/peers) de plataformas de compartilhamento
+                                de arquivos P2P, como YTS, 1337x e Nyaa.si.
+                              </ItemDescription>
+                            </ItemContent>
+                          </Item>
+                        </DialogDescription>
+                      </DialogHeader>
+                      <DialogFooter>
+                        <ButtonGroup>
+                          <Button
+                            type="submit"
+                            onClick={handleDownloadEpisodesAndMarkDone}
+                          >
+                            Download Multiplo
+                          </Button>
+                          <Button
+                            type="submit"
+                            onClick={() =>
+                              handleRedirectButtonAction(data?.linkDownload)
+                            }
+                          >
+                            Download Manual
+                          </Button>
+                        </ButtonGroup>
+                      </DialogFooter>
+                    </DialogContent>
+
+                    {!data?.scrapping && (
+                      <Button
+                        size="lg"
+                        onClick={handleDownloadEpisodesAndMarkDone}
+                      >
+                        <DownloadIcon /> Episodios
+                      </Button>
+                    )}
+                  </Dialog>
                   <Button
                     size="lg"
                     variant="secondary"
