@@ -20,6 +20,33 @@ const useTorrent = () => {
 
   const tryCopyMagnetsToClipboard = useCallback(async (links: string[]) => {
     if (!navigator.clipboard?.writeText) return false
+
+    if (navigator.permissions) {
+      try {
+        const result = await navigator.permissions.query({
+          name: "clipboard-write" as PermissionName,
+        })
+        if (result.state === "denied") {
+          toast("Permissão de clipboard negada", {
+            description:
+              "Permita o acesso ao clipboard para copiar automaticamente. Caso não consiga, copie manualmente os links.",
+          })
+          return false
+        }
+
+        if (result.state === "prompt") {
+          try {
+            await navigator.clipboard.writeText(links.join("\n"))
+          } catch {
+            toast("Permissão de clipboard não concedida", {
+              description:
+                "Permita o acesso ao clipboard ou copie manualmente os links.",
+            })
+            return false
+          }
+        }
+      } catch {}
+    }
     try {
       await navigator.clipboard.writeText(links.join("\n"))
       toast("Torrents copiados com sucesso", {
