@@ -33,7 +33,7 @@ const CardArcComponent = ({
         <img
           src={arc.imagePath ?? "/images/banners/poster.webp"}
           alt={arc.title}
-          className={`aspect-2/3 w-full object-cover transition duration-500 group-hover:scale-105 ${hasDoneArc ? "grayscale" : ""}`}
+          className={`aspect-2/3 w-full object-cover transition duration-500 group-hover:scale-105 ${!hasDoneArc ? "grayscale" : ""}`}
         />
 
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#050918] via-[#050918]/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

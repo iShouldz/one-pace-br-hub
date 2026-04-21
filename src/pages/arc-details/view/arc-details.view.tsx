@@ -4,8 +4,10 @@ import {
   ArrowLeft,
   ArrowUpRightIcon,
   DownloadIcon,
+  HomeIcon,
   ImageOff,
   InfoIcon,
+  ListIcon,
   Subtitles,
 } from "lucide-react"
 import type { IArcDetailsView } from "../types"
@@ -16,12 +18,17 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
+import { getFromLocalStorage } from "@/utils/storage.utils"
+import { StorageKeys } from "@/utils/storage-keys.utils"
+import { useEffect, useState } from "react"
 
 const ArcDetailsView = ({
   data,
   handleBack,
   handleDownloadEpisodes,
   handleDownloadSubtitles,
+  handleRedirectToHome,
+  handleRedirectToSagaList,
 }: IArcDetailsView) => {
   const informations = [
     ...(data?.informations ?? []),
@@ -31,6 +38,22 @@ const ArcDetailsView = ({
         "Esse hub é apenas um agregador para legendas pt-br, apenas facilitamos o acesso às legendas criadas pela comunidade. Todos os creditos para o ",
     },
   ]
+
+  const [hasDoneArc, setHasDoneArc] = useState(false)
+
+  useEffect(() => {
+    const completedArcs = getFromLocalStorage(StorageKeys.COMPLETED_ARCS)
+    if (Array.isArray(completedArcs)) {
+      setHasDoneArc(completedArcs.some((id) => String(id) === String(data?.id)))
+    } else {
+      setHasDoneArc(false)
+    }
+  }, [data?.id])
+
+  const handleDownloadEpisodesAndMarkDone = () => {
+    handleDownloadEpisodes()
+    setHasDoneArc(true)
+  }
 
   return (
     <BackgroundHeaderComponent direction="left">
@@ -59,7 +82,7 @@ const ArcDetailsView = ({
                   <img
                     src={data.imagePath}
                     alt={data.title}
-                    className="aspect-2/3 w-full object-cover"
+                    className={`aspect-2/3 w-full object-cover transition-all duration-500 ${!hasDoneArc ? "grayscale" : ""}`}
                   />
                 ) : (
                   <div className="flex aspect-2/3 items-center justify-center text-white/50">
@@ -85,15 +108,29 @@ const ArcDetailsView = ({
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Button size="lg" onClick={handleDownloadEpisodes}>
-                    <DownloadIcon /> Download episodios
+                  <Button size="lg" onClick={handleDownloadEpisodesAndMarkDone}>
+                    <DownloadIcon /> Episodios
                   </Button>
                   <Button
                     size="lg"
                     variant="secondary"
                     onClick={handleDownloadSubtitles}
                   >
-                    <Subtitles /> Download legendas
+                    <Subtitles /> Legendas
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    onClick={handleRedirectToSagaList}
+                  >
+                    <ListIcon /> Listagem da saga
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    onClick={handleRedirectToHome}
+                  >
+                    <HomeIcon /> Ir para a home
                   </Button>
                 </div>
               </div>

@@ -3,6 +3,8 @@ import type { IArc } from "../home/types"
 export interface IArcDetailsView {
   handleBack: () => void
   data: IArc | undefined
+  handleRedirectToHome: () => void
   handleDownloadEpisodes: () => void
   handleDownloadSubtitles: () => void
+  handleRedirectToSagaList: () => void
 }

@@ -10,6 +10,7 @@ const eastBlueSaga: ISaga = {
       id: "romanceDawn",
       title: "Romance Dawn",
       imagePath: "/images/banners/season01-poster.webp",
+      linkDownload: "https://nyaa.si/view/1966911",
       description:
         "Monkey D. Luffy embarca em uma aventura para reunir uma tripulação, encontrar o lendário tesouro One Piece e conquistar o título de Rei dos Piratas.",
     },
@@ -17,13 +18,14 @@ const eastBlueSaga: ISaga = {
       id: "orangeTown",
       title: "Orange Town",
       imagePath: "/images/banners/season02-poster.webp",
+      linkDownload: "https://nyaa.si/view/2016635",
       description:
         "Luffy e Zoro entram em conflito com uma extravagante tripulação de piratas liderada pelo pomposo Buggy, o Palhaço. Com a ajuda de Nami, uma jovem astuta que se junta ao grupo, eles tentam navegar por este dilema.",
     },
     {
       id: "syrupVillage",
       title: "Syrup Village",
-      imagePath: "/images/banners/season03-poster.webp",
+      imagePath: "/images/banners/season03-poster.webp",linkDownload: "https://drive.google.com/file/d/1sOkAfncbFhtXTO9MDr_1a_seyP8iXJjk/view?usp=sharing",
       informations: [
         {
           title: "Arquivo com senha",
@@ -38,6 +40,7 @@ const eastBlueSaga: ISaga = {
       id: "gaimon",
       title: "Gaimon",
       imagePath: "/images/banners/season04-poster.webp",
+      linkDownload: "https://nyaa.si/view/2066083",
       informations: [
         {
           title: "Arquivo com senha",
@@ -51,7 +54,7 @@ const eastBlueSaga: ISaga = {
     {
       id: "baratie",
       title: "Baratie",
-      imagePath: "/images/banners/season05-poster.webp",
+      imagePath: "/images/banners/season05-poster.webp",linkDownload: "https://drive.google.com/file/d/1l0PzkuQ_kC_vIly5w4RYcwLfseIGu01I/view?usp=sharing",
       informations: [
         {
           title: "Arquivo com senha",
@@ -65,7 +68,7 @@ const eastBlueSaga: ISaga = {
     {
       id: "arlongPark",
       title: "Arlong Park",
-      imagePath: "/images/banners/season06-poster.webp",
+      imagePath: "/images/banners/season06-poster.webp",linkDownload: "https://drive.google.com/file/d/1CYjpCaHeml-W1Fr4p9Ag0inFQN9Gf8fK/view?usp=sharing",
 
       description:
         "Os Chapeus de Palha viajam para a Vila Cocoyasi para confrontar os Piratas do Arlong. Eles precisam quebrar o controle tiranico do homem-peixe para libertar Nami e sua ilha.",
@@ -74,13 +77,13 @@ const eastBlueSaga: ISaga = {
       id: "adventuresOfBuggy",
       title: "Adventures of Buggy",
       imagePath: "/images/banners/season07-poster.webp",
-
+      linkDownload: "https://nyaa.si/view/1725511",
       description:
         "As desventuras hilarias do Capitao Buggy apos ser derrotado por Luffy, em sua jornada para recuperar as partes perdidas do seu corpo e reencontrar sua tripulacao.",
     },
     {
       id: "Loguetown",
-      title: "Loguetown",
+      title: "Loguetown",linkDownload: "https://nyaa.si/view/1282922",
       imagePath: "/images/banners/season08-poster.webp",
       description:
         "A parada final antes de entrar na Grand Line. Na cidade onde o Rei dos Piratas Gol D. Roger nasceu e foi executado, velhos e novos inimigos se reunem para desafiar Luffy.",

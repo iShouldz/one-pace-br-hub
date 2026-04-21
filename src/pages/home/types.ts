@@ -3,6 +3,7 @@ export type IArc = {
   title: string
   imagePath?: string
   description: string
+  linkDownload: string
   informations?: IInformationProps[]
 }
 
@@ -17,6 +18,7 @@ export type ISaga = {
   title: string
   sagaId?: string
   description: string
+
   handleRedirectToSagaDetails?: (sagaId: string) => void
 }
 

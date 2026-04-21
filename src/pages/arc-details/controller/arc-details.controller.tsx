@@ -5,10 +5,11 @@ import { useParams } from "react-router"
 import ArcDetailsView from "../view/arc-details.view"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
+import { RoutesUrl } from "@/utils/enum/routes.utils"
 
 const ArcDetailsController = () => {
   const { sagaId, arcId } = useParams()
-  const { handleBack } = useNavigation()
+  const { handleBack, handleRedirect } = useNavigation()
 
   const currentArcData = useMemo(
     () =>
@@ -30,12 +31,22 @@ const ArcDetailsController = () => {
 
   const handleDownloadSubtitles = useCallback(() => {}, [])
 
+  const handleRedirectToHome = useCallback(() => {
+    handleRedirect(RoutesUrl.HOME)
+  }, [])
+
+  const handleRedirectToSagaList = useCallback(() => {
+    handleRedirect(RoutesUrl.SAGA_DETAILS.replace(":sagaId", sagaId!))
+  }, [sagaId])
+
   return (
     <ArcDetailsView
       data={currentArcData}
       handleBack={handleBack}
+      handleRedirectToHome={handleRedirectToHome}
       handleDownloadEpisodes={handleDownloadEpisodes}
       handleDownloadSubtitles={handleDownloadSubtitles}
+      handleRedirectToSagaList={handleRedirectToSagaList}
     />
   )
 }
