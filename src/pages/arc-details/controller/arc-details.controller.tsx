@@ -6,15 +6,19 @@ import ArcDetailsView from "../view/arc-details.view"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
 import { RoutesUrl } from "@/utils/enum/routes.utils"
-import type { IOnePaceArc } from "../types"
+import type { IOnePaceArc, IQbittorrentClientConfig } from "../types"
 import useTorrent from "../hooks/use-torrent"
 
 const ArcDetailsController = () => {
+  const {
+    fetchPageContent,
+    extractMagnetLinks,
+    sendMagnetsToQbittorrent,
+    tryCopyMagnetsToClipboard,
+  } = useTorrent()
   const { sagaId, arcId } = useParams()
   const { handleRedirect, handleBack } = useNavigation()
   const [magnetLinks, setMagnetLinks] = useState<string[]>([])
-  const { extractMagnetLinks, fetchPageContent, tryCopyMagnetsToClipboard } =
-    useTorrent()
 
   const currentArcData = useMemo(
     () =>
@@ -22,6 +26,14 @@ const ArcDetailsController = () => {
         .find((saga) => saga.id === sagaId)
         ?.arcs.find((arc) => arc.id === arcId),
     [sagaId, arcId]
+  )
+
+  const qbittorrentConfig = useMemo(
+    () =>
+      getFromLocalStorage(
+        StorageKeys.QBITTORRENT_CONFIG
+      ) as IQbittorrentClientConfig | null,
+    []
   )
 
   const handleDownloadEpisodes = useCallback(async () => {
@@ -47,28 +59,23 @@ const ArcDetailsController = () => {
     }
 
     saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
+
     window.dispatchEvent(new Event("completed-one-pace-updated"))
 
-    if (arcData?.scrapping) {
-      let linksToOpen = magnetLinks
+    let linksToOpen = magnetLinks
 
-      try {
-        if (!linksToOpen.length) {
-          const html = await fetchPageContent(arcData.linkDownload)
-          linksToOpen = extractMagnetLinks(html)
-          setMagnetLinks(linksToOpen)
-        }
-        return linksToOpen
-      } catch (error) {
-        console.error("Erro ao buscar/extrair magnet links:", error)
-        return []
+    try {
+      if (!linksToOpen.length) {
+        const html = await fetchPageContent(arcData!.linkDownload)
+        linksToOpen = extractMagnetLinks(html)
+        setMagnetLinks(linksToOpen)
       }
-    } else if (arcData?.linkDownload) {
-      handleRedirect(arcData.linkDownload, { external: true })
+
+      return linksToOpen
+    } catch (error) {
+      console.error("Erro ao buscar/extrair magnet links:", error)
       return []
     }
-
-    return []
   }, [
     arcId,
     sagaId,
@@ -76,7 +83,17 @@ const ArcDetailsController = () => {
     handleRedirect,
     fetchPageContent,
     extractMagnetLinks,
+    sendMagnetsToQbittorrent,
   ])
+
+  const handleSendToQbittorrent = useCallback(async () => {
+    if (qbittorrentConfig) {
+      await sendMagnetsToQbittorrent({
+        links: magnetLinks,
+        config: qbittorrentConfig,
+      })
+    }
+  }, [magnetLinks])
 
   const handleCopyMagnetLinks = useCallback(
     async (links: string[]) => {
@@ -113,9 +130,11 @@ const ArcDetailsController = () => {
       data={currentArcData}
       handleBack={handleBack}
       magnetLinks={magnetLinks}
+      qbittorrentConfig={qbittorrentConfig}
       handleRedirectToHome={handleRedirectToHome}
-      handleDownloadEpisodes={handleDownloadEpisodes}
       handleCopyMagnetLinks={handleCopyMagnetLinks}
+      handleDownloadEpisodes={handleDownloadEpisodes}
+      handleSendToQbittorrent={handleSendToQbittorrent}
       handleDownloadSubtitles={handleDownloadSubtitles}
       handleRedirectToSagaList={handleRedirectToSagaList}
       handleRedirectButtonAction={handleRedirectButtonAction}

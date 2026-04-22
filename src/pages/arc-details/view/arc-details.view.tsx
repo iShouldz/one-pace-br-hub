@@ -2,12 +2,16 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import { Button } from "@/components/ui/button"
 import {
   ArrowLeft,
+  ArrowUpRight,
+  CopyIcon,
   DownloadIcon,
   HomeIcon,
   ImageOff,
   InfoIcon,
   ListIcon,
+  Search,
   Subtitles,
+  WavesArrowDown,
 } from "lucide-react"
 import type { IArcDetailsView, IOnePaceArc } from "../types"
 import {
@@ -39,10 +43,12 @@ const ArcDetailsView = ({
   arcId,
   sagaId,
   handleBack,
-  handleRedirectToHome,
   magnetLinks,
-  handleDownloadEpisodes,
+  qbittorrentConfig,
+  handleRedirectToHome,
   handleCopyMagnetLinks,
+  handleDownloadEpisodes,
+  handleSendToQbittorrent,
   handleDownloadSubtitles,
   handleRedirectToSagaList,
   handleRedirectButtonAction,
@@ -129,13 +135,11 @@ const ArcDetailsView = ({
 
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Dialog>
-                    {data?.scrapping ? (
-                      <DialogTrigger asChild>
-                        <Button size="lg">
-                          <DownloadIcon /> Episodios
-                        </Button>
-                      </DialogTrigger>
-                    ) : null}
+                    <DialogTrigger asChild>
+                      <Button size="lg">
+                        <DownloadIcon /> Episodios
+                      </Button>
+                    </DialogTrigger>
                     <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
                       <DialogHeader>
                         <DialogTitle>Scrapping</DialogTitle>
@@ -180,28 +184,46 @@ const ArcDetailsView = ({
                             </div>
                           )}
                           <ButtonGroup>
-                            <Button
-                              type="button"
-                              onClick={handleDownloadEpisodesAndMarkDone}
-                              disabled={isLoadingMagnets}
-                            >
-                              {isLoadingMagnets
-                                ? "Buscando links..."
-                                : "Buscar links"}
-                            </Button>
-                            <Button
-                              type="button"
-                              onClick={handleCopyMagnetLinksClick}
-                              disabled={!magnetLinks.length}
-                            >
-                              Copiar links
-                            </Button>
+                            {!data!.linkDownload.includes("drive") && (
+                              <>
+                                <Button
+                                  type="button"
+                                  onClick={handleDownloadEpisodesAndMarkDone}
+                                  disabled={isLoadingMagnets}
+                                >
+                                  <Search />
+                                  {isLoadingMagnets
+                                    ? "Buscando links..."
+                                    : "Buscar links"}
+                                </Button>
+                                <Button
+                                  type="button"
+                                  onClick={handleCopyMagnetLinksClick}
+                                  disabled={!magnetLinks.length}
+                                >
+                                  <CopyIcon />
+                                  Copiar links
+                                </Button>
+                                {qbittorrentConfig?.baseUrl !== "" && (
+                                  <Button
+                                    type="button"
+                                    onClick={handleSendToQbittorrent}
+                                    disabled={!magnetLinks.length}
+                                  >
+                                    <WavesArrowDown />
+                                    Enviar para qBittorrent
+                                  </Button>
+                                )}
+                              </>
+                            )}
+
                             <Button
                               type="button"
                               onClick={() =>
                                 handleRedirectButtonAction(data?.linkDownload)
                               }
                             >
+                              <ArrowUpRight />
                               Download Manual
                             </Button>
                           </ButtonGroup>
@@ -209,14 +231,14 @@ const ArcDetailsView = ({
                       </DialogFooter>
                     </DialogContent>
 
-                    {!data?.scrapping && (
+                    {/* {!data?.scrapping && (
                       <Button
                         size="lg"
                         onClick={handleDownloadEpisodesAndMarkDone}
                       >
                         <DownloadIcon /> Episodios
                       </Button>
-                    )}
+                    )} */}
                   </Dialog>
                   {!data?.hideSubtitle && (
                     <Button

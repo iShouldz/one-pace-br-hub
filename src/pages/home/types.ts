@@ -34,6 +34,7 @@ export interface IHomeView {
   handleToggleOrderList: () => void
   renderModalOnePaceWelcome: boolean
   handleHideCompletedSagas: () => void
+  handleRedirectToSubtitleRepo: () => void
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }

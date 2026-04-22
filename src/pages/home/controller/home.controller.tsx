@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router"
 import HomeView from "../view/home.view"
 import { useCallback, useMemo, useState } from "react"
 import { routePath } from "@/utils/enum/routes.utils"
 import { onePieceSagas } from "../utils/saga.utils"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { StorageKeys } from "@/utils/storage-keys.utils"
+import useNavigation from "@/hooks/use-navigation/use-navigation"
 
 const HomeController = () => {
-  const navigate = useNavigate()
+  const { handleRedirect } = useNavigation()
 
   const [orderSagas, setOrderSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.ORDER_SAGAS) || false
@@ -34,17 +34,23 @@ const HomeController = () => {
 
   const handleRedirectToSagaDetails = useCallback(
     (sagaId: string) => {
-      navigate(routePath.sagaDetails(sagaId))
+      handleRedirect(routePath.sagaDetails(sagaId))
     },
-    [navigate]
+    [handleRedirect]
   )
 
   const handleRedirectToArcDetails = useCallback(
     (sagaId: string, arcId: string) => {
-      navigate(routePath.arcDetails(sagaId, arcId))
+      handleRedirect(routePath.arcDetails(sagaId, arcId))
     },
-    [navigate]
+    [handleRedirect]
   )
+
+  const handleRedirectToSubtitleRepo = useCallback(() => {
+    handleRedirect("https://github.com/iShouldz/one-pace-br-hub-legendas", {
+      external: true,
+    })
+  }, [handleRedirect])
 
   const renderModalOnePaceWelcome = useMemo(() => {
     const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
@@ -98,6 +104,7 @@ const HomeController = () => {
       renderModalOnePaceWelcome={renderModalOnePaceWelcome}
       handleRedirectToArcDetails={handleRedirectToArcDetails}
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
+      handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
     />
   )
 }

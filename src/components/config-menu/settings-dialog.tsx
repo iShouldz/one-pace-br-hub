@@ -26,17 +26,12 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar"
-import { MenuIcon, LinkIcon, SettingsIcon, InfoIcon } from "lucide-react"
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemMedia,
-  ItemTitle,
-} from "../ui/item"
+import { MenuIcon, SettingsIcon, InfoIcon } from "lucide-react"
+
 import { Separator } from "../ui/separator"
 import ShowComponent from "@/components/config-menu/show/show.component"
 import AboutComponent from "./about/about.component"
+import TorrentServerComponet from "./torrent-server/torrent-server.component"
 
 type ConfigContentKey = "Exibição" | "Servidor torrent" | "Sobre"
 
@@ -83,23 +78,13 @@ export function SettingsDialog({
         handleHideCompletedSagas={handleHideCompletedSagas}
       />
     ),
-    "Servidor torrent": (
-      <Item variant="muted">
-        <ItemMedia variant="icon">
-          <LinkIcon />
-        </ItemMedia>
-        <ItemContent>
-          <ItemTitle>Servidor torrent</ItemTitle>
-          <ItemDescription>Configurações do servidor torrent.</ItemDescription>
-        </ItemContent>
-      </Item>
-    ),
+    "Servidor torrent": <TorrentServerComponet />,
     Sobre: <AboutComponent />,
   }
 
   return (
     <Dialog open={openSettings} onOpenChange={handleToggleSettings}>
-      <DialogContent className="overflow-hidden p-0 md:max-h-125 md:max-w-175 lg:max-w-200">
+      <DialogContent className="overflow-hidden p-0 md:max-h-125 md:max-w-175 lg:max-h-150 lg:max-w-220">
         <DialogTitle className="sr-only">Settings</DialogTitle>
         <DialogDescription className="sr-only">
           Customize your settings here.
@@ -130,7 +115,7 @@ export function SettingsDialog({
             </SidebarContent>
           </Sidebar>
           <Separator orientation="vertical" />
-          <main className="flex h-120 flex-1 flex-col overflow-hidden">
+          <main className="flex flex-1 flex-col overflow-hidden">
             <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
               <div className="flex items-center gap-2 px-4">
                 <Breadcrumb>

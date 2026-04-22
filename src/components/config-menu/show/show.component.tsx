@@ -86,37 +86,35 @@ const ShowComponent = ({
   }, [])
 
   return (
-    <section>
-      <div className="flex flex-col gap-5">
-        <header className="flex flex-col gap-1">
-          <h2 className="text-md font-semibold">Configurações de Exibição</h2>
-          <p className="text-xs text-muted-foreground">
-            Configure algumas opçãoes de exibição do site para personalizar sua
-            experiência.
-          </p>
-        </header>
+    <section className="flex flex-col gap-5">
+      <header className="flex flex-col gap-1">
+        <h2 className="text-md font-semibold">Configurações de Exibição</h2>
+        <p className="text-xs text-muted-foreground">
+          Configure algumas opçãoes de exibição do site para personalizar sua
+          experiência.
+        </p>
+      </header>
 
-        <div>
-          <FieldGroup className="w-full gap-2">
-            {sectionData.map((item) => (
-              <FieldLabel htmlFor={item.id} key={item.id}>
-                <Field orientation="horizontal">
-                  <FieldContent>
-                    <FieldTitle>{item.title}</FieldTitle>
-                    <FieldDescription>{item.description}</FieldDescription>
-                  </FieldContent>
-                  <Switch
-                    id={item.id}
-                    checked={switchStates[item.id]}
-                    onCheckedChange={(value) =>
-                      handleSwitchChange(item.id, value)
-                    }
-                  />
-                </Field>
-              </FieldLabel>
-            ))}
-          </FieldGroup>
-        </div>
+      <div>
+        <FieldGroup className="w-full gap-2">
+          {sectionData.map((item) => (
+            <FieldLabel htmlFor={item.id} key={item.id}>
+              <Field orientation="horizontal">
+                <FieldContent>
+                  <FieldTitle>{item.title}</FieldTitle>
+                  <FieldDescription>{item.description}</FieldDescription>
+                </FieldContent>
+                <Switch
+                  id={item.id}
+                  checked={switchStates[item.id]}
+                  onCheckedChange={(value) =>
+                    handleSwitchChange(item.id, value)
+                  }
+                />
+              </Field>
+            </FieldLabel>
+          ))}
+        </FieldGroup>
       </div>
     </section>
   )

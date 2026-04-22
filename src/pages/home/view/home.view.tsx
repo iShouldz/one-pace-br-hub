@@ -1,7 +1,11 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
-import {  InfoIcon, PlusIcon, SettingsIcon } from "lucide-react"
+import {
+  Captions,
+  InfoIcon,
+  SettingsIcon,
+} from "lucide-react"
 
 import {
   Dialog,
@@ -24,16 +28,22 @@ import {
 import { Button } from "@/components/ui/button"
 import { SettingsDialog } from "@/components/config-menu/settings-dialog"
 import { ButtonGroup } from "@/components/ui/button-group"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 const HomeView = ({
   openSettings,
   showAllSagas,
   onePieceSagas,
-  handleToggleSettings,
   handleHideGrayscale,
+  handleToggleSettings,
   handleToggleOrderList,
   handleHideCompletedSagas,
   handleRedirectToArcDetails,
   handleRedirectToSagaDetails,
+  handleRedirectToSubtitleRepo,
 }: IHomeView) => {
   return (
     <BackgroundHeaderComponent>
@@ -88,16 +98,32 @@ const HomeView = ({
             aria-label="Media controls"
             className="h-fit"
           >
-            <Button
-              variant="default"
-              size="icon-lg"
-              onClick={handleToggleSettings}
-            >
-              <SettingsIcon />
-            </Button>
-            <Button variant="outline" size="icon">
-              <PlusIcon />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="default"
+                  size="icon-lg"
+                  onClick={handleToggleSettings}
+                >
+                  <SettingsIcon />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right">Configurações</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="default"
+                  size="icon-lg"
+                  onClick={handleRedirectToSubtitleRepo}
+                >
+                  <Captions />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right">
+                Repositorio das legendas
+              </TooltipContent>
+            </Tooltip>
           </ButtonGroup>
         </header>
         <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[50svh] items-center">

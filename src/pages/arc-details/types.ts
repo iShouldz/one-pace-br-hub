@@ -3,18 +3,27 @@ import type { IArc } from "../home/types"
 export interface IArcDetailsView {
   arcId?: string
   sagaId?: string
+  magnetLinks: string[]
   handleBack: () => void
   data: IArc | undefined
   handleRedirectToHome: () => void
-  magnetLinks: string[]
-  handleDownloadEpisodes: () => Promise<string[]>
-  handleCopyMagnetLinks: (links: string[]) => Promise<boolean>
   handleDownloadSubtitles: () => void
   handleRedirectToSagaList: () => void
+  handleSendToQbittorrent: () => Promise<void>
+  handleDownloadEpisodes: () => Promise<string[]>
+  qbittorrentConfig: IQbittorrentClientConfig | null
   handleRedirectButtonAction: (path?: string) => void
+  handleCopyMagnetLinks: (links: string[]) => Promise<boolean>
 }
 
 export interface IOnePaceArc {
   id: string
   arcos: string[]
+}
+
+export interface IQbittorrentClientConfig {
+  baseUrl: string
+  username: string
+  password?: string
+  savePath?: string
 }

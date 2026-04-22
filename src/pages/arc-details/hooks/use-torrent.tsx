@@ -1,7 +1,32 @@
 import { useCallback } from "react"
 import { toast } from "sonner"
 
+interface IQbittorrentConfig {
+  baseUrl: string
+  username: string
+  password?: string
+  savePath?: string
+}
+
+interface ISendToQbittorrentParams {
+  links: string[]
+  config: IQbittorrentConfig
+}
+
 const useTorrent = () => {
+  const normalizeBaseUrl = (url: string): string => {
+    return url.trim().replace(/\/+$/, "")
+  }
+
+  const isValidHttpUrl = (url: string): boolean => {
+    try {
+      const parsed = new URL(url)
+      return parsed.protocol === "http:" || parsed.protocol === "https:"
+    } catch {
+      return false
+    }
+  }
+
   const extractMagnetLinks = (html: string): string[] => {
     const magnetRegex = /magnet:\?[^"'\s<>]+/g
     const matches = html.match(magnetRegex) || []
@@ -58,7 +83,93 @@ const useTorrent = () => {
       return false
     }
   }, [])
-  return { extractMagnetLinks, fetchPageContent, tryCopyMagnetsToClipboard }
+
+  const sendMagnetsToQbittorrent = useCallback(
+    async ({ links, config }: ISendToQbittorrentParams): Promise<boolean> => {
+      if (!links.length) {
+        toast("Nenhum torrent encontrado", {
+          description: "Não há magnet links para enviar ao qBittorrent.",
+        })
+        return false
+      }
+
+      const baseUrl = normalizeBaseUrl(config.baseUrl)
+      if (!isValidHttpUrl(baseUrl)) {
+        toast("URL do qBittorrent invalida", {
+          description: "Use uma URL http:// ou https:// valida.",
+        })
+        return false
+      }
+
+      if (!config.username?.trim() || !config.password?.trim()) {
+        toast("Credenciais do qBittorrent ausentes", {
+          description:
+            "Preencha usuario e senha nas configuracoes do servidor torrent.",
+        })
+        return false
+      }
+
+      try {
+        const response = await fetch("/api/qbittorrent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            links,
+            config: {
+              baseUrl,
+              username: config.username,
+              password: config.password,
+              savePath: config.savePath,
+            },
+          }),
+        })
+
+        if (!response.ok) {
+          const errorPayload = await response.json().catch(() => null)
+
+          if (response.status === 401) {
+            toast("Falha ao autenticar no qBittorrent", {
+              description:
+                errorPayload?.error ||
+                "Verifique usuario/senha e se o WebUI esta ativo.",
+            })
+            return false
+          }
+
+          toast("Falha ao autenticar no qBittorrent", {
+            description:
+              errorPayload?.error ||
+              "Nao foi possivel conectar ao WebUI do qBittorrent.",
+          })
+          return false
+        }
+
+        toast("Torrents enviados ao qBittorrent", {
+          description:
+            "Os magnet links foram enviados para o provedor configurado e os downloads devem iniciar em breve.",
+        })
+
+        return true
+      } catch (error) {
+        console.error("Erro ao enviar torrents para o qBittorrent:", error)
+        toast("Não foi possível enviar para o qBittorrent", {
+          description:
+            "Verifique se o WebUI esta ativo, URL correta, credenciais e certificado HTTPS valido.",
+        })
+        return false
+      }
+    },
+    []
+  )
+
+  return {
+    extractMagnetLinks,
+    fetchPageContent,
+    tryCopyMagnetsToClipboard,
+    sendMagnetsToQbittorrent,
+  }
 }
 
 export default useTorrent
