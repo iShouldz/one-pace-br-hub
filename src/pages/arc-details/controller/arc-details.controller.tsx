@@ -86,7 +86,7 @@ const ArcDetailsController = () => {
   )
 
   const handleDownloadSubtitles = useCallback(() => {
-    const currentArcSubtitle = `https://github.com/iShouldz/one-pace-br-hub-legendas/tree/main/sagas/${sagaId}/${arcId}`
+    const currentArcSubtitle = `https://downgit.github.io/#/home?url=https://github.com/iShouldz/one-pace-br-hub-legendas/tree/main/sagas/${sagaId}/${arcId}`
     handleRedirect(currentArcSubtitle)
   }, [sagaId, arcId])
 

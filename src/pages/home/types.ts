@@ -4,7 +4,7 @@ export type IArc = {
   imagePath?: string
   description: string
   linkDownload: string
-  linkSubtitles?: string
+  hideSubtitle?: boolean
   scrapping?: boolean
   informations?: IInformationProps[]
 }

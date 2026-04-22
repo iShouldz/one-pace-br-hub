@@ -11,6 +11,7 @@ const eastBlueSaga: ISaga = {
       title: "Romance Dawn",
       imagePath: "/images/banners/season01-poster.webp",
       linkDownload: "https://nyaa.si/view/1966911",
+      hideSubtitle: true,
       description:
         "Monkey D. Luffy embarca em uma aventura para reunir uma tripulação, encontrar o lendário tesouro One Piece e conquistar o título de Rei dos Piratas.",
     },
@@ -19,12 +20,14 @@ const eastBlueSaga: ISaga = {
       title: "Orange Town",
       imagePath: "/images/banners/season02-poster.webp",
       linkDownload: "https://nyaa.si/view/2016635",
+      hideSubtitle: true,
       description:
         "Luffy e Zoro entram em conflito com uma extravagante tripulação de piratas liderada pelo pomposo Buggy, o Palhaço. Com a ajuda de Nami, uma jovem astuta que se junta ao grupo, eles tentam navegar por este dilema.",
     },
     {
       id: "syrup-village",
       title: "Syrup Village",
+      hideSubtitle: true,
       imagePath: "/images/banners/season03-poster.webp",
       linkDownload:
         "https://drive.google.com/file/d/1sOkAfncbFhtXTO9MDr_1a_seyP8iXJjk/view?usp=sharing",
@@ -42,6 +45,7 @@ const eastBlueSaga: ISaga = {
       id: "gaimon",
       title: "Gaimon",
       imagePath: "/images/banners/season04-poster.webp",
+      hideSubtitle: true,
       linkDownload: "https://nyaa.si/view/2066083",
       informations: [
         {
@@ -57,6 +61,7 @@ const eastBlueSaga: ISaga = {
       id: "baratie",
       title: "Baratie",
       imagePath: "/images/banners/season05-poster.webp",
+      hideSubtitle: true,
       linkDownload:
         "https://drive.google.com/file/d/1l0PzkuQ_kC_vIly5w4RYcwLfseIGu01I/view?usp=sharing",
       informations: [
@@ -73,6 +78,7 @@ const eastBlueSaga: ISaga = {
       id: "arlong-park",
       title: "Arlong Park",
       imagePath: "/images/banners/season06-poster.webp",
+      hideSubtitle: true,
       linkDownload:
         "https://drive.google.com/file/d/1CYjpCaHeml-W1Fr4p9Ag0inFQN9Gf8fK/view?usp=sharing",
 

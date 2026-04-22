@@ -95,28 +95,28 @@ const ArcDetailsView = ({
           <article className="flex flex-col gap-4">
             <Button
               variant="link"
-              className="w-fit px-0 text-white text-lg sm:text-2xl"
+              className="w-fit px-0 text-lg text-white sm:text-2xl"
               onClick={handleBack}
             >
               <ArrowLeft className="mr-2 size-5 sm:size-7" />
               Voltar
             </Button>
 
-            <h2 className="font-semibold tracking-tight text-2xl sm:text-4xl lg:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-3xl">
               {data?.title ?? "Arco não encontrado"}
             </h2>
-            <p className="text-base sm:text-2xl lg:text-md text-muted-foreground">
+            <p className="lg:text-md text-base text-muted-foreground sm:text-2xl">
               {data?.description}
             </p>
           </article>
 
           <section className="grid gap-6 pb-8 lg:grid-cols-[1.2fr_0.8fr]">
-            <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-4 sm:p-5 backdrop-blur md:p-6">
+            <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur sm:p-5 md:p-6">
               <div>
-                <h3 className="font-semibold text-white text-lg sm:text-3xl lg:text-lg">
+                <h3 className="text-lg font-semibold text-white sm:text-3xl lg:text-lg">
                   Baixar este arco
                 </h3>
-                <p className="mt-2 text-white/70 text-sm sm:text-2xl lg:text-sm">
+                <p className="mt-2 text-sm text-white/70 sm:text-2xl lg:text-sm">
                   Escolha o que deseja baixar. Ao baixar os episodios, marcamos
                   este arco automaticamente como concluido. As legendas são
                   renomeadas para facilitar a identificação, mas não são
@@ -168,12 +168,12 @@ const ArcDetailsView = ({
                         <div className="flex w-full flex-col gap-4">
                           {magnetLinks.length > 0 && (
                             <div className="space-y-2">
-                              <p className="text-xs sm:text-sm text-white/80">
+                              <p className="text-xs text-white/80 sm:text-sm">
                                 Links encontrados. Você pode copiar
                                 automaticamente ou manualmente:
                               </p>
                               <textarea
-                                className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-2 sm:p-3 text-xs sm:text-sm text-white"
+                                className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-2 text-xs text-white sm:p-3 sm:text-sm"
                                 readOnly
                                 value={magnetLinks.join("\n")}
                               />
@@ -218,13 +218,16 @@ const ArcDetailsView = ({
                       </Button>
                     )}
                   </Dialog>
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    onClick={handleDownloadSubtitles}
-                  >
-                    <Subtitles /> Legendas
-                  </Button>
+                  {!data?.hideSubtitle && (
+                    <Button
+                      size="lg"
+                      variant="secondary"
+                      onClick={handleDownloadSubtitles}
+                    >
+                      <Subtitles /> Legendas
+                    </Button>
+                  )}
+
                   <Button
                     size="lg"
                     variant="secondary"
