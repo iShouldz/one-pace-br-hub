@@ -1,7 +1,7 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
-import { CheckCheck, SettingsIcon } from "lucide-react"
+import { CheckCheck, InfoIcon, SettingsIcon } from "lucide-react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,18 +10,74 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/ui/item"
 
+import { Button } from "@/components/ui/button"
 const HomeView = ({
   orderSagas,
   showAllSagas,
   onePieceSagas,
   handleToggleOrderList,
   handleHideCompletedSagas,
+  renderModalOnePaceWelcome,
   handleRedirectToArcDetails,
   handleRedirectToSagaDetails,
 }: IHomeView) => {
   return (
     <BackgroundHeaderComponent>
+      <Dialog open={!renderModalOnePaceWelcome}>
+        <DialogTrigger asChild></DialogTrigger>
+        <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Bem vindo ao One Pace BR</DialogTitle>
+            <DialogDescription className="flex flex-col gap-4">
+              Esse projeto é um agregador de legendas para o projeto One Pace. O
+              projeto possui legendas hospedadas no Github, com repositorio
+              abaixo. Você pode colaborar com as legendas, caso as ultimas
+              legendas dos episodios mais recentes não estejam disponiveis, ou
+              mesmo corrigir alguma legenda que esteja com erro. Para isso,
+              basta acessar o repositorio e seguir as instruções do README para
+              contribuir.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Item variant="muted">
+              <ItemMedia variant="icon">
+                <InfoIcon />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>Sobre o One Pace</ItemTitle>
+                <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
+                  Esse hub é apenas um agregador para legendas pt-br, apenas
+                  facilitamos o acesso às legendas criadas pela comunidade.
+                  Todos os creditos para o One Pace
+                </ItemDescription>
+              </ItemContent>
+              <ItemActions>
+                <Button size="sm" variant="outline" onClick={() => {}}>
+                  Visitar o site
+                </Button>
+              </ItemActions>
+            </Item>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <main className="relative z-10">
         <header className="m-4 flex justify-end">
           <NavigationMenu>

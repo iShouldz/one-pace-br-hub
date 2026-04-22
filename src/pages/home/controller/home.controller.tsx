@@ -38,6 +38,17 @@ const HomeController = () => {
     [navigate]
   )
 
+  const renderModalOnePaceWelcome = useMemo(() => {
+    const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
+
+    if (hasShowModal) {
+      return false
+    }
+
+    saveToLocalStorage(StorageKeys.MODAL_WELCOME, true)
+    return true
+  }, [])
+  
   const handleHideCompletedSagas = useCallback(() => {
     setShowAllSagas((prevState) => {
       saveToLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS, !prevState)
@@ -63,6 +74,7 @@ const HomeController = () => {
       onePieceSagas={currentOnePieceSagas}
       handleToggleOrderList={handleToggleOrderList}
       handleHideCompletedSagas={handleHideCompletedSagas}
+      renderModalOnePaceWelcome={renderModalOnePaceWelcome}
       handleRedirectToArcDetails={handleRedirectToArcDetails}
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
     />
