@@ -33,9 +33,10 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "./ui/item"
-import { Separator } from "./ui/separator"
-import ShowComponent from "@/pages/home/components/configs-menu/show/show.component"
+} from "../ui/item"
+import { Separator } from "../ui/separator"
+import ShowComponent from "@/components/config-menu/show/show.component"
+import AboutComponent from "./about/about.component"
 
 type ConfigContentKey = "Exibição" | "Servidor torrent" | "Sobre"
 
@@ -93,17 +94,7 @@ export function SettingsDialog({
         </ItemContent>
       </Item>
     ),
-    Sobre: (
-      <Item variant="muted">
-        <ItemMedia variant="icon">
-          <InfoIcon />
-        </ItemMedia>
-        <ItemContent>
-          <ItemTitle>Sobre</ItemTitle>
-          <ItemDescription>Informações sobre o projeto.</ItemDescription>
-        </ItemContent>
-      </Item>
-    ),
+    Sobre: <AboutComponent />,
   }
 
   return (

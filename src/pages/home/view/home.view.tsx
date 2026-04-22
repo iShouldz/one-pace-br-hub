@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/item"
 
 import { Button } from "@/components/ui/button"
-import { SettingsDialog } from "@/components/settings-dialog"
+import { SettingsDialog } from "@/components/config-menu/settings-dialog"
 import { ButtonGroup } from "@/components/ui/button-group"
 const HomeView = ({
   openSettings,
