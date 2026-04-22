@@ -18,7 +18,7 @@ const SagaList = ({
         if (
           completedOnePace?.find((item) => item.id === saga.id)?.arcos
             .length === saga.arcs.length &&
-          !showAllSagas
+          showAllSagas
         ) {
           return null
         }

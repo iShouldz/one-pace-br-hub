@@ -26,11 +26,13 @@ export type ISaga = {
 }
 
 export interface IHomeView {
-  orderSagas: boolean
   showAllSagas: boolean
+  openSettings: boolean
   onePieceSagas: ISaga[]
+  handleHideGrayscale: () => void
+  handleToggleSettings: () => void
   handleToggleOrderList: () => void
-  renderModalOnePaceWelcome: boolean 
+  renderModalOnePaceWelcome: boolean
   handleHideCompletedSagas: () => void
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void

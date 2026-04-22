@@ -1,15 +1,8 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
-import { CheckCheck, InfoIcon, SettingsIcon } from "lucide-react"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+import {  InfoIcon, PlusIcon, SettingsIcon } from "lucide-react"
+
 import {
   Dialog,
   DialogContent,
@@ -29,19 +22,22 @@ import {
 } from "@/components/ui/item"
 
 import { Button } from "@/components/ui/button"
+import { SettingsDialog } from "@/components/settings-dialog"
+import { ButtonGroup } from "@/components/ui/button-group"
 const HomeView = ({
-  orderSagas,
+  openSettings,
   showAllSagas,
   onePieceSagas,
+  handleToggleSettings,
+  handleHideGrayscale,
   handleToggleOrderList,
   handleHideCompletedSagas,
-  renderModalOnePaceWelcome,
   handleRedirectToArcDetails,
   handleRedirectToSagaDetails,
 }: IHomeView) => {
   return (
     <BackgroundHeaderComponent>
-      <Dialog open={!renderModalOnePaceWelcome}>
+      <Dialog open={false}>
         <DialogTrigger asChild></DialogTrigger>
         <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
           <DialogHeader>
@@ -79,34 +75,30 @@ const HomeView = ({
         </DialogContent>
       </Dialog>
       <main className="relative z-10">
+        <SettingsDialog
+          openSettings={openSettings}
+          handleHideGrayscale={handleHideGrayscale}
+          handleToggleSettings={handleToggleSettings}
+          handleToggleOrderList={handleToggleOrderList}
+          handleHideCompletedSagas={handleHideCompletedSagas}
+        />
         <header className="m-4 flex justify-end">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="flex gap-2">
-                  <SettingsIcon /> Configurações
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="rounded-xl border border-white/10 bg-black/90 p-0 shadow-lg">
-                  <div className="min-w-50">
-                    <NavigationMenuLink
-                      onClick={handleHideCompletedSagas}
-                      className="flex w-full px-5 py-3 text-left text-white transition-colors hover:bg-white/10"
-                    >
-                      Ocultar sagas concluídas{" "}
-                      {!showAllSagas && <CheckCheck size={204} />}
-                    </NavigationMenuLink>
-                    <NavigationMenuLink
-                      onClick={handleToggleOrderList}
-                      className="w-full px-5 py-3 text-left text-white transition-colors hover:bg-white/10"
-                    >
-                      Inverter ordem das sagas{" "}
-                      {orderSagas && <CheckCheck size={204} />}
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <ButtonGroup
+            orientation="vertical"
+            aria-label="Media controls"
+            className="h-fit"
+          >
+            <Button
+              variant="default"
+              size="icon-lg"
+              onClick={handleToggleSettings}
+            >
+              <SettingsIcon />
+            </Button>
+            <Button variant="outline" size="icon">
+              <PlusIcon />
+            </Button>
+          </ButtonGroup>
         </header>
         <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[50svh] items-center">
           <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">

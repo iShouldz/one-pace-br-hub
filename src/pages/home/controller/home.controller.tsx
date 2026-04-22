@@ -8,12 +8,20 @@ import { StorageKeys } from "@/utils/storage-keys.utils"
 
 const HomeController = () => {
   const navigate = useNavigate()
-  const [showAllSagas, setShowAllSagas] = useState<boolean>(
-    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) || true
-  )
+
   const [orderSagas, setOrderSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.ORDER_SAGAS) || false
   )
+
+  const [showAllSagas, setShowAllSagas] = useState<boolean>(
+    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) || true
+  )
+
+  const [hideGrayscale, setHideGrayscale] = useState<boolean>(
+    getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) || false
+  )
+
+  const [openSettings, setOpenSettings] = useState(false)
 
   const opSaga = useMemo(() => {
     if (orderSagas) {
@@ -48,7 +56,7 @@ const HomeController = () => {
     saveToLocalStorage(StorageKeys.MODAL_WELCOME, true)
     return true
   }, [])
-  
+
   const handleHideCompletedSagas = useCallback(() => {
     setShowAllSagas((prevState) => {
       saveToLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS, !prevState)
@@ -67,11 +75,24 @@ const HomeController = () => {
     })
   }, [])
 
+  const handleHideGrayscale = useCallback(() => {
+    setHideGrayscale((prevState) => {
+      saveToLocalStorage(StorageKeys.HIDE_GRAYSCALE, !prevState)
+      return !prevState
+    })
+  }, [])
+
+  const handleToggleSettings = useCallback(() => {
+    setOpenSettings((prev) => !prev)
+  }, [])
+
   return (
     <HomeView
-      orderSagas={orderSagas}
+      openSettings={openSettings}
       showAllSagas={showAllSagas}
       onePieceSagas={currentOnePieceSagas}
+      handleHideGrayscale={handleHideGrayscale}
+      handleToggleSettings={handleToggleSettings}
       handleToggleOrderList={handleToggleOrderList}
       handleHideCompletedSagas={handleHideCompletedSagas}
       renderModalOnePaceWelcome={renderModalOnePaceWelcome}
