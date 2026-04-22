@@ -16,17 +16,19 @@ const SagaDetailsView = ({
         <article className="flex flex-col gap-4 md:w-full lg:w-[60%]">
           <Button
             variant="link"
-            className="w-fit px-0 text-white"
+            className="w-fit px-0 text-white sm:text-2xl"
             onClick={handleClickBack}
           >
-            <ArrowLeft className="mr-2 size-4" />
+            <ArrowLeft className="mr-2 size-7" />
             Voltar
           </Button>
 
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="font-semibold tracking-tight sm:text-5xl lg:text-3xl">
             {data?.title}
           </h2>
-          <p>{data?.description}</p>
+          <p className="lg:text-md text-muted-foreground sm:text-2xl">
+            {data?.description}
+          </p>
         </article>
 
         <div className="columns-1 gap-6 md:columns-3 lg:columns-5">

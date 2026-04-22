@@ -95,42 +95,28 @@ const ArcDetailsView = ({
           <article className="flex flex-col gap-4">
             <Button
               variant="link"
-              className="w-fit px-0 text-white"
+              className="w-fit px-0 text-white text-lg sm:text-2xl"
               onClick={handleBack}
             >
-              <ArrowLeft className="mr-2 size-4" />
+              <ArrowLeft className="mr-2 size-5 sm:size-7" />
               Voltar
             </Button>
 
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h2 className="font-semibold tracking-tight text-2xl sm:text-4xl lg:text-3xl">
               {data?.title ?? "Arco não encontrado"}
             </h2>
-            <p className="text-white/85">{data?.description}</p>
+            <p className="text-base sm:text-2xl lg:text-md text-muted-foreground">
+              {data?.description}
+            </p>
           </article>
 
-          <section className="grid gap-6 pb-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <aside className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur md:p-5">
-              <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40">
-                {data?.imagePath ? (
-                  <img
-                    src={data.imagePath}
-                    alt={data.title}
-                    loading="lazy"
-                    className={`aspect-2/3 w-full object-cover transition-all duration-500 ${!hasDoneArc ? "grayscale" : ""}`}
-                  />
-                ) : (
-                  <div className="flex aspect-2/3 items-center justify-center text-white/50">
-                    <ImageOff className="size-6" />
-                  </div>
-                )}
-              </div>
-            </aside>
-            <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-5 backdrop-blur md:p-6">
+          <section className="grid gap-6 pb-8 lg:grid-cols-[1.2fr_0.8fr]">
+            <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-4 sm:p-5 backdrop-blur md:p-6">
               <div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="font-semibold text-white text-lg sm:text-3xl lg:text-lg">
                   Baixar este arco
                 </h3>
-                <p className="mt-2 text-sm text-white/70">
+                <p className="mt-2 text-white/70 text-sm sm:text-2xl lg:text-sm">
                   Escolha o que deseja baixar. Ao baixar os episodios, marcamos
                   este arco automaticamente como concluido. As legendas são
                   renomeadas para facilitar a identificação, mas não são
@@ -182,12 +168,12 @@ const ArcDetailsView = ({
                         <div className="flex w-full flex-col gap-4">
                           {magnetLinks.length > 0 && (
                             <div className="space-y-2">
-                              <p className="text-sm text-white/80">
+                              <p className="text-xs sm:text-sm text-white/80">
                                 Links encontrados. Você pode copiar
                                 automaticamente ou manualmente:
                               </p>
                               <textarea
-                                className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-3 text-xs text-white"
+                                className="min-h-32 w-full rounded-md border border-white/20 bg-black/40 p-2 sm:p-3 text-xs sm:text-sm text-white"
                                 readOnly
                                 value={magnetLinks.join("\n")}
                               />
@@ -285,7 +271,23 @@ const ArcDetailsView = ({
                   ))}
                 </div>
               )}
-            </article>
+            </article>{" "}
+            <aside className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur md:p-5">
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40">
+                {data?.imagePath ? (
+                  <img
+                    src={data.imagePath}
+                    alt={data.title}
+                    loading="lazy"
+                    className={`aspect-2/3 w-full object-cover transition-all duration-500 ${!hasDoneArc ? "grayscale" : ""}`}
+                  />
+                ) : (
+                  <div className="flex aspect-2/3 items-center justify-center text-white/50">
+                    <ImageOff className="size-6" />
+                  </div>
+                )}
+              </div>
+            </aside>
           </section>
         </section>
       </main>
