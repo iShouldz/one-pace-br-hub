@@ -12,7 +12,7 @@ const useNavigation = () => {
     if (isExternal) {
       window.open(path, "_blank")
     } else {
-      navigate(path, { replace: true })
+      navigate(path)
     }
   }
 
