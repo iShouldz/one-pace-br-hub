@@ -31,9 +31,12 @@ const SagaDetailsView = ({
           </p>
         </article>
 
-        <div className="columns-1 gap-6 md:columns-3 lg:columns-5">
+        <div className="flex flex-wrap gap-4">
           {data?.arcs.map((arc) => (
-            <div key={arc.id} className="mb-4 break-inside-avoid">
+            <div
+              key={arc.id}
+              className="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1rem)]"
+            >
               <CardArcComponent
                 arc={arc}
                 sagaId={sagaId}
