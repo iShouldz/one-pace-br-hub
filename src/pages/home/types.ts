@@ -4,6 +4,7 @@ export type IArc = {
   imagePath?: string
   description: string
   linkDownload: string
+  linkSubtitles?: string
   scrapping?: boolean
   informations?: IInformationProps[]
 }
@@ -21,7 +22,6 @@ export type ISaga = {
   title: string
   sagaId?: string
   description: string
-
   handleRedirectToSagaDetails?: (sagaId: string) => void
 }
 

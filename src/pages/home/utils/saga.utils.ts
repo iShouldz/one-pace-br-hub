@@ -1,7 +1,7 @@
 import type { ISaga } from "../types"
 
 const eastBlueSaga: ISaga = {
-  id: "east-blue-saga",
+  id: "east-blue",
   title: "Saga East Blue",
   description:
     "A grande porta de entrada para o universo de One Piece, onde Luffy conhece seus primeiros companheiros e define o espírito da tripulação. É uma fase de descobertas, formação de laços e aventuras clássicas no mar.",
@@ -80,7 +80,7 @@ const eastBlueSaga: ISaga = {
         "Os Chapeus de Palha viajam para a Vila Cocoyasi para confrontar os Piratas do Arlong. Eles precisam quebrar o controle tiranico do homem-peixe para libertar Nami e sua ilha.",
     },
     {
-      id: "adventures-of-buggy",
+      id: "adventure-of-buggy",
       title: "Adventures of Buggy",
       imagePath: "/images/banners/season07-poster.webp",
       linkDownload: "https://nyaa.si/view/1725511",
@@ -99,7 +99,7 @@ const eastBlueSaga: ISaga = {
 }
 
 const alabastaSaga: ISaga = {
-  id: "alabasta-saga",
+  id: "alabasta",
   title: "Saga Alabasta",
   description:
     "Com a Grand Line mais perigosa, a tripulação encara intrigas políticas, desertos e alianças inesperadas. A jornada ganha escala e mostra como os conflitos locais podem afetar todo um reino.",
@@ -159,7 +159,7 @@ const alabastaSaga: ISaga = {
 }
 
 const skypeaSaga: ISaga = {
-  id: "skypea-saga",
+  id: "skypea",
   title: "Saga Skypiea",
   description:
     "Uma etapa de exploração pura e senso de aventura, levando os Chapéus de Palha a cenários fantásticos acima das nuvens. Mistura mistério, lendas e batalhas com clima único dentro da obra.",
@@ -186,13 +186,13 @@ const skypeaSaga: ISaga = {
 }
 
 const waterSevenSaga: ISaga = {
-  id: "water-seven-saga",
+  id: "water-seven",
   title: "Saga Water 7",
   description:
     "A narrativa fica mais emocional e intensa, com decisões difíceis, conflitos internos e confrontos diretos com grandes forças. É uma fase marcante de amadurecimento da tripulação.",
   arcs: [
     {
-      id: "long-long-land",
+      id: "long-long-ring",
       title: "Long Ring Long Land",
       imagePath: "/images/banners/season17-poster.webp",
       linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+long+ring+long+land",
@@ -219,7 +219,7 @@ const waterSevenSaga: ISaga = {
         "Para resgatar Robin, os Chapeus de Palha invadem a impenetravel ilha judiciaria do Governo Mundial, declarando guerra aberta ao mundo inteiro ao confrontar a CP9.",
     },
     {
-      id: "post-enies-lobby",
+      id: "pos-enies-lobby",
       title: "Post-Enies Lobby",
       imagePath: "/images/banners/season20-poster.webp",
       linkDownload: "https://nyaa.si/view/1168790",
@@ -230,7 +230,7 @@ const waterSevenSaga: ISaga = {
 }
 
 export const thrillerBarkSaga: ISaga = {
-  id: "thriller-bark-saga",
+  id: "thriller-bark",
   title: "Saga Thriller Bark",
   description:
     "Com atmosfera de terror e humor característico, essa saga mistura criaturas bizarras, ilha sombria e lutas criativas. Um arco com identidade própria e ritmo de aventura sobrenatural.",
@@ -247,13 +247,13 @@ export const thrillerBarkSaga: ISaga = {
 }
 
 const marineFordSaga: ISaga = {
-  id: "marineford-saga",
+  id: "marineford",
   title: "Saga Guerra de Marineford",
   description:
     "Uma fase de grandes acontecimentos no mundo de One Piece, com alta tensão e impacto global. A história amplia seu escopo e aprofunda o peso das escolhas de cada personagem.",
   arcs: [
     {
-      id: "sabaody-archipelago",
+      id: "sabaody",
       title: "Sabaody Archipelago",
       linkDownload: "https://nyaa.si/view/1167639",
       imagePath: "/images/banners/season22-poster.webp",
@@ -277,7 +277,7 @@ const marineFordSaga: ISaga = {
         "Com a noticia da execucao iminente de seu irmao Ace, Luffy se infiltra na terrivel prisao subaquatica de seguranca maxima do Governo Mundial, descendo por seus infernos com a ajuda de antigos inimigos.",
     },
     {
-      id: "adventure-of-straw-hats",
+      id: "adventures-straw",
       title: "Adventure of Straw Hats",
       linkDownload: "https://nyaa.si/view/1796385",
       imagePath: "/images/banners/season25-poster.webp",
@@ -293,7 +293,7 @@ const marineFordSaga: ISaga = {
         "A maior guerra da Grande Era dos Piratas comeca. Os Piratas do Barba Branca entram em confronto direto com o Quartel General da Marinha e os Shichibukais na tentativa de impedir a execucao de Portgas D. Ace.",
     },
     {
-      id: "postWar",
+      id: "post-war",
       title: "Post-War",
       imagePath: "/images/banners/season27-poster.webp",
       linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+post+war",
@@ -305,13 +305,13 @@ const marineFordSaga: ISaga = {
 }
 
 const fishmanIslandSaga: ISaga = {
-  id: "fishman-island-saga",
+  id: "fishman",
   title: "Saga Ilha dos Homens-Peixe",
   description:
     "Após um período importante de preparação, a tripulação retorna mais madura para uma nova etapa no fundo do oceano. A saga combina aventura submarina, cultura local e temas sociais fortes.",
   arcs: [
     {
-      id: "return-to-sabaody",
+      id: "return-sabaody",
       title: "Return to Sabaody",
       imagePath: "/images/banners/season28-poster.webp",
       linkDownload: "https://nyaa.si/view/1524087",
@@ -330,7 +330,7 @@ const fishmanIslandSaga: ISaga = {
 }
 
 const alianceSaga: ISaga = {
-  id: "pirate-alianca-saga",
+  id: "pirate-alianca",
   title: "Saga Alianca Pirata (Dressrosa)",
   description:
     "Com alianças estratégicas e objetivos maiores, os confrontos ficam mais táticos e complexos. É uma fase de expansão do universo, com vários núcleos e consequências em cadeia.",
@@ -355,7 +355,7 @@ const alianceSaga: ISaga = {
 }
 
 const wholeCakeSaga: ISaga = {
-  id: "wholecake-island-saga",
+  id: "whole-cake-island",
   title: "Saga Whole Cake Island",
   description:
     "Uma saga de alto risco em território hostil, com foco em resgate, família e lealdade. O visual excêntrico contrasta com conflitos emocionais e batalhas intensas.",
@@ -369,7 +369,7 @@ const wholeCakeSaga: ISaga = {
         "A tripulacao chega a Zou, uma civilizacao erguida nas costas de um elefante milenar gigantesco. Eles encontram a tribo dos Minks se recuperando de um ataque catastrofico e descobrem sobre os misteriosos Road Poneglyphs.",
     },
     {
-      id: "wholecake-island",
+      id: "whole-cake-island",
       title: "Whole Cake Island",
       imagePath: "/images/banners/season33-poster.webp",
       linkDownload: "https://nyaa.si/view/1313289",
@@ -377,7 +377,7 @@ const wholeCakeSaga: ISaga = {
         "Para impedir que Sanji seja forcado a um casamento politico, Luffy e um grupo de resgate se infiltram no bizarro e acucarado territorio governado pela temivel Yonkou Big Mom.",
     },
     {
-      id: "wapol-cover",
+      id: "wapol-hurrah",
       title: "Wapol's Omnivorous Hurrah",
       imagePath: "/images/banners/poster.webp",
       linkDownload: "https://nyaa.si/view/903285",
@@ -396,7 +396,7 @@ const wholeCakeSaga: ISaga = {
 }
 
 const wanoSaga: ISaga = {
-  id: "wano-saga",
+  id: "wano",
   title: "Saga Pais de Wano",
   description:
     "Inspirada no Japão feudal, essa fase traz política, tradição e guerra em grande escala. A história reúne várias frentes de batalha e entrega um dos cenários mais grandiosos da série.",

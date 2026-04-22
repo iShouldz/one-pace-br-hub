@@ -85,7 +85,10 @@ const ArcDetailsController = () => {
     [tryCopyMagnetsToClipboard]
   )
 
-  const handleDownloadSubtitles = useCallback(() => {}, [])
+  const handleDownloadSubtitles = useCallback(() => {
+    const currentArcSubtitle = `https://github.com/iShouldz/one-pace-br-hub-legendas/tree/main/sagas/${sagaId}/${arcId}`
+    handleRedirect(currentArcSubtitle)
+  }, [sagaId, arcId])
 
   const handleRedirectToHome = useCallback(() => {
     handleRedirect(RoutesUrl.HOME)
