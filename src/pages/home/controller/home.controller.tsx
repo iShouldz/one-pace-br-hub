@@ -80,7 +80,7 @@ const HomeController = () => {
       saveToLocalStorage(StorageKeys.HIDE_GRAYSCALE, !prevState)
       return !prevState
     })
-  }, [])
+  }, [hideGrayscale])
 
   const handleToggleSettings = useCallback(() => {
     setOpenSettings((prev) => !prev)
