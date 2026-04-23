@@ -1,11 +1,7 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import SagaList from "../components/SagaList/saga-list.component"
 import type { IHomeView } from "../types"
-import {
-  Captions,
-  InfoIcon,
-  SettingsIcon,
-} from "lucide-react"
+import { Captions, InfoIcon, SettingsIcon } from "lucide-react"
 
 import {
   Dialog,
