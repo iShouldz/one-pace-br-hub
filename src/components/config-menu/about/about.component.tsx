@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/item"
 import { Separator } from "@/components/ui/separator"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
-import { InfoIcon } from "lucide-react"
+import { ArrowUpRight, InfoIcon } from "lucide-react"
 
 const AboutComponent = () => {
   const { handleRedirect } = useNavigation()
@@ -32,6 +32,16 @@ const AboutComponent = () => {
         <FieldContent>
           <FieldTitle>Créditos e Fontes</FieldTitle>
           <FieldDescription>
+            Inspiração para o projeto:{" "}
+            <a
+              href="https://onepaceptbr.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              One Pace PT-BR
+            </a>
+          </FieldDescription>
+          <FieldDescription>
             Imagens dos banners:{" "}
             <a
               href="https://github.com/SpykerNZ/one-pace-for-plex"
@@ -39,16 +49,6 @@ const AboutComponent = () => {
               rel="noopener noreferrer"
             >
               One Pace for Plex (SpykerNZ)
-            </a>
-          </FieldDescription>
-          <FieldDescription>
-            Base de dados e agregador de legendas:{" "}
-            <a
-              href="https://onepaceptbr.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              One Pace PT-BR
             </a>
           </FieldDescription>
         </FieldContent>
@@ -65,28 +65,33 @@ const AboutComponent = () => {
             converte-las para português com o auxilio de IA, mas tenha em mente
             que isso pode gerar erros de tradução então, se for submeter as
             legendas, realize uma revisão minima para garantir a melhor
-            experiencia para todos
-            <div className="flex w-full flex-col gap-2 text-sm">
+            experiencia para todos. Abaixo alguns locais para extrair legendas
+            em outros idiomas.
+            <div className="flex w-full flex-col gap-2 p-3 text-sm">
               <dl className="flex items-center justify-between">
-                <dt>Anime Tosho</dt>
+                <dt>1.</dt>
                 <a
                   href="https://animetosho.org/search?q=one+pace"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex items-center"
                 >
-                  One Pace for Plex (SpykerNZ)
+                  Anime Tosho <ArrowUpRight />
                 </a>
               </dl>
               <Separator />
               <dl className="flex items-center justify-between">
-                <dt>Item 2</dt>
-                <dd className="text-muted-foreground">Value 2</dd>
+                <dt>2.</dt>
+                <a
+                  href="https://github.com/one-pace/one-pace-public-subtitles/tree/main/main"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  One Pace Public Subtitles <ArrowUpRight />
+                </a>
               </dl>
               <Separator />
-              <dl className="flex items-center justify-between">
-                <dt>Item 3</dt>
-                <dd className="text-muted-foreground">Value 3</dd>
-              </dl>
             </div>
           </FieldDescription>
         </FieldContent>
