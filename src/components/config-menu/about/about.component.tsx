@@ -13,6 +13,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
+import { Separator } from "@/components/ui/separator"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
 import { InfoIcon } from "lucide-react"
 
@@ -21,7 +22,7 @@ const AboutComponent = () => {
   return (
     <>
       <img
-        src="images/one-pace-logo.webp"
+        src="images/logo-br.webp"
         alt="One Pace Logo"
         loading="lazy"
         className="w-full max-w-full object-contain"
@@ -52,6 +53,44 @@ const AboutComponent = () => {
           </FieldDescription>
         </FieldContent>
       </Field>
+      <Field orientation="horizontal">
+        <FieldContent>
+          <FieldTitle>Quero ajudar com as legendas</FieldTitle>
+          <FieldDescription className="flex flex-col gap-2">
+            As legendas são mantidas em um repositorio a parte, pensando em
+            manutenção e organização. Caso haja erros nas legendas, ou ainda não
+            possua legendas para os ultimos episodios do One Pace para arcos em
+            andamento, você pode ajudar abrindo um pull request no repositorio.
+            Rotineiramente, podemos pegar as legendas em outros idiomas e
+            converte-las para português com o auxilio de IA, mas tenha em mente
+            que isso pode gerar erros de tradução então, se for submeter as
+            legendas, realize uma revisão minima para garantir a melhor
+            experiencia para todos
+            <div className="flex w-full flex-col gap-2 text-sm">
+              <dl className="flex items-center justify-between">
+                <dt>Anime Tosho</dt>
+                <a
+                  href="https://animetosho.org/search?q=one+pace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  One Pace for Plex (SpykerNZ)
+                </a>
+              </dl>
+              <Separator />
+              <dl className="flex items-center justify-between">
+                <dt>Item 2</dt>
+                <dd className="text-muted-foreground">Value 2</dd>
+              </dl>
+              <Separator />
+              <dl className="flex items-center justify-between">
+                <dt>Item 3</dt>
+                <dd className="text-muted-foreground">Value 3</dd>
+              </dl>
+            </div>
+          </FieldDescription>
+        </FieldContent>
+      </Field>
       <Item variant="muted">
         <ItemMedia variant="icon">
           <InfoIcon />
@@ -70,7 +109,9 @@ const AboutComponent = () => {
       <ButtonGroup>
         <Button
           onClick={() =>
-            handleRedirect("https://github.com/iShouldz/one-pace-br-hub-legendas")
+            handleRedirect(
+              "https://github.com/iShouldz/one-pace-br-hub-legendas"
+            )
           }
         >
           Repositorio das Legendas One Pace BR Hub
