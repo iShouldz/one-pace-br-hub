@@ -125,7 +125,7 @@ const TorrentServerComponent = () => {
               <Input
                 id="downloadPath"
                 type="text"
-                placeholder=" Ex: /home/user/Downloads"
+                placeholder=" Ex: C:\Users\download\jellyfin\animes"
                 value={qbittorrentDownloadPath}
                 onChange={(e) => setQbittorrentDownloadPath(e.target.value)}
               />
