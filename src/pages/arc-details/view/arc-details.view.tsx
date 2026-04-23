@@ -181,6 +181,10 @@ const ArcDetailsView = ({
                                 readOnly
                                 value={magnetLinks.join("\n")}
                               />
+                              <p className="text-xs text-white/80 sm:text-sm">
+                                Caminho de salvamento do Qbittorent:{" "}
+                                {qbittorrentConfig?.savePath}\{sagaId}\{arcId}
+                              </p>
                             </div>
                           )}
                           <ButtonGroup>
@@ -230,15 +234,6 @@ const ArcDetailsView = ({
                         </div>
                       </DialogFooter>
                     </DialogContent>
-
-                    {/* {!data?.scrapping && (
-                      <Button
-                        size="lg"
-                        onClick={handleDownloadEpisodesAndMarkDone}
-                      >
-                        <DownloadIcon /> Episodios
-                      </Button>
-                    )} */}
                   </Dialog>
                   {!data?.hideSubtitle && (
                     <Button

@@ -90,7 +90,10 @@ const ArcDetailsController = () => {
     if (qbittorrentConfig) {
       await sendMagnetsToQbittorrent({
         links: magnetLinks,
-        config: qbittorrentConfig,
+        config: {
+          ...qbittorrentConfig,
+          savePath: `${qbittorrentConfig.savePath}/${sagaId}/${arcId}`,
+        },
       })
     }
   }, [magnetLinks])

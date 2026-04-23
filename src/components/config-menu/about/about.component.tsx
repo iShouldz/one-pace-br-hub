@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
 import {
   Item,
   ItemContent,
@@ -28,6 +30,13 @@ const AboutComponent = () => {
           </ItemDescription>
         </ItemContent>
       </Item>
+
+      <ButtonGroup>
+        <Button>
+          Legendas One Pace BR
+        </Button>
+        
+      </ButtonGroup>
     </>
   )
 }

@@ -10,15 +10,15 @@ const HomeController = () => {
   const { handleRedirect } = useNavigation()
 
   const [orderSagas, setOrderSagas] = useState<boolean>(
-    getFromLocalStorage(StorageKeys.ORDER_SAGAS) || false
+    getFromLocalStorage(StorageKeys.ORDER_SAGAS) ?? false
   )
 
   const [showAllSagas, setShowAllSagas] = useState<boolean>(
-    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) || true
+    getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) ?? true
   )
-
+console.log(showAllSagas)
   const [hideGrayscale, setHideGrayscale] = useState<boolean>(
-    getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) || false
+    getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) ?? false
   )
 
   const [openSettings, setOpenSettings] = useState(false)

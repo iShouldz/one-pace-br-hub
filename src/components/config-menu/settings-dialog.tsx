@@ -71,6 +71,8 @@ export function SettingsDialog({
     React.useState<ConfigContentKey>("Exibição")
 
   const configContent: Record<ConfigContentKey, React.ReactElement> = {
+    Sobre: <AboutComponent />,
+    "Servidor torrent": <TorrentServerComponet />,
     Exibição: (
       <ShowComponent
         handleHideGrayscale={handleHideGrayscale}
@@ -78,8 +80,6 @@ export function SettingsDialog({
         handleHideCompletedSagas={handleHideCompletedSagas}
       />
     ),
-    "Servidor torrent": <TorrentServerComponet />,
-    Sobre: <AboutComponent />,
   }
 
   return (
