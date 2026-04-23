@@ -8,7 +8,7 @@ import { RouterProvider } from "react-router"
 import { routes } from "./routes.tsx"
 import { Toaster } from "./components/ui/sonner.tsx"
 import { TooltipProvider } from "./components/ui/tooltip.tsx"
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
