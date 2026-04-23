@@ -130,7 +130,7 @@ const HomeView = ({
           <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
             <div className="flex justify-center">
               <img
-                src="/one-pace-logo.png"
+                src="images/one-pace-logo.webp"
                 alt="One Pace Logo"
                 loading="lazy"
                 className="w-64 max-w-full object-contain sm:w-90 md:w-125"

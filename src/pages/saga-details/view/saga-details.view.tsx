@@ -11,7 +11,10 @@ const SagaDetailsView = ({
   handleRedirectToArcDetails,
 }: ISagaDetailsView) => {
   return (
-    <BackgroundHeaderComponent direction="left">
+    <BackgroundHeaderComponent
+      direction="left"
+      imageUrl="/images/wallpaper-background.webp"
+    >
       <section className="absolute flex flex-col gap-6 p-15">
         <article className="flex flex-col gap-4 md:w-full lg:w-[60%]">
           <Button
