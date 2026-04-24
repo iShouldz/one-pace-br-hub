@@ -57,16 +57,17 @@ const AboutComponent = () => {
         <FieldContent>
           <FieldTitle>Quero ajudar com as legendas</FieldTitle>
           <FieldDescription className="flex flex-col gap-2">
-            As legendas são mantidas em um repositorio a parte, pensando em
-            manutenção e organização. Caso haja erros nas legendas, ou ainda não
-            possua legendas para os ultimos episodios do One Pace para arcos em
-            andamento, você pode ajudar abrindo um pull request no repositorio.
-            Rotineiramente, podemos pegar as legendas em outros idiomas e
-            converte-las para português com o auxilio de IA, mas tenha em mente
-            que isso pode gerar erros de tradução então, se for submeter as
-            legendas, realize uma revisão minima para garantir a melhor
-            experiencia para todos. Abaixo alguns locais para extrair legendas
-            em outros idiomas.
+            Para garantir organização e facilitar a manutenção, nossas legendas
+            são hospedadas em um repositório separado no GitHub.Se você
+            encontrar erros ou notar que faltam legendas para episódios
+            recentes, sinta-se à vontade para contribuir abrindo um Pull
+            Request. Para acelerar o processo, você pode utilizar Inteligência
+            Artificial para traduzir legendas de outros idiomas para o
+            português. Como a IA pode se perder nos jargões e contextos de One
+            Piece, pedimos que, ao submeter novas legendas, você faça uma
+            revisão para garantir a melhor experiência para todos. Abaixo,
+            listamos algumas fontes onde você pode encontrar legendas em outros
+            idiomas para iniciar a tradução.
             <div className="flex w-full flex-col gap-2 p-3 text-sm">
               <dl className="flex items-center justify-between">
                 <dt>1.</dt>
