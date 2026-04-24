@@ -181,13 +181,47 @@ function scrapeProxyPlugin() {
             ? Math.max(1, Math.min(8, pagesParam))
             : 4
 
+          const isNyaaHost = NYAA_HOSTS.has(parsedTarget.hostname)
+          const hasSearchQuery = Boolean(parsedTarget.searchParams.get("q"))
+
+          // Para URLs diretas /view/{id}, retorna o torrent direto
+          if (isNyaaHost) {
+            const viewTorrentUrl = getNyaaViewTorrentUrl(parsedTarget)
+            if (viewTorrentUrl) {
+              res.statusCode = 200
+              res.setHeader("Content-Type", "text/plain; charset=utf-8")
+              res.setHeader("X-Scrape-Fallback", "nyaa-view-download-url")
+              res.end(viewTorrentUrl)
+              return
+            }
+
+            // Para queries (?q=...), sempre usa RSS (HTML de busca não serve)
+            if (hasSearchQuery) {
+              const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
+              if (rssXml) {
+                res.statusCode = 200
+                res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
+                res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
+                res.end(rssXml)
+                return
+              }
+
+              // Se RSS falhar, retorna erro claro
+              res.statusCode = 503
+              res.setHeader("Content-Type", "text/plain; charset=utf-8")
+              res.end("Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes")
+              return
+            }
+          }
+
+          // Para outras URLs (não-query), tenta buscar HTML normalmente
           const response = await fetch(parsedTarget.toString(), {
             method: "GET",
             redirect: "follow",
             headers: buildScrapeHeaders(parsedTarget, "html"),
           })
 
-          if (BLOCKED_STATUSES.has(response.status) && NYAA_HOSTS.has(parsedTarget.hostname)) {
+          if (BLOCKED_STATUSES.has(response.status) && isNyaaHost) {
             const viewTorrentUrl = getNyaaViewTorrentUrl(parsedTarget)
 
             if (viewTorrentUrl) {

@@ -228,7 +228,9 @@ export async function onRequest(context: any) {
     }
 
     const isNyaaHost = NYAA_HOSTS.has(parsedTarget.hostname)
+    const hasSearchQuery = Boolean(parsedTarget.searchParams.get("q"))
 
+    // Para URLs diretas /view/{id}, retorna o torrent direto
     if (isNyaaHost) {
       const viewTorrentUrl = getNyaaViewTorrentUrl(parsedTarget)
       if (viewTorrentUrl) {
@@ -241,7 +243,7 @@ export async function onRequest(context: any) {
         return response
       }
 
-      const hasSearchQuery = Boolean(parsedTarget.searchParams.get("q"))
+      // Para queries (?q=...), sempre usa RSS (HTML de busca não serve)
       if (hasSearchQuery) {
         const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
         if (rssXml) {
@@ -253,9 +255,19 @@ export async function onRequest(context: any) {
           if (cache) context.waitUntil?.(cache.put(cacheKey, response.clone()))
           return response
         }
+
+        // Se RSS falhar, retorna erro claro
+        return new Response("Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes", {
+          status: 503,
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
       }
     }
 
+    // Para outras URLs (não-query), tenta buscar HTML normalmente
     const response = await fetchWithRetry(
       parsedTarget.toString(),
       {
