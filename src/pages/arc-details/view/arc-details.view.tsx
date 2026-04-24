@@ -200,16 +200,17 @@ const ArcDetailsView = ({
                                   <CopyIcon />
                                   Copiar links
                                 </Button>
-                                {qbittorrentConfig?.baseUrl !== "" && (
-                                  <Button
-                                    type="button"
-                                    onClick={handleSendToQbittorrent}
-                                    disabled={!magnetLinks.length}
-                                  >
-                                    <WavesArrowDown />
-                                    Enviar para qBittorrent
-                                  </Button>
-                                )}
+                                {qbittorrentConfig?.baseUrl !== "" &&
+                                  qbittorrentConfig?.baseUrl !== undefined && (
+                                    <Button
+                                      type="button"
+                                      onClick={handleSendToQbittorrent}
+                                      disabled={!magnetLinks.length}
+                                    >
+                                      <WavesArrowDown />
+                                      Enviar para qBittorrent
+                                    </Button>
+                                  )}
                               </>
                             )}
 
@@ -293,7 +294,9 @@ const ArcDetailsView = ({
               <div className="flex justify-center md:justify-end">
                 {loading ? (
                   <Card className="h-full w-full max-w-sm animate-pulse border-zinc-800 bg-zinc-950 sm:max-w-md" />
-                ) : error || !statsDoArco || statsDoArco.epsOriginais - statsDoArco.epsPace < 0 ? (
+                ) : error ||
+                  !statsDoArco ||
+                  statsDoArco.epsOriginais - statsDoArco.epsPace < 0 ? (
                   <ArcStatsError />
                 ) : (
                   <ArcStatsCard stats={statsDoArco} />

@@ -82,12 +82,15 @@ export function SettingsDialog({
       <DialogContent className="grid-rows-[minmax(0,1fr)] gap-0 overflow-hidden p-0 md:h-[85vh] md:max-h-[85vh] md:max-w-175 lg:h-[70vh] lg:max-h-[70vh] lg:max-w-220">
         <SidebarProvider className="h-full !min-h-0 w-full items-stretch overflow-hidden">
           <Sidebar collapsible="none" className="h-full shrink-0 md:flex">
-            <SidebarContent>
-              <SidebarGroup>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    {data.nav.map((item) => (
-                      <SidebarMenuItem key={item.name}>
+            <SidebarContent className="h-full">
+              <SidebarGroup className="h-full">
+                <SidebarGroupContent className="h-full">
+                  <SidebarMenu className="flex h-full flex-col">
+                    {data.nav.map((item, index) => (
+                      <SidebarMenuItem
+                        key={item.name}
+                        className={index === data.nav.length - 1 ? "mt-auto" : ""}
+                      >
                         <SidebarMenuButton
                           asChild
                           isActive={item.name === currentSeleted}

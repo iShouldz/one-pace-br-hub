@@ -59,6 +59,18 @@ const TorrentServerComponent = () => {
       savePath: qbittorrentDownloadPath,
     }
 
+    if (
+      !qbittorrentUrl ||
+      !qbittorrentUsername ||
+      !qbittorrentPassword ||
+      !qbittorrentDownloadPath
+    ) {
+      toast("Erro ao salvar configurações", {
+        description: "Por favor, preencha todos os campos obrigatórios.",
+      })
+      return
+    }
+
     saveToLocalStorage(StorageKeys.QBITTORRENT_CONFIG, config)
 
     toast("Dados do provedor torrent salvos", {
