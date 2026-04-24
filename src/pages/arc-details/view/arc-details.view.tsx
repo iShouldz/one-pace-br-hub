@@ -6,14 +6,13 @@ import {
   CopyIcon,
   DownloadIcon,
   HomeIcon,
-  ImageOff,
   InfoIcon,
   ListIcon,
   Search,
   Subtitles,
   WavesArrowDown,
 } from "lucide-react"
-import type { IArcDetailsView, IOnePaceArc } from "../types"
+import type { IArcDetailsView } from "../types"
 import {
   Item,
   ItemActions,
@@ -22,9 +21,8 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
-import { getFromLocalStorage } from "@/utils/storage.utils"
-import { StorageKeys } from "@/utils/storage-keys.utils"
-import { useEffect, useState } from "react"
+
+import { useState } from "react"
 import type { IInformationProps } from "@/pages/home/types"
 import {
   Dialog,
@@ -37,6 +35,10 @@ import {
 } from "@/components/ui/dialog"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { toast } from "sonner"
+import { ArcStatsCard } from "../components/data-arc.component"
+import { useOnePaceSheet } from "../hooks/use-one-pace-sheet"
+import { Card } from "@/components/ui/card"
+import { ArcStatsError } from "../components/data-arc-error.component"
 
 const ArcDetailsView = ({
   data,
@@ -64,24 +66,14 @@ const ArcDetailsView = ({
     },
   ]
 
-  const [hasDoneArc, setHasDoneArc] = useState(false)
   const [isLoadingMagnets, setIsLoadingMagnets] = useState(false)
-
-  useEffect(() => {
-    const completedArcs: IOnePaceArc[] =
-      getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
-    setHasDoneArc(
-      completedArcs
-        ?.find((saga) => saga.id === sagaId)
-        ?.arcos.includes(arcId!) ?? false
-    )
-  }, [data?.id])
+  const { loading, error, getStatsForArc } = useOnePaceSheet()
+  const statsDoArco = getStatsForArc(data!.title)
 
   const handleDownloadEpisodesAndMarkDone = async () => {
     setIsLoadingMagnets(true)
     await handleDownloadEpisodes()
     setIsLoadingMagnets(false)
-    setHasDoneArc(true)
   }
 
   const handleCopyMagnetLinksClick = async () => {
@@ -116,7 +108,7 @@ const ArcDetailsView = ({
             </p>
           </article>
 
-          <section className="grid gap-6 pb-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <section className="grid min-h-[65svh] gap-6 pb-8 lg:grid-cols-[1.2fr_0.8fr]">
             <article className="flex flex-col justify-between rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur sm:p-5 md:p-6">
               <div>
                 <h3 className="text-lg font-semibold text-white sm:text-3xl lg:text-lg">
@@ -262,7 +254,7 @@ const ArcDetailsView = ({
                 </div>
               </div>
               {informations.length > 0 && (
-                <div className="mt-6 grid gap-3">
+                <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto">
                   {informations.map((info) => (
                     <Item variant="muted" key={info.title}>
                       <ItemMedia variant="icon">
@@ -292,19 +284,19 @@ const ArcDetailsView = ({
                 </div>
               )}
             </article>{" "}
-            <aside className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur md:p-5">
-              <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40">
-                {data?.imagePath ? (
-                  <img
-                    src={data.imagePath}
-                    alt={data.title}
-                    loading="lazy"
-                    className={`aspect-2/3 w-full object-cover transition-all duration-500 ${!hasDoneArc ? "grayscale" : ""}`}
-                  />
+            <aside className="flex items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur md:p-5">
+              {loading && (
+                <p className="animate-pulse text-zinc-500">
+                  Sincronizando com a base de dados oficial...
+                </p>
+              )}
+              <div className="flex justify-center md:justify-end">
+                {loading ? (
+                  <Card className="h-full w-full max-w-sm animate-pulse border-zinc-800 bg-zinc-950 sm:max-w-md" />
+                ) : error || !statsDoArco || statsDoArco.epsOriginais - statsDoArco.epsPace < 0 ? (
+                  <ArcStatsError />
                 ) : (
-                  <div className="flex aspect-2/3 items-center justify-center text-white/50">
-                    <ImageOff className="size-6" />
-                  </div>
+                  <ArcStatsCard stats={statsDoArco} />
                 )}
               </div>
             </aside>

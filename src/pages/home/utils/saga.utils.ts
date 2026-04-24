@@ -208,7 +208,7 @@ const waterSevenSaga: ISaga = {
     },
     {
       id: "water-seven",
-      title: "Water 7",
+      title: "Water Seven",
       imagePath: "/images/banners/season18-poster.webp",
       linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+water+seven",
       scrapping: true,
@@ -284,7 +284,7 @@ const marineFordSaga: ISaga = {
     },
     {
       id: "adventures-straw",
-      title: "Adventure of Straw Hats",
+      title: "The Adventures of the Straw Hats",
       linkDownload: "https://nyaa.si/view/1796385",
       imagePath: "/images/banners/season25-poster.webp",
       description:
@@ -326,7 +326,7 @@ const fishmanIslandSaga: ISaga = {
     },
     {
       id: "fishman-island",
-      title: "Fish-Man Island",
+      title: "Fishman Island",
       imagePath: "/images/banners/season29-poster.webp",
       linkDownload: "https://nyaa.si/view/1031876",
       description:
@@ -409,7 +409,7 @@ const wanoSaga: ISaga = {
   arcs: [
     {
       id: "wano",
-      title: "Wano Country",
+      title: "Wano",
       linkDownload: "https://nyaa.si/?f=0&c=0_0&q=wano+%5BOne+Pace%5D+1080p",
       scrapping: true,
       imagePath: "/images/banners/season35-poster.webp",
@@ -446,7 +446,7 @@ const eggHeadSaga: ISaga = {
   arcs: [
     {
       id: "egghead",
-      title: "Egghead Island",
+      title: "Egghead",
       linkDownload: "https://nyaa.si/?f=0&c=0_0&q=one+pace+egghead",
       scrapping: true,
       imagePath: "/images/banners/season36-poster.webp",
