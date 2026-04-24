@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T15:39:48.112Z",
+  "generatedAt": "2026-04-24T17:03:36.351Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -21,8 +21,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:48.112Z",
-      "lastSuccessAt": "2026-04-24T15:39:48.112Z"
+      "lastAttemptAt": "2026-04-24T17:03:36.352Z",
+      "lastSuccessAt": "2026-04-24T17:03:36.352Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -56,8 +56,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:49.289Z",
-      "lastSuccessAt": "2026-04-24T15:39:49.289Z"
+      "lastAttemptAt": "2026-04-24T17:03:37.561Z",
+      "lastSuccessAt": "2026-04-24T17:03:37.561Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -78,8 +78,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:50.012Z",
-      "lastSuccessAt": "2026-04-24T15:39:50.012Z"
+      "lastAttemptAt": "2026-04-24T17:03:38.273Z",
+      "lastSuccessAt": "2026-04-24T17:03:38.273Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -117,8 +117,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:50.715Z",
-      "lastSuccessAt": "2026-04-24T15:39:50.715Z"
+      "lastAttemptAt": "2026-04-24T17:03:38.982Z",
+      "lastSuccessAt": "2026-04-24T17:03:38.982Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -133,8 +133,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:51.443Z",
-      "lastSuccessAt": "2026-04-24T15:39:51.443Z"
+      "lastAttemptAt": "2026-04-24T17:03:39.718Z",
+      "lastSuccessAt": "2026-04-24T17:03:39.718Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -167,8 +167,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:52.148Z",
-      "lastSuccessAt": "2026-04-24T15:39:52.148Z"
+      "lastAttemptAt": "2026-04-24T17:03:40.428Z",
+      "lastSuccessAt": "2026-04-24T17:03:40.428Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -208,8 +208,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:52.882Z",
-      "lastSuccessAt": "2026-04-24T15:39:52.882Z"
+      "lastAttemptAt": "2026-04-24T17:03:41.187Z",
+      "lastSuccessAt": "2026-04-24T17:03:41.187Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -230,8 +230,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:53.576Z",
-      "lastSuccessAt": "2026-04-24T15:39:53.576Z"
+      "lastAttemptAt": "2026-04-24T17:03:41.927Z",
+      "lastSuccessAt": "2026-04-24T17:03:41.927Z"
     },
     "wano": {
       "arcId": "wano",
@@ -303,81 +303,23 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:54.278Z",
-      "lastSuccessAt": "2026-04-24T15:39:54.278Z"
+      "lastAttemptAt": "2026-04-24T17:03:42.637Z",
+      "lastSuccessAt": "2026-04-24T17:03:42.637Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
       "title": "Wano (Onigashima)",
-      "sourceUrl": "https://nyaa.si/?f=0&c=0_0&q=wano+%5BOne+Pace%5D+1080p",
+      "sourceUrl": "https://nyaa.si/view/1813163",
       "pages": 6,
       "links": [
-        "magnet:?xt=urn%3Abtih%3A7ffbac3cd827eed21309b4c451135564b82029eb&dn=%5BOne+Pace%5D%5B909-911%5D+Wano+02+Extended+%5B1080p%5D%5B6F26FDAB%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Aa95a47258e52e42532aa2960a0e0a979c1d259a8&dn=%5BOne+Pace%5D%5B909-910%5D+Wano+01+%5B1080p%5D%5BF15AFDE0%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A7d694013793318e42338ea04e42d233e90bb5cac&dn=%5BOne+Pace%5D%5B911-912%5D+Wano+03+%5B1080p%5D%5B410FD111%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ad9d64d29a0644c3524cca5ccab2bb4aeb77cc767&dn=%5BOne+Pace%5D%5B913%5D+Wano+04+%5B1080p%5D%5BE937ED2B%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A9f5b1b399b28b9e861960356010210a5231756e9&dn=%5BOne+Pace%5D%5B914-915%5D+Wano+05+%5B1080p%5D%5B64E446D3%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A4e3d8ed54a0a89f00096b8d3a29b39d150a3e47b&dn=%5BOne+Pace%5D%5B915-916%5D+Wano+06+%5B1080p%5D%5B4C39B34C%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ada0a221e6e779f6f94b4fbecbebeff4fec0e9995&dn=%5BOne+Pace%5D%5B916-917%5D+Wano+07+%5B1080p%5D%5B407B42D5%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A889704ccc4a7ec24e630eec54e991f7b1f70260d&dn=%5BOne+Pace%5D%5B918-919%5D+Wano+08+%5B1080p%5D%5BD3899913%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A3fb002f4887ed9f915a88f8492eb834e1787de4c&dn=%5BOne+Pace%5D%5B919-920%5D+Wano+09+%5B1080p%5D%5BA08EC3B9%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A0bf8c06bd9aa5ffc2205a6a5b8c9e3f0aa76b052&dn=%5BOne+Pace%5D%5B921-922%5D+Wano+10+%5B1080p%5D%5B919A1140%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A27d90b411fc58f30162fc4bdd2589711bef264ca&dn=%5BOne+Pace%5D%5B922-923%5D+Wano+11+%5B1080p%5D%5B10FA8741%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A86fd8dce73d7c4f9150d1314b672752212ac0687&dn=%5BOne+Pace%5D%5B924%5D+Wano+12+%5B1080p%5D%5B4E97A31D%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A7bb74e6d6cb948274a02e389732418ad5d2aa39a&dn=%5BOne+Pace%5D%5B925-926%5D+Wano+13+%5B1080p%5D%5BDCF7AD65%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Acdb26d84fba1712004b04a26d5484c766dfe1263&dn=%5BOne+Pace%5D%5B926-927%5D+Wano+14+%5B1080p%5D%5BBF92DCAF%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A1e8b4afc42cce0c51f7b72973de5b90f18246459&dn=%5BOne+Pace%5D%5B928-930%5D+Wano+15+%5B1080p%5D%5BAE6ABE84%5D.mkv+%28v2%29&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A679f3a126c68708414677326663f1be953a4588c&dn=%5BOne+Pace%5D%5B930-931%5D+Wano+16+%5B1080p%5D%5B9FA61F60%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Aada27ed07c9bdb8339f563ea3a972e810db9c241&dn=%5BOne+Pace%5D%5B932-933%5D+Wano+17+%5B1080p%5D%5BD2E02F36%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Aee98dc9217e39a1142d34593fd1f69f370844d9f&dn=%5BOne+Pace%5D%5B934-935%5D+Wano+18+%5B1080p%5D%5B94F78CF3%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A21bfa9becd4b71b3f39a102b5182d4b5df601801&dn=%5BOne+Pace%5D%5B936-938%5D+Wano+19+%5B1080p%5D%5B6C9E8055%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ad587b519994e3a8f771d188981f7a59fd6d578e5&dn=%5BOne+Pace%5D%5B938-939%5D+Wano+20+%5B1080p%5D%5B93376225%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ab1a87c6668cce9523fe8c56556fedb18438a242b&dn=%5BOne+Pace%5D%5B940-941%5D+Wano+21+%5B1080p%5D%5B0B965026%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A555b93c2e368c9f652ff4fff987d5fbc3c3bad6b&dn=%5BOne+Pace%5D%5B941-942%5D+Wano+22+%5B1080p%5D%5B9F63AF78%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A04f41b47c4144307737eafa4b03c58d4ddea4ba8&dn=%5BOne+Pace%5D%5B943-944%5D+Wano+23+%5B1080p%5D%5B37670A03%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A1806979f06ae1560485ef48bd1983d42aa5b5696&dn=%5BOne+Pace%5D%5B945%5D+Wano+24+%5B1080p%5D%5B6173BCE1%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A6a26cb6bb9d3f8259fd54a610acbe7b8fc1039bc&dn=%5BOne+Pace%5D%5B946-947%5D+Wano+25+%5B1080p%5D%5BC3825063%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A0a9639f371dbd1270c79b058309aeba62d91ebc6&dn=%5BOne+Pace%5D%5B948-949%5D+Wano+26+%5B1080p%5D%5BF3E829E8%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ab164abb99ea78b42c76b575a1591991302185d0d&dn=%5BOne+Pace%5D%5B950-951%5D+Wano+27+%5B1080p%5D%5B3CC8226D%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ab49ba708f178848d3430cbb7899ab0f8caecfdf1&dn=%5BOne+Pace%5D%5B951-952%5D+Wano+28+%5B1080p%5D%5B22F81B0E%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A0c335ffe392916183f738e9831c1379b2c432601&dn=%5BOne+Pace%5D%5B953-954%5D+Wano+29+%5B1080p%5D%5B5C7E0604%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ae8cca1f69b748d85fd6a5f3eba2701ef6220cfb8&dn=%5BOne+Pace%5D%5B954-955%5D+Wano+30+%5B1080p%5D%5B43A0D1DF%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A8d0650670a3b6de5de5b9411057e984d86247d9a&dn=%5BOne+Pace%5D%5B956%5D+Wano+31+%5B1080p%5D%5BF6C7EB83%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A89bdea16caeaa66658592cd75be624c0a9dce31a&dn=%5BOne+Pace%5D%5B957%5D+Wano+32+%5B1080p%5D%5B29B91F56%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A8bb2c2f222f540c60d0a57fa54a6065e2c2da271&dn=%5BOne+Pace%5D%5B958-959%5D+Wano+33+%5B1080p%5D%5BE3AB2BA0%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A131a50628ef03291dbce68a002875e3b33c9fda5&dn=%5BOne+Pace%5D%5B960-961%5D+Wano+34+%5B1080p%5D%5B224B7846%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ad46b4ffe4a5c2f71e35dc4fb72186ea8c772ca58&dn=%5BOne+Pace%5D%5B962-963%5D+Wano+35+%5B1080p%5D%5B98B5E26D%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Aec75dd4f1d60dc71dbc41556e375dcb616ca54ae&dn=%5BOne+Pace%5D%5B964-965%5D+Wano+36+%5B1080p%5D%5BBAFFE801%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A904b90a8508bdfd00fe31a6cd901af116ac838ce&dn=%5BOne+Pace%5D%5B965-966%5D+Wano+37+%5B1080p%5D%5BAD8C9C16%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ac7e226bf4c40fb20dc2cce2bf5e32f8b5cde5dbd&dn=%5BOne+Pace%5D%5B967%5D+Wano+38+%5B1080p%5D%5B298A4284%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A93e937753ccf59b30e05c8a35cecbe56e1ceada3&dn=%5BOne+Pace%5D%5B968-969%5D+Wano+39+%5B1080p%5D%5B56CFB8B0%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Abb2c6ec947742838a7daac23c54c87613eac604e&dn=%5BOne+Pace%5D%5B970-972%5D+Wano+40+%5B1080p%5D%5B713F7916%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A6fb0ceb05a74e832246ddf23263d5d9a53290c9a&dn=%5BOne+Pace%5D%5B972-974%5D+Wano+41+%5B1080p%5D%5BC89B4C1E%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A873fe3265ca245d9209c76404b20cab6771896a9&dn=%5BOne+Pace%5D%5B975-976%5D+Wano+42+%5B1080p%5D%5B3FC81ABD%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A352e9177eaa9a12b4ff56213dc6f1cdda883187b&dn=%5BOne+Pace%5D%5B977-978%5D+Wano+43+%5B1080p%5D%5B26D98629%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A15ad09f1b9bbf4b438194eac7be8f63a38e82ea7&dn=%5BOne+Pace%5D%5B978-979%5D+Wano+44+%5B1080p%5D%5BF1FB27C6%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A1a4a34e36f79f59d7d72dd8f112407eea5f40063&dn=%5BOne+Pace%5D%5B980-981%5D+Wano+45+%5B1080p%5D%5BDFB30A71%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A6441af56098ceb15f3f501c23c1dcf86923c3e82&dn=%5BOne+Pace%5D%5B982-983%5D+Wano+46+%5B1080p%5D%5B7392F65E%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ae1775d91e437c828110f9f4444144486d3f061df&dn=%5BOne+Pace%5D%5B984-985%5D+Wano+47+%5B1080p%5D%5BD78E29CD%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Ae370cb1c0ff7e903871c512ce31e0468a26aa333&dn=%5BOne+Pace%5D%5B986-987%5D+Wano+48+%5B1080p%5D%5BF47C3EDD%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A2431a9388b948530e189be2d450c8afb9f1d4028&dn=%5BOne+Pace%5D%5B988-989%5D+Wano+49+Extended+%5B1080p%5D%5B58469AB0%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A4a05c56e0078216f691cf8e356fa1fa681f893d1&dn=%5BOne+Pace%5D%5B990-991%5D+Wano+50+%5B1080p%5D%5B0144BBBA%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A4a1b7e6a9ae811cb5f8902b09312380c80336ebb&dn=%5BOne+Pace%5D%5B992-993%5D+Wano+51+%5B1080p%5D%5BE004EDB5%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Abb8bc26b08683ec1eedc75183d438bfde544c549&dn=%5BOne+Pace%5D%5B994-995%5D+Wano+52+%5B1080p%5D%5BD985734A%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A8148a05d33c5bccb9a11bf98e8c696aebee01d31&dn=%5BOne+Pace%5D%5B996-997%5D+Wano+53+%5B1080p%5D%5BC99E7631%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A0b65bb220a3d2c9fd72ff93aaef9279caa224523&dn=%5BOne+Pace%5D%5B998-999%5D+Wano+54+%5B1080p%5D%5B79C6DC33%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A29413812f1e5c5b47cd07061ca901e3e23fece5e&dn=%5BOne+Pace%5D%5B1000%5D+Wano+55+Extended+%5B1080p%5D%5B425F93B9%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A4dd76792a4f94f06751a88f93cefc17515b3b3ed&dn=%5BOne+Pace%5D%5B1001-1002%5D+Wano+56+%5B1080p%5D%5BE58B9A11%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A209e947276c73a3df876d6479ae78b822e76b2e7&dn=%5BOne+Pace%5D%5B1003-1004%5D+Wano+57+%5B1080p%5D%5BF1EE1824%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3Acf8c8201209a4c17b43911b02163834f1fe4db86&dn=%5BOne+Pace%5D%5B1005-1006%5D+Wano+58+%5B1080p%5D%5BA0FCAB46%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A8591276ee893656f5cc68805f0e0d1578f3f5486&dn=%5BOne+Pace%5D%5B1007-1008%5D+Wano+59+%5B1080p%5D%5B2ED1FD82%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
+        "https://nyaa.si/download/1813163.torrent"
       ],
-      "linkCount": 59,
+      "linkCount": 1,
       "status": "ok",
-      "via": "nyaa-rss-aggregated",
+      "via": "nyaa-view-download-url",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:55.039Z",
-      "lastSuccessAt": "2026-04-24T15:39:55.039Z"
+      "lastAttemptAt": "2026-04-24T17:03:43.384Z",
+      "lastSuccessAt": "2026-04-24T17:03:43.384Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -410,8 +352,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:55.746Z",
-      "lastSuccessAt": "2026-04-24T15:39:55.746Z"
+      "lastAttemptAt": "2026-04-24T17:03:43.884Z",
+      "lastSuccessAt": "2026-04-24T17:03:43.884Z"
     }
   }
 }

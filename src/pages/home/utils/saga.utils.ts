@@ -419,7 +419,7 @@ const wanoSaga: ISaga = {
     {
       id: "wano-onigashima-paced",
       title: "Wano (Onigashima)",
-      linkDownload: "https://nyaa.si/?f=0&c=0_0&q=wano+%5BOne+Pace%5D+1080p",
+      linkDownload: "https://nyaa.si/view/1813163",
       informations: [
         {
           title: "Onigashima",
