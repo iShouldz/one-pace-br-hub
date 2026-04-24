@@ -35,7 +35,7 @@ const useTorrent = () => {
   }
 
   const fetchPageContent = async (url: string): Promise<string> => {
-    const response = await fetch(`/api/scrape?url=${encodeURIComponent(url)}`)
+    const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`)
     if (!response.ok) {
       const err = await response.text().catch(() => "")
       throw new Error("Falha ao buscar página: " + (err || response.status))
