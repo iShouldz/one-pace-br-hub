@@ -31,6 +31,118 @@ const isValidHttpUrl = (value: string): boolean => {
   }
 }
 
+const BLOCKED_STATUSES = new Set([401, 403, 429, 503])
+
+const NYAA_HOSTS = new Set([
+  "nyaa.si",
+  "www.nyaa.si",
+  "sukebei.nyaa.si",
+  "www.sukebei.nyaa.si",
+])
+
+const buildScrapeHeaders = (target: URL, mode: "html" | "rss" = "html") => {
+  return {
+    "user-agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    accept:
+      mode === "rss"
+        ? "application/rss+xml,application/xml;q=0.9,text/xml;q=0.8,*/*;q=0.7"
+        : "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    pragma: "no-cache",
+    referer: `${target.origin}/`,
+    origin: target.origin,
+  }
+}
+
+const getNyaaViewTorrentUrl = (target: URL): string | null => {
+  const match = target.pathname.match(/^\/view\/(\d+)\/?$/)
+  if (!match) return null
+  return `${target.origin}/download/${match[1]}.torrent`
+}
+
+const getNyaaRssUrlByPage = (target: URL, page: number): URL => {
+  const rssUrl = new URL(target.origin)
+  rssUrl.pathname = "/"
+  rssUrl.searchParams.set("page", "rss")
+
+  const q = target.searchParams.get("q")
+  const c = target.searchParams.get("c")
+  const f = target.searchParams.get("f")
+  const s = target.searchParams.get("s")
+  const o = target.searchParams.get("o")
+
+  if (q) rssUrl.searchParams.set("q", q)
+  if (c) rssUrl.searchParams.set("c", c)
+  if (f) rssUrl.searchParams.set("f", f)
+  if (s) rssUrl.searchParams.set("s", s)
+  if (o) rssUrl.searchParams.set("o", o)
+  if (page > 1) rssUrl.searchParams.set("p", String(page))
+
+  return rssUrl
+}
+
+const extractRssItems = (xml: string): string[] => {
+  return Array.from(xml.matchAll(/<item>[\s\S]*?<\/item>/g)).map(
+    (match) => match[0]
+  )
+}
+
+const extractInfoHash = (itemXml: string): string => {
+  return (
+    itemXml.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] ||
+    ""
+  )
+}
+
+const buildMergedRss = (items: string[]): string => {
+  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>${items.join("")}</channel></rss>`
+}
+
+const fetchNyaaAggregatedRss = async (
+  parsedTarget: URL,
+  maxPages = 8
+): Promise<string | null> => {
+  const allItems: string[] = []
+  const seenHashes = new Set<string>()
+
+  for (let page = 1; page <= maxPages; page++) {
+    const rssUrl = getNyaaRssUrlByPage(parsedTarget, page)
+    const rssResponse = await fetch(rssUrl.toString(), {
+      method: "GET",
+      redirect: "follow",
+      headers: buildScrapeHeaders(parsedTarget, "rss"),
+    })
+
+    if (!rssResponse.ok) {
+      break
+    }
+
+    const rssXml = await rssResponse.text()
+    const pageItems = extractRssItems(rssXml)
+
+    if (!pageItems.length) {
+      break
+    }
+
+    for (const item of pageItems) {
+      const hash = extractInfoHash(item)
+      if (hash && !seenHashes.has(hash)) {
+        seenHashes.add(hash)
+        allItems.push(item)
+      }
+    }
+
+    if (pageItems.length < 75) {
+      break
+    }
+  }
+
+  if (!allItems.length) return null
+  return buildMergedRss(allItems)
+}
+
 function scrapeProxyPlugin() {
   return {
     name: "scrape-proxy-plugin",
@@ -67,14 +179,30 @@ function scrapeProxyPlugin() {
           const response = await fetch(parsedTarget.toString(), {
             method: "GET",
             redirect: "follow",
-            headers: {
-              "user-agent":
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-              accept:
-                "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-              "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
-            },
+            headers: buildScrapeHeaders(parsedTarget, "html"),
           })
+
+          if (BLOCKED_STATUSES.has(response.status) && NYAA_HOSTS.has(parsedTarget.hostname)) {
+            const viewTorrentUrl = getNyaaViewTorrentUrl(parsedTarget)
+
+            if (viewTorrentUrl) {
+              res.statusCode = 200
+              res.setHeader("Content-Type", "text/plain; charset=utf-8")
+              res.setHeader("X-Scrape-Fallback", "nyaa-view-download-url")
+              res.end(viewTorrentUrl)
+              return
+            }
+
+            const rssXml = await fetchNyaaAggregatedRss(parsedTarget)
+
+            if (rssXml) {
+              res.statusCode = 200
+              res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
+              res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
+              res.end(rssXml)
+              return
+            }
+          }
 
           const html = await response.text()
           res.statusCode = response.status

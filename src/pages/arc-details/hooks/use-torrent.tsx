@@ -29,13 +29,25 @@ const useTorrent = () => {
 
   const extractMagnetLinks = (html: string): string[] => {
     const magnetRegex = /magnet:\?[^"'\s<>]+/g
-    const matches = html.match(magnetRegex) || []
-    const normalized = matches.map((link) => link.replace(/&amp;/g, "&"))
+    const infoHashRegex = /<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/g
+    const torrentUrlRegex = /https?:\/\/[^"'\s<>]+\.torrent(?:\?[^"'\s<>]*)?/g
+
+    const magnetMatches = html.match(magnetRegex) || []
+    const torrentUrlMatches = html.match(torrentUrlRegex) || []
+
+    const rssInfoHashes = Array.from(html.matchAll(infoHashRegex)).map(
+      (match) => `magnet:?xt=urn:btih:${match[1]}`
+    )
+
+    const normalized = [...magnetMatches, ...rssInfoHashes, ...torrentUrlMatches].map(
+      (link) => link.replace(/&amp;/g, "&")
+    )
+
     return [...new Set(normalized)]
   }
 
   const fetchPageContent = async (url: string): Promise<string> => {
-    const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`)
+    const response = await fetch(`/api/scrape?url=${encodeURIComponent(url)}`)
     if (!response.ok) {
       const err = await response.text().catch(() => "")
       throw new Error("Falha ao buscar página: " + (err || response.status))
