@@ -19,6 +19,20 @@ interface INyaaRssEntry {
   seeders: number
 }
 
+interface IStaticScrapeCache {
+  generatedAt: string | null
+  arcs: Record<
+    string,
+    {
+      links?: string[]
+      status?: string
+      lastSuccessAt?: string | null
+    }
+  >
+}
+
+const STATIC_SCRAPE_CACHE_URL = "/data/scrape-cache.json"
+
 const COMMON_TRACKERS = [
   "udp://tracker.opentrackr.org:1337/announce",
   "udp://open.stealth.si:80/announce",
@@ -26,6 +40,8 @@ const COMMON_TRACKERS = [
   "udp://tracker.dler.org:6969/announce",
   "udp://exodus.desync.com:6969/announce",
 ]
+
+let staticCachePromise: Promise<IStaticScrapeCache | null> | null = null
 
 const useTorrent = () => {
   const normalizeBaseUrl = (url: string): string => {
@@ -200,6 +216,40 @@ const useTorrent = () => {
     return response.text()
   }
 
+  const getCachedLinksForArc = useCallback(async (arcId?: string): Promise<string[]> => {
+    if (!arcId) return []
+
+    try {
+      if (!staticCachePromise) {
+        staticCachePromise = fetch(STATIC_SCRAPE_CACHE_URL, {
+          cache: "no-store",
+        })
+          .then((response) => {
+            if (!response.ok) return null
+            return response.json() as Promise<IStaticScrapeCache>
+          })
+          .catch(() => null)
+      }
+
+      const cacheData = await staticCachePromise
+      const entry = cacheData?.arcs?.[arcId]
+      const links = Array.isArray(entry?.links)
+        ? entry!.links!.filter((link) => typeof link === "string" && link.trim())
+        : []
+
+      if (!links.length) return []
+
+      toast("Links carregados do cache comunitário", {
+        description:
+          "Usamos o índice estático atualizado via GitHub Actions para evitar bloqueios de scraping em tempo real.",
+      })
+
+      return [...new Set(links)]
+    } catch {
+      return []
+    }
+  }, [])
+
   const tryCopyMagnetsToClipboard = useCallback(async (links: string[]) => {
     if (!navigator.clipboard?.writeText) return false
 
@@ -324,6 +374,7 @@ const useTorrent = () => {
   return {
     extractMagnetLinks,
     fetchPageContent,
+    getCachedLinksForArc,
     tryCopyMagnetsToClipboard,
     sendMagnetsToQbittorrent,
   }

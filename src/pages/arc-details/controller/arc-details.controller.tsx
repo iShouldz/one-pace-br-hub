@@ -13,6 +13,7 @@ const ArcDetailsController = () => {
   const {
     fetchPageContent,
     extractMagnetLinks,
+    getCachedLinksForArc,
     sendMagnetsToQbittorrent,
     tryCopyMagnetsToClipboard,
   } = useTorrent()
@@ -66,6 +67,13 @@ const ArcDetailsController = () => {
 
     try {
       if (!linksToOpen.length) {
+        const cachedLinks = await getCachedLinksForArc(arcId)
+        if (cachedLinks.length) {
+          linksToOpen = cachedLinks
+          setMagnetLinks(linksToOpen)
+          return linksToOpen
+        }
+
         const html = await fetchPageContent(arcData!.linkDownload)
         linksToOpen = extractMagnetLinks(html)
         setMagnetLinks(linksToOpen)
@@ -83,6 +91,7 @@ const ArcDetailsController = () => {
     handleRedirect,
     fetchPageContent,
     extractMagnetLinks,
+    getCachedLinksForArc,
     sendMagnetsToQbittorrent,
   ])
 
