@@ -96,6 +96,22 @@ const extractInfoHash = (itemXml: string): string => {
   )
 }
 
+const extractNyaaViewIds = (html: string): string[] => {
+  const ids = new Set<string>()
+  const viewIdRegex = /\/view\/(\d+)/g
+
+  for (const match of html.matchAll(viewIdRegex)) {
+    const id = match[1]
+    if (id) ids.add(id)
+  }
+
+  return [...ids]
+}
+
+const buildNyaaDownloadUrls = (target: URL, ids: string[]): string => {
+  return ids.map((id) => `${target.origin}/download/${id}.torrent`).join("\n")
+}
+
 const buildMergedRss = (items: string[]): string => {
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>${items.join("")}</channel></rss>`
 }
@@ -206,6 +222,26 @@ function scrapeProxyPlugin() {
                 return
               }
 
+              const htmlFallbackResponse = await fetch(parsedTarget.toString(), {
+                method: "GET",
+                redirect: "follow",
+                headers: buildScrapeHeaders(parsedTarget, "html"),
+              })
+
+              if (htmlFallbackResponse.ok) {
+                const html = await htmlFallbackResponse.text()
+                const ids = extractNyaaViewIds(html)
+
+                if (ids.length) {
+                  const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
+                  res.statusCode = 200
+                  res.setHeader("Content-Type", "text/plain; charset=utf-8")
+                  res.setHeader("X-Scrape-Fallback", "nyaa-html-view-download-urls")
+                  res.end(downloadUrls)
+                  return
+                }
+              }
+
               // Se RSS falhar, retorna erro claro
               res.statusCode = 503
               res.setHeader("Content-Type", "text/plain; charset=utf-8")
@@ -240,6 +276,26 @@ function scrapeProxyPlugin() {
               res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
               res.end(rssXml)
               return
+            }
+
+            const htmlFallbackResponse = await fetch(parsedTarget.toString(), {
+              method: "GET",
+              redirect: "follow",
+              headers: buildScrapeHeaders(parsedTarget, "html"),
+            })
+
+            if (htmlFallbackResponse.ok) {
+              const html = await htmlFallbackResponse.text()
+              const ids = extractNyaaViewIds(html)
+
+              if (ids.length) {
+                const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
+                res.statusCode = 200
+                res.setHeader("Content-Type", "text/plain; charset=utf-8")
+                res.setHeader("X-Scrape-Fallback", "nyaa-html-view-download-urls")
+                res.end(downloadUrls)
+                return
+              }
             }
           }
 

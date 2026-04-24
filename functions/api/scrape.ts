@@ -111,6 +111,22 @@ const extractInfoHash = (itemXml: string): string => {
   )
 }
 
+const extractNyaaViewIds = (html: string): string[] => {
+  const ids = new Set<string>()
+  const viewIdRegex = /\/view\/(\d+)/g
+
+  for (const match of html.matchAll(viewIdRegex)) {
+    const id = match[1]
+    if (id) ids.add(id)
+  }
+
+  return [...ids]
+}
+
+const buildNyaaDownloadUrls = (target: URL, ids: string[]): string => {
+  return ids.map((id) => `${target.origin}/download/${id}.torrent`).join("\n")
+}
+
 const buildMergedRss = (items: string[]): string => {
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>${items.join("")}</channel></rss>`
 }
@@ -256,6 +272,32 @@ export async function onRequest(context: any) {
           return response
         }
 
+        const htmlFallbackResponse = await fetchWithRetry(
+          parsedTarget.toString(),
+          {
+            method: "GET",
+            redirect: "follow",
+            headers: buildHeaders(parsedTarget, "html"),
+          },
+          2
+        )
+
+        if (htmlFallbackResponse.ok) {
+          const html = await htmlFallbackResponse.text()
+          const ids = extractNyaaViewIds(html)
+
+          if (ids.length) {
+            const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
+            const response = buildCachedResponse(
+              downloadUrls,
+              "text/plain; charset=utf-8",
+              "nyaa-html-view-download-urls"
+            )
+            if (cache) context.waitUntil?.(cache.put(cacheKey, response.clone()))
+            return response
+          }
+        }
+
         // Se RSS falhar, retorna erro claro
         return new Response("Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes", {
           status: 503,
@@ -300,6 +342,32 @@ export async function onRequest(context: any) {
         )
         if (cache) context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
         return cachedResponse
+      }
+
+      const htmlFallbackResponse = await fetchWithRetry(
+        parsedTarget.toString(),
+        {
+          method: "GET",
+          redirect: "follow",
+          headers: buildHeaders(parsedTarget, "html"),
+        },
+        2
+      )
+
+      if (htmlFallbackResponse.ok) {
+        const html = await htmlFallbackResponse.text()
+        const ids = extractNyaaViewIds(html)
+
+        if (ids.length) {
+          const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
+          const cachedResponse = buildCachedResponse(
+            downloadUrls,
+            "text/plain; charset=utf-8",
+            "nyaa-html-view-download-urls"
+          )
+          if (cache) context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
+          return cachedResponse
+        }
       }
 
       return new Response("Nyaa temporariamente limitou as requisicoes (429)", {
