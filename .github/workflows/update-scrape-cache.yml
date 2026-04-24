@@ -3,7 +3,8 @@ name: Update Scrape Cache
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 */2 * * *"
+    # UTC: Fridays at 14:17
+    - cron: "17 14 * * 5"
 
 permissions:
   contents: write
