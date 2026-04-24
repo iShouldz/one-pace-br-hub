@@ -13,6 +13,20 @@ interface ISendToQbittorrentParams {
   config: IQbittorrentConfig
 }
 
+interface INyaaRssEntry {
+  title: string
+  infoHash: string
+  seeders: number
+}
+
+const COMMON_TRACKERS = [
+  "udp://tracker.opentrackr.org:1337/announce",
+  "udp://open.stealth.si:80/announce",
+  "udp://tracker.torrent.eu.org:451/announce",
+  "udp://tracker.dler.org:6969/announce",
+  "udp://exodus.desync.com:6969/announce",
+]
+
 const useTorrent = () => {
   const normalizeBaseUrl = (url: string): string => {
     return url.trim().replace(/\/+$/, "")
@@ -27,7 +41,125 @@ const useTorrent = () => {
     }
   }
 
+  const buildMagnetFromHash = (hash: string, title?: string): string => {
+    const params = new URLSearchParams()
+    params.set("xt", `urn:btih:${hash}`)
+
+    if (title?.trim()) {
+      params.set("dn", title.trim())
+    }
+
+    for (const tracker of COMMON_TRACKERS) {
+      params.append("tr", tracker)
+    }
+
+    return `magnet:?${params.toString()}`
+  }
+
+  const getEpisodeRange = (title: string): { start: number; end: number } | null => {
+    const rangeMatch = title.match(/\[(\d{2,4})(?:-(\d{2,4}))?\]/)
+    if (rangeMatch) {
+      const start = Number(rangeMatch[1])
+      const end = Number(rangeMatch[2] || rangeMatch[1])
+      return { start, end }
+    }
+
+    const singleMatch = title.match(/\b(?:ep|episode)\s*(\d{2,4})\b/i)
+    if (singleMatch) {
+      const ep = Number(singleMatch[1])
+      return { start: ep, end: ep }
+    }
+
+    return null
+  }
+
+  const getEpisodeKey = (title: string): string => {
+    const range = getEpisodeRange(title)
+    if (!range) return title.trim().toLowerCase()
+    return `${range.start}-${range.end}`
+  }
+
+  const getEntryScore = (entry: INyaaRssEntry): number => {
+    const title = entry.title.toLowerCase()
+    let score = 0
+
+    if (title.includes("one pace")) score += 30
+    if (title.includes("1080p")) score += 20
+    else if (title.includes("720p")) score += 10
+    if (title.includes("x265") || title.includes("hevc")) score += 3
+    if (title.includes("batch") || title.includes("bundle")) score += 5
+    if (title.includes("dub")) score -= 5
+    if (title.includes("vostfr") || title.includes("pt-br")) score += 1
+
+    score += Math.min(entry.seeders, 50)
+
+    return score
+  }
+
+  const parseNyaaRssEntries = (xml: string): INyaaRssEntry[] => {
+    const items = Array.from(xml.matchAll(/<item>[\s\S]*?<\/item>/g)).map(
+      (match) => match[0]
+    )
+
+    return items
+      .map((item) => {
+        const title = (
+          item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)?.[1] ||
+          item.match(/<title>([\s\S]*?)<\/title>/)?.[1] ||
+          ""
+        )
+          .trim()
+          .replace(/&amp;/g, "&")
+
+        const infoHash = (
+          item.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] ||
+          ""
+        ).trim()
+
+        const seeders = Number(
+          item.match(/<nyaa:seeders>(\d+)<\/nyaa:seeders>/)?.[1] || "0"
+        )
+
+        return { title, infoHash, seeders }
+      })
+      .filter((entry) => Boolean(entry.title && entry.infoHash))
+  }
+
   const extractMagnetLinks = (html: string): string[] => {
+    if (/<rss[\s\S]*?<channel>/i.test(html)) {
+      const rssEntries = parseNyaaRssEntries(html)
+
+      if (rssEntries.length) {
+        const selectedByEpisode = new Map<string, INyaaRssEntry>()
+
+        for (const entry of rssEntries) {
+          const key = getEpisodeKey(entry.title)
+          const current = selectedByEpisode.get(key)
+
+          if (!current || getEntryScore(entry) > getEntryScore(current)) {
+            selectedByEpisode.set(key, entry)
+          }
+        }
+
+        const selected = [...selectedByEpisode.values()]
+          .sort((a, b) => {
+            const rangeA = getEpisodeRange(a.title)
+            const rangeB = getEpisodeRange(b.title)
+
+            if (!rangeA && !rangeB) return 0
+            if (!rangeA) return 1
+            if (!rangeB) return -1
+
+            return rangeA.start - rangeB.start
+          })
+          .map((entry) => buildMagnetFromHash(entry.infoHash, entry.title))
+
+        if (selected.length) {
+          return selected
+        }
+      }
+    }
+
     const magnetRegex = /magnet:\?[^"'\s<>]+/g
     const infoHashRegex = /<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/g
     const torrentUrlRegex = /https?:\/\/[^"'\s<>]+\.torrent(?:\?[^"'\s<>]*)?/g
@@ -35,8 +167,8 @@ const useTorrent = () => {
     const magnetMatches = html.match(magnetRegex) || []
     const torrentUrlMatches = html.match(torrentUrlRegex) || []
 
-    const rssInfoHashes = Array.from(html.matchAll(infoHashRegex)).map(
-      (match) => `magnet:?xt=urn:btih:${match[1]}`
+    const rssInfoHashes = Array.from(html.matchAll(infoHashRegex)).map((match) =>
+      buildMagnetFromHash(match[1])
     )
 
     const normalized = [...magnetMatches, ...rssInfoHashes, ...torrentUrlMatches].map(
@@ -47,7 +179,20 @@ const useTorrent = () => {
   }
 
   const fetchPageContent = async (url: string): Promise<string> => {
-    const response = await fetch(`/api/scrape?url=${encodeURIComponent(url)}`)
+    const parsedUrl = new URL(url)
+    const scrapeUrl = new URL("/api/scrape", window.location.origin)
+    scrapeUrl.searchParams.set("url", parsedUrl.toString())
+
+    const isNyaaQuery =
+      parsedUrl.hostname.includes("nyaa.si") && parsedUrl.searchParams.has("q")
+
+    if (isNyaaQuery) {
+      const q = (parsedUrl.searchParams.get("q") || "").toLowerCase()
+      const pages = q.includes("wano") || q.includes("egghead") ? "6" : "4"
+      scrapeUrl.searchParams.set("pages", pages)
+    }
+
+    const response = await fetch(scrapeUrl.toString())
     if (!response.ok) {
       const err = await response.text().catch(() => "")
       throw new Error("Falha ao buscar página: " + (err || response.status))

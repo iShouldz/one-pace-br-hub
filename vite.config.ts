@@ -176,6 +176,11 @@ function scrapeProxyPlugin() {
             return
           }
 
+          const pagesParam = Number(requestUrl.searchParams.get("pages") || "")
+          const requestedPages = Number.isFinite(pagesParam)
+            ? Math.max(1, Math.min(8, pagesParam))
+            : 4
+
           const response = await fetch(parsedTarget.toString(), {
             method: "GET",
             redirect: "follow",
@@ -193,7 +198,7 @@ function scrapeProxyPlugin() {
               return
             }
 
-            const rssXml = await fetchNyaaAggregatedRss(parsedTarget)
+            const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
 
             if (rssXml) {
               res.statusCode = 200
