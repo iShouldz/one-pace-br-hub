@@ -121,38 +121,69 @@ const TorrentServerComponent = () => {
           </DialogHeader>
 
           <div className="flex flex-col gap-5">
+            <div className="flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-950/30">
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0 text-amber-600 dark:text-amber-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              <div>
+                <h4 className="mb-1 text-sm font-medium text-amber-800 dark:text-amber-400">
+                  Requisito de Rede: Acesso Externo
+                </h4>
+                <p className="text-sm leading-relaxed text-amber-700 dark:text-amber-500/90">
+                  Como este Hub está hospedado na nuvem, ele{" "}
+                  <strong>
+                    não consegue acessar o seu{" "}
+                    <code className="rounded bg-amber-100 px-1 text-xs dark:bg-amber-900/50">
+                      localhost
+                    </code>{" "}
+                    (127.0.0.1)
+                  </strong>
+                  . Para que a integração funcione, sua Interface Web do
+                  qBittorrent precisa estar exposta para a internet.
+                </p>
+              </div>
+            </div>
+
             <div>
               <h4 className="mb-2 font-medium text-zinc-900 dark:text-zinc-200">
-                Como habilitar no qBittorrent:
+                Como configurar (Para usuários avançados):
               </h4>
-              <ol className="list-inside list-decimal space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+              <ol className="list-inside list-decimal space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
-                  Vá em{" "}
+                  No qBittorrent, habilite a{" "}
                   <strong className="text-zinc-900 dark:text-zinc-300">
-                    Ferramentas {">"} Opções {">"} Interface Web
-                  </strong>
-                  .
+                    Interface Web
+                  </strong>{" "}
+                  nas Opções de Ferramentas.
                 </li>
                 <li>
-                  Marque a opção{" "}
+                  Utilize uma ferramenta de tunelamento segura (como{" "}
                   <strong className="text-zinc-900 dark:text-zinc-300">
-                    "Habilitar Interface Web"
+                    Cloudflare Tunnels
                   </strong>
-                  .
+                  ,{" "}
+                  <strong className="text-zinc-900 dark:text-zinc-300">
+                    Tailscale
+                  </strong>{" "}
+                  ou DDNS) para gerar uma URL pública.
                 </li>
                 <li>
-                  Defina o IP (geralmente{" "}
-                  <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                    127.0.0.1
-                  </code>{" "}
-                  na porta{" "}
-                  <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                    8080
+                  Insira a sua URL gerada (ex:{" "}
+                  <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-xs break-all dark:bg-zinc-800">
+                    https://qbit.seu-dominio.com
                   </code>
-                  ), Usuário e Senha.
-                </li>
-                <li>
-                  Insira esses mesmos dados nos campos do nosso formulário.
+                  ), Usuário e Senha abaixo.
                 </li>
               </ol>
             </div>
@@ -162,12 +193,16 @@ const TorrentServerComponent = () => {
                 <InfoIcon />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Privacidade 100% Local</ItemTitle>
+                <ItemTitle>Como lidamos com seus dados</ItemTitle>
                 <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
-                  Este Hub não possui banco de dados em nuvem. Suas credenciais
-                  e seu IP são salvos{" "}
-                  <strong>apenas no seu próprio navegador</strong> (via{" "}
-                  localStorage ). Nenhuma informação é enviada para a internet.
+                  Não possuímos banco de dados. Suas credenciais são guardadas
+                  estritamente no{" "}
+                  <code className="rounded bg-zinc-200 px-1 text-xs dark:bg-zinc-800">
+                    localStorage
+                  </code>{" "}
+                  do seu navegador. Elas são enviadas de forma transitória à
+                  nossa API serverless apenas no momento do disparo do download,
+                  sem geração de logs.
                 </ItemDescription>
               </ItemContent>
             </Item>
@@ -196,7 +231,7 @@ const TorrentServerComponent = () => {
               <Input
                 id="username"
                 type="text"
-                placeholder=" Ex: http://localhost:8080"
+                placeholder=" Ex: https://qbit.seu-dominio.com"
                 value={qbittorrentUrl}
                 onChange={(e) => setQbittorrentUrl(e.target.value)}
               />
