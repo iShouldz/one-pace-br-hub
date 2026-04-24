@@ -62,7 +62,7 @@ const getNyaaViewTorrentUrl = (target: URL): string | null => {
   return `${target.origin}/download/${match[1]}.torrent`
 }
 
-const getNyaaRssUrl = (target: URL): URL => {
+const getNyaaRssUrlByPage = (target: URL, page: number): URL => {
   const rssUrl = new URL(target.origin)
   rssUrl.pathname = "/"
   rssUrl.searchParams.set("page", "rss")
@@ -70,12 +70,77 @@ const getNyaaRssUrl = (target: URL): URL => {
   const q = target.searchParams.get("q")
   const c = target.searchParams.get("c")
   const f = target.searchParams.get("f")
+  const s = target.searchParams.get("s")
+  const o = target.searchParams.get("o")
 
   if (q) rssUrl.searchParams.set("q", q)
   if (c) rssUrl.searchParams.set("c", c)
   if (f) rssUrl.searchParams.set("f", f)
+  if (s) rssUrl.searchParams.set("s", s)
+  if (o) rssUrl.searchParams.set("o", o)
+  if (page > 1) rssUrl.searchParams.set("p", String(page))
 
   return rssUrl
+}
+
+const extractRssItems = (xml: string): string[] => {
+  return Array.from(xml.matchAll(/<item>[\s\S]*?<\/item>/g)).map(
+    (match) => match[0]
+  )
+}
+
+const extractInfoHash = (itemXml: string): string => {
+  return (
+    itemXml.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] ||
+    ""
+  )
+}
+
+const buildMergedRss = (items: string[]): string => {
+  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>${items.join("")}</channel></rss>`
+}
+
+const fetchNyaaAggregatedRss = async (
+  parsedTarget: URL,
+  maxPages = 8
+): Promise<string | null> => {
+  const allItems: string[] = []
+  const seenHashes = new Set<string>()
+
+  for (let page = 1; page <= maxPages; page++) {
+    const rssUrl = getNyaaRssUrlByPage(parsedTarget, page)
+    const rssResponse = await fetch(rssUrl.toString(), {
+      method: "GET",
+      redirect: "follow",
+      headers: buildScrapeHeaders(parsedTarget, "rss"),
+    })
+
+    if (!rssResponse.ok) {
+      break
+    }
+
+    const rssXml = await rssResponse.text()
+    const pageItems = extractRssItems(rssXml)
+
+    if (!pageItems.length) {
+      break
+    }
+
+    for (const item of pageItems) {
+      const hash = extractInfoHash(item)
+      if (hash && !seenHashes.has(hash)) {
+        seenHashes.add(hash)
+        allItems.push(item)
+      }
+    }
+
+    if (pageItems.length < 75) {
+      break
+    }
+  }
+
+  if (!allItems.length) return null
+  return buildMergedRss(allItems)
 }
 
 function scrapeProxyPlugin() {
@@ -128,18 +193,12 @@ function scrapeProxyPlugin() {
               return
             }
 
-            const rssUrl = getNyaaRssUrl(parsedTarget)
-            const rssResponse = await fetch(rssUrl.toString(), {
-              method: "GET",
-              redirect: "follow",
-              headers: buildScrapeHeaders(parsedTarget, "rss"),
-            })
+            const rssXml = await fetchNyaaAggregatedRss(parsedTarget)
 
-            if (rssResponse.ok) {
-              const rssXml = await rssResponse.text()
+            if (rssXml) {
               res.statusCode = 200
               res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
-              res.setHeader("X-Scrape-Fallback", "nyaa-rss")
+              res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
               res.end(rssXml)
               return
             }
