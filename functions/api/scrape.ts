@@ -127,6 +127,77 @@ const buildNyaaDownloadUrls = (target: URL, ids: string[]): string => {
   return ids.map((id) => `${target.origin}/download/${id}.torrent`).join("\n")
 }
 
+const getStringEnv = (context: any, key: string): string => {
+  const value = context?.env?.[key]
+  if (typeof value !== "string") return ""
+  return value.trim()
+}
+
+const normalizeContentType = (contentType: string | null): string => {
+  if (!contentType?.trim()) return "text/plain; charset=utf-8"
+  return contentType
+}
+
+const fetchFromUpstreamScraper = async (
+  context: any,
+  targetUrl: string,
+  requestedPages: number
+): Promise<{ body: string; contentType: string; fallbackHeader: string } | null> => {
+  const upstreamBaseUrl = getStringEnv(context, "SCRAPE_UPSTREAM_URL")
+  if (!upstreamBaseUrl) return null
+
+  let parsedUpstream: URL
+  try {
+    parsedUpstream = new URL(upstreamBaseUrl)
+  } catch {
+    return null
+  }
+
+  parsedUpstream.pathname = parsedUpstream.pathname.replace(/\/+$/, "") + "/api/scrape"
+  parsedUpstream.searchParams.set("url", targetUrl)
+  parsedUpstream.searchParams.set("pages", String(requestedPages))
+
+  const upstreamToken = getStringEnv(context, "SCRAPE_UPSTREAM_TOKEN")
+  const headers: Record<string, string> = {
+    accept: "application/rss+xml,application/xml,text/plain,text/html,*/*",
+  }
+
+  if (upstreamToken) {
+    headers.authorization = `Bearer ${upstreamToken}`
+  }
+
+  const upstreamResponse = await fetchWithRetry(
+    parsedUpstream.toString(),
+    {
+      method: "GET",
+      redirect: "follow",
+      headers,
+    },
+    1
+  )
+
+  if (!upstreamResponse.ok) {
+    return null
+  }
+
+  const body = await upstreamResponse.text()
+  if (!body.trim()) {
+    return null
+  }
+
+  const contentType = normalizeContentType(
+    upstreamResponse.headers.get("content-type")
+  )
+  const upstreamFallback =
+    upstreamResponse.headers.get("x-scrape-fallback") || "unknown"
+
+  return {
+    body,
+    contentType,
+    fallbackHeader: `upstream-${upstreamFallback}`,
+  }
+}
+
 const buildMergedRss = (items: string[]): string => {
   return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>${items.join("")}</channel></rss>`
 }
@@ -261,6 +332,22 @@ export async function onRequest(context: any) {
 
       // Para queries (?q=...), sempre usa RSS (HTML de busca não serve)
       if (hasSearchQuery) {
+        const upstreamResult = await fetchFromUpstreamScraper(
+          context,
+          parsedTarget.toString(),
+          requestedPages
+        )
+
+        if (upstreamResult) {
+          const response = buildCachedResponse(
+            upstreamResult.body,
+            upstreamResult.contentType,
+            upstreamResult.fallbackHeader
+          )
+          if (cache) context.waitUntil?.(cache.put(cacheKey, response.clone()))
+          return response
+        }
+
         const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
         if (rssXml) {
           const response = buildCachedResponse(
