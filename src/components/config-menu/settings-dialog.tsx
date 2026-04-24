@@ -28,7 +28,7 @@ import ShowComponent from "@/components/config-menu/show/show.component"
 import AboutComponent from "./about/about.component"
 import TorrentServerComponet from "./torrent-server/torrent-server.component"
 
-type ConfigContentKey = "Exibição" | "Servidor torrent" | "Sobre"
+type ConfigContentKey = "Exibição" | "Provedor torrent" | "Sobre"
 
 const data = {
   nav: [
@@ -37,7 +37,7 @@ const data = {
       icon: <SettingsIcon />,
     },
     {
-      name: "Servidor torrent",
+      name: "Provedor torrent",
       icon: <MenuIcon />,
     },
     {
@@ -67,7 +67,7 @@ export function SettingsDialog({
 
   const configContent: Record<ConfigContentKey, React.ReactElement> = {
     Sobre: <AboutComponent />,
-    "Servidor torrent": <TorrentServerComponet />,
+    "Provedor torrent": <TorrentServerComponet />,
     Exibição: (
       <ShowComponent
         handleHideGrayscale={handleHideGrayscale}
