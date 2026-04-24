@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T15:39:48.112Z",
+  "generatedAt": "2026-04-24T17:01:21.168Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -21,8 +21,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:48.112Z",
-      "lastSuccessAt": "2026-04-24T15:39:48.112Z"
+      "lastAttemptAt": "2026-04-24T17:01:21.168Z",
+      "lastSuccessAt": "2026-04-24T17:01:21.168Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -56,8 +56,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:49.289Z",
-      "lastSuccessAt": "2026-04-24T15:39:49.289Z"
+      "lastAttemptAt": "2026-04-24T17:01:22.207Z",
+      "lastSuccessAt": "2026-04-24T17:01:22.207Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -78,8 +78,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:50.012Z",
-      "lastSuccessAt": "2026-04-24T15:39:50.012Z"
+      "lastAttemptAt": "2026-04-24T17:01:22.879Z",
+      "lastSuccessAt": "2026-04-24T17:01:22.879Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -117,8 +117,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:50.715Z",
-      "lastSuccessAt": "2026-04-24T15:39:50.715Z"
+      "lastAttemptAt": "2026-04-24T17:01:23.521Z",
+      "lastSuccessAt": "2026-04-24T17:01:23.521Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -133,8 +133,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:51.443Z",
-      "lastSuccessAt": "2026-04-24T15:39:51.443Z"
+      "lastAttemptAt": "2026-04-24T17:01:24.224Z",
+      "lastSuccessAt": "2026-04-24T17:01:24.224Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -167,8 +167,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:52.148Z",
-      "lastSuccessAt": "2026-04-24T15:39:52.148Z"
+      "lastAttemptAt": "2026-04-24T17:01:24.873Z",
+      "lastSuccessAt": "2026-04-24T17:01:24.873Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -208,8 +208,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:52.882Z",
-      "lastSuccessAt": "2026-04-24T15:39:52.882Z"
+      "lastAttemptAt": "2026-04-24T17:01:25.511Z",
+      "lastSuccessAt": "2026-04-24T17:01:25.511Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -230,8 +230,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:53.576Z",
-      "lastSuccessAt": "2026-04-24T15:39:53.576Z"
+      "lastAttemptAt": "2026-04-24T17:01:26.179Z",
+      "lastSuccessAt": "2026-04-24T17:01:26.179Z"
     },
     "wano": {
       "arcId": "wano",
@@ -303,8 +303,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:54.278Z",
-      "lastSuccessAt": "2026-04-24T15:39:54.278Z"
+      "lastAttemptAt": "2026-04-24T17:01:26.822Z",
+      "lastSuccessAt": "2026-04-24T17:01:26.822Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
@@ -376,8 +376,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:55.039Z",
-      "lastSuccessAt": "2026-04-24T15:39:55.039Z"
+      "lastAttemptAt": "2026-04-24T17:01:27.537Z",
+      "lastSuccessAt": "2026-04-24T17:01:27.537Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -410,8 +410,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T15:39:55.746Z",
-      "lastSuccessAt": "2026-04-24T15:39:55.746Z"
+      "lastAttemptAt": "2026-04-24T17:01:28.180Z",
+      "lastSuccessAt": "2026-04-24T17:01:28.180Z"
     }
   }
 }
