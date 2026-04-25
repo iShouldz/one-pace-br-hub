@@ -11,6 +11,7 @@ export interface IArcDetailsView {
   handleRedirectToSagaList: () => void
   handleSendToQbittorrent: () => Promise<void>
   handleDownloadEpisodes: () => Promise<string[]>
+  handleCopyMagnetLinksClick: () => Promise<void>
   qbittorrentConfig: IQbittorrentClientConfig | null
   handleRedirectButtonAction: (path?: string) => void
   handleCopyMagnetLinks: (links: string[]) => Promise<boolean>

@@ -72,7 +72,9 @@ const useTorrent = () => {
     return `magnet:?${params.toString()}`
   }
 
-  const getEpisodeRange = (title: string): { start: number; end: number } | null => {
+  const getEpisodeRange = (
+    title: string
+  ): { start: number; end: number } | null => {
     const rangeMatch = title.match(/\[(\d{2,4})(?:-(\d{2,4}))?\]/)
     if (rangeMatch) {
       const start = Number(rangeMatch[1])
@@ -128,8 +130,9 @@ const useTorrent = () => {
           .replace(/&amp;/g, "&")
 
         const infoHash = (
-          item.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] ||
-          ""
+          item.match(
+            /<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/
+          )?.[1] || ""
         ).trim()
 
         const seeders = Number(
@@ -183,13 +186,15 @@ const useTorrent = () => {
     const magnetMatches = html.match(magnetRegex) || []
     const torrentUrlMatches = html.match(torrentUrlRegex) || []
 
-    const rssInfoHashes = Array.from(html.matchAll(infoHashRegex)).map((match) =>
-      buildMagnetFromHash(match[1])
+    const rssInfoHashes = Array.from(html.matchAll(infoHashRegex)).map(
+      (match) => buildMagnetFromHash(match[1])
     )
 
-    const normalized = [...magnetMatches, ...rssInfoHashes, ...torrentUrlMatches].map(
-      (link) => link.replace(/&amp;/g, "&")
-    )
+    const normalized = [
+      ...magnetMatches,
+      ...rssInfoHashes,
+      ...torrentUrlMatches,
+    ].map((link) => link.replace(/&amp;/g, "&"))
 
     return [...new Set(normalized)]
   }
@@ -216,39 +221,44 @@ const useTorrent = () => {
     return response.text()
   }
 
-  const getCachedLinksForArc = useCallback(async (arcId?: string): Promise<string[]> => {
-    if (!arcId) return []
+  const getCachedLinksForArc = useCallback(
+    async (arcId?: string): Promise<string[]> => {
+      if (!arcId) return []
 
-    try {
-      if (!staticCachePromise) {
-        staticCachePromise = fetch(STATIC_SCRAPE_CACHE_URL, {
-          cache: "no-store",
-        })
-          .then((response) => {
-            if (!response.ok) return null
-            return response.json() as Promise<IStaticScrapeCache>
+      try {
+        if (!staticCachePromise) {
+          staticCachePromise = fetch(STATIC_SCRAPE_CACHE_URL, {
+            cache: "no-store",
           })
-          .catch(() => null)
+            .then((response) => {
+              if (!response.ok) return null
+              return response.json() as Promise<IStaticScrapeCache>
+            })
+            .catch(() => null)
+        }
+
+        const cacheData = await staticCachePromise
+        const entry = cacheData?.arcs?.[arcId]
+        const links = Array.isArray(entry?.links)
+          ? entry!.links!.filter(
+              (link) => typeof link === "string" && link.trim()
+            )
+          : []
+
+        if (!links.length) return []
+
+        toast("Links torrent encontrados", {
+          description:
+            "Links torrent encontrados, copie os links abaixo e cole no seu cliente torrent para iniciar os downloads.",
+        })
+
+        return [...new Set(links)]
+      } catch {
+        return []
       }
-
-      const cacheData = await staticCachePromise
-      const entry = cacheData?.arcs?.[arcId]
-      const links = Array.isArray(entry?.links)
-        ? entry!.links!.filter((link) => typeof link === "string" && link.trim())
-        : []
-
-      if (!links.length) return []
-
-      toast("Links carregados do cache comunitário", {
-        description:
-          "Usamos o índice estático atualizado via GitHub Actions para evitar bloqueios de scraping em tempo real.",
-      })
-
-      return [...new Set(links)]
-    } catch {
-      return []
-    }
-  }, [])
+    },
+    []
+  )
 
   const tryCopyMagnetsToClipboard = useCallback(async (links: string[]) => {
     if (!navigator.clipboard?.writeText) return false

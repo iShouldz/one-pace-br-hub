@@ -8,6 +8,7 @@ import { StorageKeys } from "@/utils/storage-keys.utils"
 import { RoutesUrl } from "@/utils/enum/routes.utils"
 import type { IOnePaceArc, IQbittorrentClientConfig } from "../types"
 import useTorrent from "../hooks/use-torrent"
+import { toast } from "sonner"
 
 const ArcDetailsController = () => {
   const {
@@ -37,8 +38,21 @@ const ArcDetailsController = () => {
     []
   )
 
+  const handleCopyMagnetLinksClick = async () => {
+    const copied = await handleCopyMagnetLinks(magnetLinks)
+    if (magnetLinks.length === 1) {
+      return handleRedirect(magnetLinks[0], { external: true })
+    }
+    if (!copied) {
+      toast("Não foi possível copiar automaticamente", {
+        description:
+          "Copie manualmente os links abaixo e cole no seu cliente torrent.",
+      })
+    }
+  }
+
   const handleDownloadEpisodes = useCallback(async () => {
-    let completedArcs: IOnePaceArc[] =
+    const completedArcs: IOnePaceArc[] =
       getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
 
     const arcData = onePieceSagas
@@ -88,11 +102,9 @@ const ArcDetailsController = () => {
     arcId,
     sagaId,
     magnetLinks,
-    handleRedirect,
     fetchPageContent,
     extractMagnetLinks,
     getCachedLinksForArc,
-    sendMagnetsToQbittorrent,
   ])
 
   const handleSendToQbittorrent = useCallback(async () => {
@@ -105,7 +117,7 @@ const ArcDetailsController = () => {
         },
       })
     }
-  }, [magnetLinks])
+  }, [magnetLinks, sagaId, arcId, qbittorrentConfig, sendMagnetsToQbittorrent])
 
   const handleCopyMagnetLinks = useCallback(
     async (links: string[]) => {
@@ -117,7 +129,7 @@ const ArcDetailsController = () => {
   const handleDownloadSubtitles = useCallback(() => {
     const currentArcSubtitle = `https://downgit.github.io/#/home?url=https://github.com/iShouldz/one-pace-br-hub-legendas/tree/main/sagas/${sagaId}/${arcId}`
     handleRedirect(currentArcSubtitle)
-  }, [sagaId, arcId])
+  }, [handleRedirect, sagaId, arcId])
 
   const handleRedirectToHome = useCallback(() => {
     handleRedirect(RoutesUrl.HOME)
@@ -149,6 +161,7 @@ const ArcDetailsController = () => {
       handleSendToQbittorrent={handleSendToQbittorrent}
       handleDownloadSubtitles={handleDownloadSubtitles}
       handleRedirectToSagaList={handleRedirectToSagaList}
+      handleCopyMagnetLinksClick={handleCopyMagnetLinksClick}
       handleRedirectButtonAction={handleRedirectButtonAction}
     />
   )

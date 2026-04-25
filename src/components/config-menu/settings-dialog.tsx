@@ -80,7 +80,7 @@ export function SettingsDialog({
   return (
     <Dialog open={openSettings} onOpenChange={handleToggleSettings}>
       <DialogContent className="grid-rows-[minmax(0,1fr)] gap-0 overflow-hidden p-0 md:h-[85vh] md:max-h-[85vh] md:max-w-175 lg:h-[70vh] lg:max-h-[70vh] lg:max-w-220">
-        <SidebarProvider className="h-full !min-h-0 w-full items-stretch overflow-hidden">
+        <SidebarProvider className="h-full min-h-0! w-full items-stretch overflow-hidden">
           <Sidebar collapsible="none" className="h-full shrink-0 md:flex">
             <SidebarContent className="h-full">
               <SidebarGroup className="h-full">
@@ -89,7 +89,9 @@ export function SettingsDialog({
                     {data.nav.map((item, index) => (
                       <SidebarMenuItem
                         key={item.name}
-                        className={index === data.nav.length - 1 ? "mt-auto" : ""}
+                        className={
+                          index === data.nav.length - 1 ? "mt-auto" : ""
+                        }
                       >
                         <SidebarMenuButton
                           asChild

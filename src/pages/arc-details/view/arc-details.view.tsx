@@ -34,7 +34,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ButtonGroup } from "@/components/ui/button-group"
-import { toast } from "sonner"
 import { ArcStatsCard } from "../components/data-arc.component"
 import { useOnePaceSheet } from "../hooks/use-one-pace-sheet"
 import { Card } from "@/components/ui/card"
@@ -48,12 +47,12 @@ const ArcDetailsView = ({
   magnetLinks,
   qbittorrentConfig,
   handleRedirectToHome,
-  handleCopyMagnetLinks,
   handleDownloadEpisodes,
   handleSendToQbittorrent,
   handleDownloadSubtitles,
   handleRedirectToSagaList,
   handleRedirectButtonAction,
+  handleCopyMagnetLinksClick,
 }: IArcDetailsView) => {
   const informations: IInformationProps[] = [
     ...(data?.informations ?? []),
@@ -74,16 +73,6 @@ const ArcDetailsView = ({
     setIsLoadingMagnets(true)
     await handleDownloadEpisodes()
     setIsLoadingMagnets(false)
-  }
-
-  const handleCopyMagnetLinksClick = async () => {
-    const copied = await handleCopyMagnetLinks(magnetLinks)
-    if (!copied) {
-      toast("Não foi possível copiar automaticamente", {
-        description:
-          "Copie manualmente os links abaixo e cole no seu cliente torrent.",
-      })
-    }
   }
 
   return (
@@ -127,11 +116,14 @@ const ArcDetailsView = ({
 
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Dialog>
-                    <DialogTrigger asChild>
-                      <Button size="lg">
-                        <DownloadIcon /> Episodios
-                      </Button>
-                    </DialogTrigger>
+                    {!data!.linkDownload.includes("drive") && (
+                      <DialogTrigger asChild>
+                        <Button size="lg">
+                          <DownloadIcon /> Episodios
+                        </Button>
+                      </DialogTrigger>
+                    )}
+
                     <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
                       <DialogHeader>
                         <DialogTitle>Scrapping</DialogTitle>
@@ -173,10 +165,12 @@ const ArcDetailsView = ({
                                 readOnly
                                 value={magnetLinks.join("\n")}
                               />
-                              <p className="text-xs text-white/80 sm:text-sm">
-                                Caminho de salvamento do Qbittorent:{" "}
-                                {qbittorrentConfig?.savePath}\{sagaId}\{arcId}
-                              </p>
+                              {qbittorrentConfig?.savePath && (
+                                <p className="text-xs text-white/80 sm:text-sm">
+                                  Caminho de salvamento do Qbittorent:{" "}
+                                  {qbittorrentConfig?.savePath}\{sagaId}\{arcId}
+                                </p>
+                              )}
                             </div>
                           )}
                           <ButtonGroup>
@@ -228,6 +222,18 @@ const ArcDetailsView = ({
                       </DialogFooter>
                     </DialogContent>
                   </Dialog>
+                  {data!.linkDownload.includes("drive") && (
+                    <Button
+                      size="lg"
+                      type="button"
+                      onClick={() =>
+                        handleRedirectButtonAction(data?.linkDownload)
+                      }
+                    >
+                      <DownloadIcon /> Episodios
+                    </Button>
+                  )}
+
                   {!data?.hideSubtitle && (
                     <Button
                       size="lg"
@@ -255,7 +261,7 @@ const ArcDetailsView = ({
                 </div>
               </div>
               {informations.length > 0 && (
-                <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto">
+                <div className="flex max-h-75 flex-col gap-3 overflow-y-auto">
                   {informations.map((info) => (
                     <Item variant="muted" key={info.title}>
                       <ItemMedia variant="icon">

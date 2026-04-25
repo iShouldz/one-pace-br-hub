@@ -16,7 +16,7 @@ const HomeController = () => {
   const [showAllSagas, setShowAllSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) ?? true
   )
-console.log(showAllSagas)
+
   const [hideGrayscale, setHideGrayscale] = useState<boolean>(
     getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) ?? false
   )
@@ -68,7 +68,7 @@ console.log(showAllSagas)
       saveToLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS, !prevState)
       return !prevState
     })
-  }, [showAllSagas])
+  }, [])
 
   const handleToggleOrderList = useCallback(() => {
     setCurrentOnePieceSagas((prevState) => {
@@ -86,7 +86,7 @@ console.log(showAllSagas)
       saveToLocalStorage(StorageKeys.HIDE_GRAYSCALE, !prevState)
       return !prevState
     })
-  }, [hideGrayscale])
+  }, [])
 
   const handleToggleSettings = useCallback(() => {
     setOpenSettings((prev) => !prev)

@@ -21,7 +21,7 @@ const CardArcComponent = ({
     return completedArcs.some((id) =>
       id.arcos.some((arcId) => String(arcId) === String(arc.id))
     )
-  }, [arc.id])
+  }, [arc.id, sagaId])
 
   const hideGrayscale = getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) || false
 

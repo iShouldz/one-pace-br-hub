@@ -64,26 +64,29 @@ const ShowComponent = ({
     )
   )
 
-  const handleSwitchChange = useCallback((id: string, value: boolean) => {
-    setSwitchStates((prev) => ({
-      ...prev,
-      [id]: value,
-    }))
+  const handleSwitchChange = useCallback(
+    (id: string, value: boolean) => {
+      setSwitchStates((prev) => ({
+        ...prev,
+        [id]: value,
+      }))
 
-    switch (id) {
-      case "listagem-sagas":
-        handleToggleOrderList()
-        break
-      case "ocultar-sagas":
-        handleHideCompletedSagas()
-        break
-      case "escala-cinza":
-        handleHideGrayscale()
-        break
-      default:
-        break
-    }
-  }, [])
+      switch (id) {
+        case "listagem-sagas":
+          handleToggleOrderList()
+          break
+        case "ocultar-sagas":
+          handleHideCompletedSagas()
+          break
+        case "escala-cinza":
+          handleHideGrayscale()
+          break
+        default:
+          break
+      }
+    },
+    [handleToggleOrderList, handleHideCompletedSagas, handleHideGrayscale]
+  )
 
   return (
     <section className="flex flex-col gap-5">
