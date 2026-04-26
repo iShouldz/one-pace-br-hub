@@ -4,6 +4,7 @@ import type { ISaga } from "../types"
 
 export type OpDataResponse = {
   sagas?: ISaga[]
+  enabledNotify: boolean
 }
 
 class ApiError extends Error {
