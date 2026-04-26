@@ -2,7 +2,7 @@ import { Card } from "../ui/card"
 import type { ICardArc } from "../carousel-arc/types"
 import { useMemo } from "react"
 import { getFromLocalStorage } from "@/utils/storage.utils"
-import { StorageKeys } from "@/utils/storage-keys.utils"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import { Check } from "lucide-react"
 import type { IOnePaceArc } from "@/pages/arc-details/types"
 const CardArcComponent = ({

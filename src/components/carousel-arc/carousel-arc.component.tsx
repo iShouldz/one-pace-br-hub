@@ -11,6 +11,7 @@ const CarouselArcComponent = ({
   sagaId,
   handleRedirectToArcDetails,
 }: ICarouselArc) => {
+  
   return (
     <Carousel
       opts={{

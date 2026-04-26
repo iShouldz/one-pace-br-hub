@@ -27,6 +27,7 @@ import { Separator } from "../ui/separator"
 import ShowComponent from "@/components/config-menu/show/show.component"
 import AboutComponent from "./about/about.component"
 import TorrentServerComponet from "./torrent-server/torrent-server.component"
+import type { ResolvedTheme } from "../theme-provider"
 
 type ConfigContentKey = "Exibição" | "Provedor torrent" | "Sobre"
 
@@ -49,6 +50,9 @@ const data = {
 
 interface ISettingsDialog {
   openSettings: boolean
+  hideGrayscale: boolean
+  currentTheme: ResolvedTheme
+  handleToggleTheme: () => void
   handleHideGrayscale: () => void
   handleToggleSettings: () => void
   handleToggleOrderList: () => void
@@ -56,7 +60,10 @@ interface ISettingsDialog {
 }
 
 export function SettingsDialog({
+  currentTheme,
   openSettings,
+  hideGrayscale,
+  handleToggleTheme,
   handleHideGrayscale,
   handleToggleSettings,
   handleToggleOrderList,
@@ -70,6 +77,9 @@ export function SettingsDialog({
     "Provedor torrent": <TorrentServerComponet />,
     Exibição: (
       <ShowComponent
+        currentTheme={currentTheme}
+        hideGrayscale={hideGrayscale}
+        handleToggleTheme={handleToggleTheme}
         handleHideGrayscale={handleHideGrayscale}
         handleToggleOrderList={handleToggleOrderList}
         handleHideCompletedSagas={handleHideCompletedSagas}

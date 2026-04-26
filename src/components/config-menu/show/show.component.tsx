@@ -1,3 +1,4 @@
+import type { ResolvedTheme } from "@/components/theme-provider"
 import {
   Field,
   FieldContent,
@@ -7,9 +8,9 @@ import {
   FieldTitle,
 } from "@/components/ui/field"
 import { Switch } from "@/components/ui/switch"
-import { StorageKeys } from "@/utils/storage-keys.utils"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import { getFromLocalStorage } from "@/utils/storage.utils"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const sectionData = [
   {
@@ -28,15 +29,27 @@ const sectionData = [
     description:
       "Remover o filtro de escala de cinza dos banners das sagas incompletas.",
   },
+  {
+    id: "tema-escuro",
+    title: "Tema escuro",
+    description:
+      "Ative o tema escuro para uma experiência visual mais confortável em ambientes com pouca luz.",
+  },
 ]
 
 interface IShowComponentInterface {
+  hideGrayscale: boolean
+  currentTheme: ResolvedTheme
+  handleToggleTheme: () => void
   handleHideGrayscale: () => void
   handleToggleOrderList: () => void
   handleHideCompletedSagas: () => void
 }
 
 const ShowComponent = ({
+  currentTheme,
+  hideGrayscale,
+  handleToggleTheme,
   handleHideGrayscale,
   handleToggleOrderList,
   handleHideCompletedSagas,
@@ -52,7 +65,10 @@ const ShowComponent = ({
             acc[item.id] = getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS)
             break
           case "escala-cinza":
-            acc[item.id] = getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE)
+            acc[item.id] = hideGrayscale
+            break
+          case "tema-escuro":
+            acc[item.id] = currentTheme === "dark"
             break
           default:
             break
@@ -63,6 +79,14 @@ const ShowComponent = ({
       {} as Record<string, boolean>
     )
   )
+
+  useEffect(() => {
+    setSwitchStates((prev) => ({
+      ...prev,
+      "tema-escuro": currentTheme === "dark",
+      "escala-cinza": hideGrayscale,
+    }))
+  }, [currentTheme, hideGrayscale])
 
   const handleSwitchChange = useCallback(
     (id: string, value: boolean) => {
@@ -81,11 +105,19 @@ const ShowComponent = ({
         case "escala-cinza":
           handleHideGrayscale()
           break
+        case "tema-escuro":
+          handleToggleTheme()
+          break
         default:
           break
       }
     },
-    [handleToggleOrderList, handleHideCompletedSagas, handleHideGrayscale]
+    [
+      handleToggleOrderList,
+      handleHideCompletedSagas,
+      handleHideGrayscale,
+      handleToggleTheme,
+    ]
   )
 
   return (
