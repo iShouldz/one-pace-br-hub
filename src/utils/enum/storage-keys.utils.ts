@@ -1,4 +1,5 @@
 export const StorageKeys = {
+  THEME: "theme",
   ORDER_SAGAS: "@order-sagas",
   MODAL_WELCOME: "@modal-welcome",
   HIDE_GRAYSCALE: "@hide-grayscale",

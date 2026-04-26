@@ -1,17 +1,22 @@
 import HomeView from "../view/home.view"
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { routePath } from "@/utils/enum/routes.utils"
-import { onePieceSagas } from "../utils/saga.utils"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
-import { StorageKeys } from "@/utils/storage-keys.utils"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
+import useOpData from "../hooks/use-op-data"
+import { useTheme, type ResolvedTheme } from "@/components/theme-provider"
 
 const HomeController = () => {
+  const { theme, setTheme } = useTheme()
+  const { data, isLoading } = useOpData()
   const { handleRedirect } = useNavigation()
 
   const [orderSagas, setOrderSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.ORDER_SAGAS) ?? false
   )
+
+  const [openSettings, setOpenSettings] = useState(false)
 
   const [showAllSagas, setShowAllSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.SHOW_COMPLETED_SAGAS) ?? true
@@ -21,14 +26,31 @@ const HomeController = () => {
     getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) ?? false
   )
 
-  const [openSettings, setOpenSettings] = useState(false)
+  const currentTheme: ResolvedTheme = theme === "light" ? "light" : "dark"
+
+  const [renderModalOnePaceWelcome, setRenderModalOnePaceWelcome] = useState(
+    () => {
+      const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
+
+      if (hasShowModal) {
+        return false
+      }
+
+      saveToLocalStorage(StorageKeys.MODAL_WELCOME, true)
+      return true
+    }
+  )
 
   const opSaga = useMemo(() => {
-    if (orderSagas) {
-      return [...onePieceSagas].reverse()
+    if (!data || !orderSagas) {
+      return data
     }
-    return onePieceSagas
-  }, [orderSagas])
+
+    return {
+      ...data,
+      sagas: [...(data.sagas ?? [])].reverse(),
+    }
+  }, [data, orderSagas])
 
   const [currentOnePieceSagas, setCurrentOnePieceSagas] = useState(opSaga)
 
@@ -52,15 +74,9 @@ const HomeController = () => {
     })
   }, [handleRedirect])
 
-  const renderModalOnePaceWelcome = useMemo(() => {
-    const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
-
-    if (hasShowModal) {
-      return false
-    }
-
+  const handleCloseWelcomeModal = useCallback(() => {
+    setRenderModalOnePaceWelcome(false)
     saveToLocalStorage(StorageKeys.MODAL_WELCOME, true)
-    return true
   }, [])
 
   const handleHideCompletedSagas = useCallback(() => {
@@ -72,7 +88,14 @@ const HomeController = () => {
 
   const handleToggleOrderList = useCallback(() => {
     setCurrentOnePieceSagas((prevState) => {
-      return [...prevState].reverse()
+      if (!prevState || !prevState.sagas) {
+        return prevState
+      }
+
+      return {
+        ...prevState,
+        sagas: [...prevState.sagas].reverse(),
+      }
     })
 
     setOrderSagas((prevState) => {
@@ -92,14 +115,28 @@ const HomeController = () => {
     setOpenSettings((prev) => !prev)
   }, [])
 
+  const handleToggleTheme = useCallback(() => {
+    const newTheme = currentTheme === "dark" ? "light" : "dark"
+    setTheme(newTheme)
+  }, [currentTheme, setTheme])
+
+  useEffect(() => {
+    setCurrentOnePieceSagas(opSaga)
+  }, [opSaga])
+
   return (
     <HomeView
+      isLoading={isLoading}
+      currentTheme={currentTheme}
       openSettings={openSettings}
       showAllSagas={showAllSagas}
+      hideGrayscale={hideGrayscale}
       onePieceSagas={currentOnePieceSagas}
+      handleToggleTheme={handleToggleTheme}
       handleHideGrayscale={handleHideGrayscale}
       handleToggleSettings={handleToggleSettings}
       handleToggleOrderList={handleToggleOrderList}
+      handleCloseWelcomeModal={handleCloseWelcomeModal}
       handleHideCompletedSagas={handleHideCompletedSagas}
       renderModalOnePaceWelcome={renderModalOnePaceWelcome}
       handleRedirectToArcDetails={handleRedirectToArcDetails}

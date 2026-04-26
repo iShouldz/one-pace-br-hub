@@ -1,25 +1,17 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import SagaList from "../components/SagaList/saga-list.component"
+import SagaListLoading from "../components/SagaList/saga-list-loading.component"
 import type { IHomeView } from "../types"
-import { Captions, InfoIcon, SettingsIcon } from "lucide-react"
+import { Captions, SettingsIcon } from "lucide-react"
 
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Item,
-  ItemActions,
-  ItemContent,
-  ItemDescription,
-  ItemMedia,
-  ItemTitle,
-} from "@/components/ui/item"
 
 import { Button } from "@/components/ui/button"
 import { SettingsDialog } from "@/components/config-menu/settings-dialog"
@@ -35,21 +27,31 @@ import {
   FieldDescription,
   FieldTitle,
 } from "@/components/ui/field"
+
 const HomeView = ({
+  isLoading,
+  currentTheme,
   openSettings,
   showAllSagas,
+  hideGrayscale,
   onePieceSagas,
+  handleToggleTheme,
   handleHideGrayscale,
   handleToggleSettings,
   handleToggleOrderList,
+  handleCloseWelcomeModal,
   handleHideCompletedSagas,
+  renderModalOnePaceWelcome,
   handleRedirectToArcDetails,
   handleRedirectToSagaDetails,
   handleRedirectToSubtitleRepo,
 }: IHomeView) => {
   return (
     <BackgroundHeaderComponent>
-      <Dialog open={true}>
+      <Dialog
+        open={renderModalOnePaceWelcome}
+        onOpenChange={handleCloseWelcomeModal}
+      >
         <DialogTrigger asChild></DialogTrigger>
         <DialogContent className="flex flex-col gap-6 sm:max-w-2xl">
           <DialogHeader>
@@ -90,31 +92,14 @@ const HomeView = ({
               </Field>
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <Item variant="muted">
-              <ItemMedia variant="icon">
-                <InfoIcon />
-              </ItemMedia>
-              <ItemContent>
-                <ItemTitle>Sobre o One Pace</ItemTitle>
-                <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
-                  Esse hub é apenas um agregador para legendas pt-br, apenas
-                  facilitamos o acesso às legendas criadas pela comunidade.
-                  Todos os creditos para o One Pace
-                </ItemDescription>
-              </ItemContent>
-              <ItemActions>
-                <Button size="sm" variant="outline" onClick={() => {}}>
-                  Visitar o site
-                </Button>
-              </ItemActions>
-            </Item>
-          </DialogFooter>
         </DialogContent>
       </Dialog>
       <main className="relative z-10">
         <SettingsDialog
+          currentTheme={currentTheme}
           openSettings={openSettings}
+          hideGrayscale={hideGrayscale}
+          handleToggleTheme={handleToggleTheme}
           handleHideGrayscale={handleHideGrayscale}
           handleToggleSettings={handleToggleSettings}
           handleToggleOrderList={handleToggleOrderList}
@@ -167,14 +152,18 @@ const HomeView = ({
           </div>
         </section>
 
-        <section className="md:pt-[35svh] lg:pt-[45svh]">
-          <SagaList
-            showAllSagas={showAllSagas}
-            onePieceSagas={onePieceSagas}
-            handleRedirectToArcDetails={handleRedirectToArcDetails}
-            handleRedirectToSagaDetails={handleRedirectToSagaDetails}
-          />
-        </section>
+        {isLoading ? (
+          <SagaListLoading />
+        ) : (
+          <section className="md:pt-[35svh] lg:pt-[45svh]">
+            <SagaList
+              showAllSagas={showAllSagas}
+              onePieceSagas={onePieceSagas}
+              handleRedirectToArcDetails={handleRedirectToArcDetails}
+              handleRedirectToSagaDetails={handleRedirectToSagaDetails}
+            />
+          </section>
+        )}
       </main>
     </BackgroundHeaderComponent>
   )

@@ -24,7 +24,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
-import { StorageKeys } from "@/utils/storage-keys.utils"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
 import { InfoIcon } from "lucide-react"
 

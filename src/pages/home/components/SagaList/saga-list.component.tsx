@@ -1,7 +1,7 @@
 import { getFromLocalStorage } from "@/utils/storage.utils"
 import type { ISagaList } from "../../types"
 import ArcBlockComponent from "../arc-block/arc-block.component"
-import { StorageKeys } from "@/utils/storage-keys.utils"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import type { IOnePaceArc } from "@/pages/arc-details/types"
 
 const SagaList = ({
@@ -12,7 +12,7 @@ const SagaList = ({
 }: ISagaList) => {
   return (
     <div className="flex flex-col gap-2">
-      {onePieceSagas.map((saga) => {
+      {onePieceSagas?.sagas?.map((saga) => {
         const completedOnePace: IOnePaceArc[] =
           getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
         if (
