@@ -9,6 +9,7 @@ import { RoutesUrl } from "@/utils/enum/routes.utils"
 import type { IOnePaceArc, IQbittorrentClientConfig } from "../types"
 import useTorrent from "../hooks/use-torrent"
 import { toast } from "sonner"
+import useSeo from "@/hooks/use-seo"
 
 const ArcDetailsController = () => {
   const {
@@ -29,6 +30,28 @@ const ArcDetailsController = () => {
         ?.arcs.find((arc) => arc.id === arcId),
     [sagaId, arcId]
   )
+
+  const currentSagaData = useMemo(
+    () => onePieceSagas.find((saga) => saga.id === sagaId),
+    [sagaId]
+  )
+
+  useSeo({
+    title: `${currentArcData?.title ?? "Arco"} | ${currentSagaData?.title ?? "One Pace"} PT-BR`,
+    description:
+      currentArcData?.description ??
+      "Detalhes do arco do One Pace com links e recursos de legenda PT-BR.",
+    path: `/saga/${sagaId ?? ""}/${arcId ?? ""}`,
+    keywords: `${currentArcData?.title ?? "arco"} one pace, ${currentSagaData?.title ?? "saga"} one pace legendado, one pace pt br`,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: currentArcData?.title ?? "Arco One Pace",
+      inLanguage: "pt-BR",
+      description: currentArcData?.description,
+      about: currentSagaData?.title,
+    },
+  })
 
   const qbittorrentConfig = useMemo(
     () =>

@@ -6,6 +6,7 @@ import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
 import useOpData from "../hooks/use-op-data"
 import { useTheme, type ResolvedTheme } from "@/components/theme-provider"
+import useSeo from "@/hooks/use-seo"
 
 const HomeController = () => {
   const { theme, setTheme } = useTheme()
@@ -119,6 +120,27 @@ const HomeController = () => {
     const newTheme = currentTheme === "dark" ? "light" : "dark"
     setTheme(newTheme)
   }, [currentTheme, setTheme])
+
+  useSeo({
+    title: "One Pace BR Hub | One Pace Legendado PT-BR",
+    description:
+      "Hub brasileiro do One Pace com sagas organizadas, links por arco e legendas PT-BR. Encontre East Blue, Alabasta, Water Seven, Wano e mais.",
+    path: "/",
+    keywords:
+      "one pace pt br, one pace legendado, one pace brasil, one pace east blue legendado",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "One Pace BR Hub",
+      inLanguage: "pt-BR",
+      url: "/",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "/saga/{sagaId}",
+        "query-input": "required name=sagaId",
+      },
+    },
+  })
 
   useEffect(() => {
     setCurrentOnePieceSagas(opSaga)
