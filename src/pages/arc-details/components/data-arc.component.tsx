@@ -1,6 +1,11 @@
 "use client"
 
-import { AlertTriangle, PieChart, TrendingDown } from "lucide-react"
+import {
+  AlertTriangle,
+  ArrowUpRight,
+  PieChart,
+  TrendingDown,
+} from "lucide-react"
 import { Label, PolarGrid, RadialBar, RadialBarChart } from "recharts"
 
 import {
@@ -36,7 +41,9 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
   return (
     <Card className="flex w-full max-w-sm flex-col bg-transparent text-zinc-100 shadow-xl sm:max-w-md">
       <CardHeader className="mb-4 items-center border-b border-zinc-800 pb-2">
-        <CardTitle className="text-xl font-bold">{stats.nome}</CardTitle>
+        <CardTitle className="flex gap-2 text-xl font-bold">
+          {stats.nome}
+        </CardTitle>
         {stats.isTbr && (
           <Badge
             variant="destructive"
@@ -46,8 +53,16 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
             Este arco será refeito em breve (TBR)
           </Badge>
         )}
-        <CardDescription className="text-sm text-zinc-400">
-          Status de Conclusão (segundo a planilha oficial)
+        <CardDescription className="item-center flex text-sm text-zinc-400">
+          <a
+            href="https://docs.google.com/spreadsheets/d/1HQRMJgu_zArp-sLnvFMDzOyjdsht87eFLECxMK858lA/edit?gid=0#gid=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-muted-foreground hover:text-blue-300"
+          >
+            Status de Conclusão (segundo a planilha oficial)
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </CardDescription>
       </CardHeader>
 
@@ -55,7 +70,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
         {stats.porcentagem ? (
           <ChartContainer
             config={chartConfig}
-            className="mx-auto aspect-square max-h-[200px]"
+            className="mx-auto aspect-square max-h-50"
           >
             <RadialBarChart
               data={chartData}
@@ -104,7 +119,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
             </RadialBarChart>
           </ChartContainer>
         ) : (
-          <div className="mx-auto flex aspect-square max-h-[200px] w-full flex-col items-center justify-center text-zinc-500">
+          <div className="full mx-auto flex aspect-square max-h-50 flex-col items-center justify-center text-zinc-500">
             <div className="mb-3 justify-center rounded-full border border-zinc-800/50 bg-zinc-900/50 p-4">
               <PieChart className="h-8 w-8 text-zinc-600" />
             </div>
@@ -137,7 +152,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
           </div>
           <div className="flex items-center justify-between">
             <span>Runtime Total Original:</span>
-            <strong className="text-base text-white flex">
+            <strong className="flex text-base text-white">
               {(stats.minutosOriginais / 60).toFixed(1)}h
             </strong>{" "}
           </div>

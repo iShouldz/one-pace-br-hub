@@ -4,6 +4,7 @@ import Papa from "papaparse"
 const SHEET_ID = "1HQRMJgu_zArp-sLnvFMDzOyjdsht87eFLECxMK858lA"
 const GID = "0"
 
+const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=${GID}`
 export interface ArcPlanilhaStats {
   nome: string
   porcentagem: number
@@ -23,7 +24,6 @@ export function useOnePaceSheet() {
   useEffect(() => {
     const fetchSheet = async () => {
       try {
-        const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=${GID}`
         const response = await fetch(url)
         const csvText = await response.text()
 
