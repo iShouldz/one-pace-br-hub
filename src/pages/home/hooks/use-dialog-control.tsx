@@ -1,9 +1,9 @@
 import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/storage.utils"
-import { useTheme } from "next-themes"
+
 import { useCallback, useEffect, useMemo, useState } from "react"
 import useOpData from "./use-op-data"
-import type { ResolvedTheme } from "@/components/theme-provider"
+import { useTheme, type ResolvedTheme } from "@/components/theme-provider"
 
 const useDialogControl = () => {
   const { theme, setTheme } = useTheme()

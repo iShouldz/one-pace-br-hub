@@ -31,6 +31,8 @@ const HomeController = () => {
     handleHideCompletedSagas,
   } = useDialogControl()
 
+  
+
   const [renderModalOnePaceWelcome, setRenderModalOnePaceWelcome] = useState(
     () => {
       const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
