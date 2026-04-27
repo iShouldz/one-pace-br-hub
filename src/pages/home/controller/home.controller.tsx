@@ -12,7 +12,11 @@ import useNotification from "../hooks/use-notification"
 
 const HomeController = () => {
   const { handleRedirect } = useNavigation()
-  const { activeNotifications } = useNotification()
+  const {
+    activeNotifications,
+    closedNotifications,
+    handleToggleCloseNotifications,
+  } = useNotification()
   const {
     isLoading,
     openSettings,
@@ -100,6 +104,7 @@ const HomeController = () => {
       onePieceSagas={currentOnePieceSagas}
       handleToggleTheme={handleToggleTheme}
       notificationData={activeNotifications}
+      closedNotifications={closedNotifications}
       handleHideGrayscale={handleHideGrayscale}
       handleToggleSettings={handleToggleSettings}
       handleToggleOrderList={handleToggleOrderList}
@@ -110,6 +115,7 @@ const HomeController = () => {
       handleRedirectToArcDetails={handleRedirectToArcDetails}
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
+      handleToggleCloseNotifications={handleToggleCloseNotifications}
     />
   )
 }

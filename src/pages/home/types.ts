@@ -35,6 +35,7 @@ export interface IHomeView {
   openSettings: boolean
   hideGrayscale: boolean
   currentTheme: ResolvedTheme
+  closedNotifications: boolean
   handleToggleTheme: () => void
   handleHideGrayscale: () => void
   handleToggleSettings: () => void
@@ -44,6 +45,7 @@ export interface IHomeView {
   handleHideCompletedSagas: () => void
   handleRedirectToSubtitleRepo: () => void
   onePieceSagas: OpDataResponse | undefined
+  handleToggleCloseNotifications: () => void
   handleRedirectNotifyButton: (path: string) => void
   notificationData: NotificationResponse | undefined
   handleRedirectToSagaDetails: (sagaId: string) => void

@@ -2,7 +2,7 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import SagaList from "../components/SagaList/saga-list.component"
 import SagaListLoading from "../components/SagaList/saga-list-loading.component"
 import type { IHomeView } from "../types"
-import { ArrowUpRight, Captions, InfoIcon, SettingsIcon } from "lucide-react"
+import { ArrowUpRight, Captions, InfoIcon, SettingsIcon, X } from "lucide-react"
 
 import {
   Dialog,
@@ -27,7 +27,12 @@ import {
   FieldDescription,
   FieldTitle,
 } from "@/components/ui/field"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import {
+  Alert,
+  AlertAction,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert"
 
 const HomeView = ({
   isLoading,
@@ -38,6 +43,7 @@ const HomeView = ({
   onePieceSagas,
   notificationData,
   handleToggleTheme,
+  closedNotifications,
   handleHideGrayscale,
   handleToggleSettings,
   handleToggleOrderList,
@@ -48,11 +54,13 @@ const HomeView = ({
   handleRedirectNotifyButton,
   handleRedirectToSagaDetails,
   handleRedirectToSubtitleRepo,
+  handleToggleCloseNotifications,
 }: IHomeView) => {
   return (
     <>
       <BackgroundHeaderComponent>
         {notificationData &&
+          closedNotifications &&
           notificationData.notifications.map((notification) => (
             <Alert
               className="relative z-20 m-2 flex items-center justify-center"
@@ -71,6 +79,14 @@ const HomeView = ({
               >
                 {notification.buttonText} <ArrowUpRight />
               </Button>
+              <AlertAction>
+                <Button
+                  variant="ghost"
+                  onClick={handleToggleCloseNotifications}
+                >
+                  <X />
+                </Button>
+              </AlertAction>
             </Alert>
           ))}
         <Dialog
