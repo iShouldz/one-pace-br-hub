@@ -55,7 +55,7 @@ const HomeController = () => {
 
   const handleRedirectNotifyButton = useCallback((path: string) => {
     handleRedirect(path)
-  }, [])
+  }, [handleRedirect])
 
   const handleRedirectToArcDetails = useCallback(
     (sagaId: string, arcId: string) => {
