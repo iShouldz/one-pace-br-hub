@@ -39,7 +39,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
 
   return (
     <Card className="flex w-full max-w-sm flex-col border bg-transparent text-accent-foreground shadow-xl sm:max-w-md">
-      <CardHeader className="mb-4 items-center border-b pb-2">
+      <CardHeader className="mb-4 items-center border-b border-foreground/20 pb-2">
         <CardTitle className="flex gap-2 text-xl font-bold">
           <a
             href="https://docs.google.com/spreadsheets/d/1HQRMJgu_zArp-sLnvFMDzOyjdsht87eFLECxMK858lA/edit?gid=0#gid=0"
@@ -116,7 +116,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
           </ChartContainer>
         ) : (
           <div className="full mx-auto flex aspect-square max-h-50 flex-col items-center justify-center text-accent-foreground">
-            <div className="mb-3 justify-center rounded-full border border-zinc-800/50 bg-zinc-900/50 p-4">
+            <div className="mb-3 justify-center rounded-full border p-4">
               <PieChart className="h-8 w-8 text-zinc-600" />
             </div>
             <span className="text-sm font-medium text-accent-foreground">
@@ -126,7 +126,7 @@ export function ArcStatsCard({ stats }: { stats: ArcPlanilhaStats }) {
         )}
       </CardContent>
 
-      <CardFooter className="mt-4 flex-col gap-4 border-t pt-5 text-sm">
+      <CardFooter className="mt-4 flex-col gap-4 border-t border-foreground/20 pt-5 text-sm">
         {stats.porcentagem !== 100 ? (
           <div className="flex items-center gap-2 font-medium text-amber-400">
             <AlertTriangle className="h-5 w-5" />

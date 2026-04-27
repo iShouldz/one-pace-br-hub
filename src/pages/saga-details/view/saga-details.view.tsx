@@ -48,7 +48,7 @@ const SagaDetailsView = ({
             </Breadcrumb>
 
             <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-              <div className="space-y-3 lg:max-w-5xl">
+              <div className="space-y-3">
                 <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-3xl">
                   {data?.title ?? "Saga nao encontrada"}
                 </h2>
@@ -57,21 +57,20 @@ const SagaDetailsView = ({
                     "Nao encontramos os detalhes desta saga no momento."}
                 </p>
               </div>
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-sm font-medium text-foreground dark:border-white/15 dark:bg-black/40">
-                <LayoutGrid className="size-4" />
-                <span>{arcCount} arcos</span>
-              </div>
             </div>
           </article>
 
           <section className="rounded-3xl border border-black/10 bg-white/45 p-4 shadow-xl shadow-black/10 backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-black/35 dark:shadow-black/40">
             <div className="mb-4 flex flex-col gap-2 sm:mb-5 sm:flex-row sm:items-end sm:justify-between">
-              <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+              <h3 className="flex w-fit flex-col items-start text-xl font-semibold tracking-tight sm:text-2xl">
                 Lista de arcos
+                <div className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-sm font-medium text-foreground dark:border-white/15 dark:bg-black/40">
+                  <LayoutGrid className="size-4" />
+                  <span>{arcCount} arcos</span>
+                </div>
               </h3>
-              <p className="text-sm text-muted-foreground">
-                Selecione um arco para abrir os detalhes e opcoes de download.
+              <p className="flex flex-col items-start text-sm text-muted-foreground">
+                Selecione um arco para abrir os detalhes e opções de download.
               </p>
             </div>
 

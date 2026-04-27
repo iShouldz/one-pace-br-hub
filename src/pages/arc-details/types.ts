@@ -4,7 +4,6 @@ export interface IArcDetailsView {
   arcId?: string
   sagaId?: string
   magnetLinks: string[]
-  handleBack: () => void
   data: IArc | undefined
   handleRedirectToHome: () => void
   handleDownloadSubtitles: () => void

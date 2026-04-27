@@ -119,11 +119,10 @@ const ArcDetailsView = ({
             <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="space-y-3">
                 <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-3xl">
-                  {data?.title ?? "Arco nao encontrado"}
+                  {data?.title}
                 </h2>
                 <p className="text-base text-muted-foreground sm:text-lg">
-                  {data?.description ??
-                    "Nao encontramos os detalhes deste arco no momento."}
+                  {data?.description}
                 </p>
               </div>
             </div>

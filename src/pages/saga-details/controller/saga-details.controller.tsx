@@ -5,10 +5,12 @@ import useNavigation from "@/hooks/use-navigation/use-navigation"
 import { routePath, RoutesUrl } from "@/utils/enum/routes.utils"
 import useOpData from "@/pages/home/hooks/use-op-data"
 import useSeo from "@/hooks/use-seo"
+import SagaDetailsLoading from "../components/saga-details-loading.component"
+import ErrorView from "@/pages/error/error.view"
 
 const SagaDetailsController = () => {
   const { sagaId } = useParams()
-  const { data } = useOpData()
+  const { data, isLoading } = useOpData()
   const { handleRedirect, handleBack } = useNavigation()
 
   const currentSagaData = useMemo(
@@ -42,6 +44,23 @@ const SagaDetailsController = () => {
   const handleRedirectToHome = useCallback(() => {
     handleRedirect(RoutesUrl.HOME)
   }, [handleRedirect])
+
+  if (isLoading) {
+    return <SagaDetailsLoading />
+  }
+
+  if (!currentSagaData) {
+    return (
+      <ErrorView
+        title="Saga nao encontrada"
+        description="Nao conseguimos encontrar os detalhes desta saga."
+        primaryActionLabel="Voltar para a home"
+        onPrimaryAction={handleRedirectToHome}
+        secondaryActionLabel="Voltar"
+        onSecondaryAction={handleBack}
+      />
+    )
+  }
 
   return (
     <SagaDetailsView

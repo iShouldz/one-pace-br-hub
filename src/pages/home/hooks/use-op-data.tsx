@@ -36,9 +36,10 @@ const useOpData = () => {
 
   return {
     data: query.data,
-    error: query.error,
+    isError: query.isError,
     refetch: query.refetch,
     isLoading: query.isLoading,
+    isPending: query.isPending,
   }
 }
 

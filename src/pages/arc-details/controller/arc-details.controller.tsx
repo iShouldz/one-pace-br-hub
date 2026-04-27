@@ -1,5 +1,4 @@
 import useNavigation from "@/hooks/use-navigation/use-navigation"
-import { onePieceSagas } from "@/pages/home/utils/saga.utils"
 import { useCallback, useMemo, useState } from "react"
 import { useParams } from "react-router"
 import ArcDetailsView from "../view/arc-details.view"
@@ -10,6 +9,9 @@ import type { IOnePaceArc, IQbittorrentClientConfig } from "../types"
 import useTorrent from "../hooks/use-torrent"
 import { toast } from "sonner"
 import useSeo from "@/hooks/use-seo"
+import useOpData from "@/pages/home/hooks/use-op-data"
+import ArcDetailsLoading from "../components/arc-details-loading.component"
+import ErrorView from "@/pages/error/error.view"
 
 const ArcDetailsController = () => {
   const {
@@ -21,19 +23,20 @@ const ArcDetailsController = () => {
   } = useTorrent()
   const { sagaId, arcId } = useParams()
   const { handleRedirect, handleBack } = useNavigation()
+  const { data: onePieceSagas, isPending, isError } = useOpData()
   const [magnetLinks, setMagnetLinks] = useState<string[]>([])
 
   const currentArcData = useMemo(
     () =>
-      onePieceSagas
-        .find((saga) => saga.id === sagaId)
+      onePieceSagas?.sagas
+        ?.find((saga) => saga.id === sagaId)
         ?.arcs.find((arc) => arc.id === arcId),
-    [sagaId, arcId]
+    [sagaId, arcId, onePieceSagas]
   )
 
   const currentSagaData = useMemo(
-    () => onePieceSagas.find((saga) => saga.id === sagaId),
-    [sagaId]
+    () => onePieceSagas?.sagas?.find((saga) => saga.id === sagaId),
+    [sagaId, onePieceSagas]
   )
 
   useSeo({
@@ -78,8 +81,8 @@ const ArcDetailsController = () => {
     const completedArcs: IOnePaceArc[] =
       getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
 
-    const arcData = onePieceSagas
-      .find((saga) => saga.id === sagaId)
+    const arcData = onePieceSagas?.sagas
+      ?.find((saga) => saga.id === sagaId)
       ?.arcs.find((arc) => arc.id === arcId)
 
     const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
@@ -170,12 +173,32 @@ const ArcDetailsController = () => {
     [handleRedirect]
   )
 
+  if (isPending) {
+    return <ArcDetailsLoading />
+  }
+
+  if (isError) {
+    return (
+      <ErrorView
+        title="Arco não encontrado"
+        description="Não conseguimos encontrar os detalhes deste arco."
+        primaryActionLabel={
+          sagaId ? "Voltar para a saga" : "Voltar para a home"
+        }
+        onPrimaryAction={
+          sagaId ? handleRedirectToSagaList : handleRedirectToHome
+        }
+        secondaryActionLabel="Voltar"
+        onSecondaryAction={handleBack}
+      />
+    )
+  }
+  
   return (
     <ArcDetailsView
       arcId={arcId}
       sagaId={sagaId}
       data={currentArcData}
-      handleBack={handleBack}
       magnetLinks={magnetLinks}
       qbittorrentConfig={qbittorrentConfig}
       handleRedirectToHome={handleRedirectToHome}
