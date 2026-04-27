@@ -2,13 +2,13 @@ import { useParams } from "react-router"
 import SagaDetailsView from "../view/saga-details.view"
 import { useCallback, useMemo } from "react"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
-import { routePath } from "@/utils/enum/routes.utils"
+import { routePath, RoutesUrl } from "@/utils/enum/routes.utils"
 import useOpData from "@/pages/home/hooks/use-op-data"
 import useSeo from "@/hooks/use-seo"
 
 const SagaDetailsController = () => {
   const { sagaId } = useParams()
-  const { data} = useOpData()
+  const { data } = useOpData()
   const { handleRedirect, handleBack } = useNavigation()
 
   const currentSagaData = useMemo(
@@ -39,11 +39,16 @@ const SagaDetailsController = () => {
     [handleRedirect]
   )
 
+  const handleRedirectToHome = useCallback(() => {
+    handleRedirect(RoutesUrl.HOME)
+  }, [handleRedirect])
+
   return (
     <SagaDetailsView
       sagaId={sagaId!}
       data={currentSagaData}
       handleClickBack={handleBack}
+      handleRedirectToHome={handleRedirectToHome}
       handleRedirectToArcDetails={handleRedirectToArcDetails}
     />
   )

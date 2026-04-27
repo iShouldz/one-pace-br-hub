@@ -1,54 +1,100 @@
 import BackgroundHeaderComponent from "@/components/background-header/background-header.component"
 import type { ISagaDetailsView } from "../types"
-import { ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { LayoutGrid } from "lucide-react"
 import CardArcComponent from "@/components/card-arc/card-arc.component"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import { capitalizeWords } from "@/utils/capitalize.utils"
 
 const SagaDetailsView = ({
   data,
   sagaId,
-  handleClickBack,
+  handleRedirectToHome,
   handleRedirectToArcDetails,
 }: ISagaDetailsView) => {
+  const arcCount = data?.arcs?.length ?? 0
+
   return (
     <BackgroundHeaderComponent
       direction="left"
       imageUrl="/images/wallpaper-background.webp"
     >
-      <section className="absolute flex flex-col gap-6 p-15">
-        <article className="flex flex-col gap-4 md:w-full lg:w-[60%]">
-          <Button
-            variant="link"
-            className="w-fit px-0 text-accent-foreground sm:text-2xl"
-            onClick={handleClickBack}
-          >
-            <ArrowLeft className="mr-2 size-7" />
-            Voltar
-          </Button>
+      <main className="absolute inset-0 overflow-y-auto">
+        <section className="mx-auto flex min-h-screen w-full max-w-360 flex-col gap-8 px-6 py-8 md:px-10 lg:px-16 lg:py-12">
+          <article className="rounded-3xl border border-black/10 bg-white/55 p-5 shadow-xl shadow-black/10 backdrop-blur-md sm:p-7 dark:border-white/10 dark:bg-black/40 dark:shadow-black/40">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    onClick={handleRedirectToHome}
+                    className="flex cursor-pointer items-center justify-center gap-2"
+                  >
+                    Página inicial
+                  </BreadcrumbLink>
+                  <BreadcrumbSeparator />
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="flex items-center justify-center gap-2">
+                    {capitalizeWords(sagaId!?.replace(/-/g, " "))}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
 
-          <h2 className="font-semibold tracking-tight sm:text-5xl lg:text-3xl">
-            {data?.title}
-          </h2>
-          <p className="lg:text-md text-muted-foreground sm:text-2xl">
-            {data?.description}
-          </p>
-        </article>
+            <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="space-y-3 lg:max-w-5xl">
+                <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-3xl">
+                  {data?.title ?? "Saga nao encontrada"}
+                </h2>
+                <p className="text-base text-muted-foreground sm:text-lg lg:text-xl">
+                  {data?.description ??
+                    "Nao encontramos os detalhes desta saga no momento."}
+                </p>
+              </div>
 
-        <div className="flex flex-wrap gap-4">
-          {data?.arcs.map((arc) => (
-            <div
-              key={arc.id}
-              className="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1rem)]"
-            >
-              <CardArcComponent
-                arc={arc}
-                sagaId={sagaId}
-                handleRedirectToArcDetails={handleRedirectToArcDetails}
-              />
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-sm font-medium text-foreground dark:border-white/15 dark:bg-black/40">
+                <LayoutGrid className="size-4" />
+                <span>{arcCount} arcos</span>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </article>
+
+          <section className="rounded-3xl border border-black/10 bg-white/45 p-4 shadow-xl shadow-black/10 backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-black/35 dark:shadow-black/40">
+            <div className="mb-4 flex flex-col gap-2 sm:mb-5 sm:flex-row sm:items-end sm:justify-between">
+              <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                Lista de arcos
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Selecione um arco para abrir os detalhes e opcoes de download.
+              </p>
+            </div>
+
+            {arcCount > 0 ? (
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                {data?.arcs.map((arc) => (
+                  <div key={arc.id} className="w-full [&>div]:mb-0">
+                    <CardArcComponent
+                      arc={arc}
+                      sagaId={sagaId}
+                      handleRedirectToArcDetails={handleRedirectToArcDetails}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-border/70 bg-background/50 p-8 text-center text-sm text-muted-foreground">
+                Nenhum arco disponivel para esta saga no momento.
+              </div>
+            )}
+          </section>
+        </section>
+      </main>
     </BackgroundHeaderComponent>
   )
 }
