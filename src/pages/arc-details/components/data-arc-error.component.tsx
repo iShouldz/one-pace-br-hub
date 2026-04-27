@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export function ArcStatsError() {
   return (
-    <Card className="flex h-full  w-full max-w-sm flex-col items-center justify-center border-zinc-800 bg-zinc-950 text-zinc-100 shadow-xl sm:max-w-md">
+    <Card className="flex h-full w-full max-w-sm flex-col items-center justify-center border-zinc-800 bg-accent-foreground text-zinc-100 shadow-xl sm:max-w-md">
       <CardContent className="flex flex-col items-center justify-center gap-4 p-6 text-center">
         <div className="rounded-full border border-zinc-800/50 bg-zinc-900/50 p-4">
           <ServerOff className="h-8 w-8 text-zinc-500" />

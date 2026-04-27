@@ -82,7 +82,7 @@ const ArcDetailsView = ({
           <article className="flex flex-col gap-4">
             <Button
               variant="link"
-              className="w-fit px-0 text-lg text-white sm:text-2xl"
+              className="w-fit px-0 text-lg text-accent-foreground sm:text-2xl"
               onClick={handleBack}
             >
               <ArrowLeft className="mr-2 size-5 sm:size-7" />
@@ -269,7 +269,7 @@ const ArcDetailsView = ({
                       </ItemMedia>
                       <ItemContent>
                         <ItemTitle>{info.title}</ItemTitle>
-                        <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line">
+                        <ItemDescription className="wrap-break-words text-ellipsis-none! overflow-visible! text-wrap! whitespace-pre-line text-accent-foreground">
                           {info.description}
                         </ItemDescription>
                       </ItemContent>
@@ -293,11 +293,11 @@ const ArcDetailsView = ({
             </article>{" "}
             <aside className="flex items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur md:p-5">
               {loading && (
-                <p className="animate-pulse text-zinc-500">
+                <p className="animate-pulse text-accent-foreground">
                   Sincronizando com a base de dados oficial...
                 </p>
               )}
-              <div className="flex justify-center md:justify-end">
+              <div className="flex h-full justify-center md:justify-end">
                 {loading ? (
                   <Card className="h-full w-full max-w-sm animate-pulse border-zinc-800 bg-zinc-950 sm:max-w-md" />
                 ) : error ||

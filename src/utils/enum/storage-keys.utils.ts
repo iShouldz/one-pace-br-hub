@@ -5,5 +5,6 @@ export const StorageKeys = {
   HIDE_GRAYSCALE: "@hide-grayscale",
   QBITTORRENT_CONFIG: "@qbittorrent-config",
   COMPLETED_ONE_PACE: "@completed-one-pace",
+  CLOSED_NOTIFICATIONS: "@closed-notifications",
   SHOW_COMPLETED_SAGAS: "@show-completed-sagas",
 }

@@ -1,13 +1,23 @@
 import useNotify from "@/hooks/use-notify/use-notify"
+import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import { filterActiveNotifications } from "@/utils/notification.utils"
 import { useCallback, useMemo, useState } from "react"
 
 const useNotification = () => {
   const { data: notificationData } = useNotify()
-  const [closedNotifications, setClosedNotifications] = useState(true)
+  const [closedNotifications, setClosedNotifications] = useState<boolean>(
+    sessionStorage.getItem(StorageKeys.CLOSED_NOTIFICATIONS) === "true"
+  )
 
   const handleToggleCloseNotifications = useCallback(() => {
-    setClosedNotifications((prevState) => !prevState)
+    setClosedNotifications((prevState) => {
+      const newStatus = !prevState
+      sessionStorage.setItem(
+        StorageKeys.CLOSED_NOTIFICATIONS,
+        String(newStatus)
+      )
+      return newStatus
+    })
   }, [])
 
   const activeNotifications = useMemo(() => {

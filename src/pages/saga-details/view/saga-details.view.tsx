@@ -19,7 +19,7 @@ const SagaDetailsView = ({
         <article className="flex flex-col gap-4 md:w-full lg:w-[60%]">
           <Button
             variant="link"
-            className="w-fit px-0 text-white sm:text-2xl"
+            className="w-fit px-0 text-accent-foreground sm:text-2xl"
             onClick={handleClickBack}
           >
             <ArrowLeft className="mr-2 size-7" />
