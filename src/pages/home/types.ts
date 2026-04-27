@@ -1,5 +1,6 @@
 import type { ResolvedTheme } from "@/components/theme-provider"
 import type { OpDataResponse } from "./hooks/use-op-data"
+import type { NotificationResponse } from "@/hooks/use-notify/use-notify"
 
 export type IArc = {
   id: string
@@ -43,6 +44,8 @@ export interface IHomeView {
   handleHideCompletedSagas: () => void
   handleRedirectToSubtitleRepo: () => void
   onePieceSagas: OpDataResponse | undefined
+  handleRedirectNotifyButton: (path: string) => void
+  notificationData: NotificationResponse | undefined
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }

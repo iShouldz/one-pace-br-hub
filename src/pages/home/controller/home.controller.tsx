@@ -7,11 +7,14 @@ import useNavigation from "@/hooks/use-navigation/use-navigation"
 import useOpData from "../hooks/use-op-data"
 import { useTheme, type ResolvedTheme } from "@/components/theme-provider"
 import useSeo from "@/hooks/use-seo"
+import useNotify from "@/hooks/use-notify/use-notify"
+import { filterActiveNotifications } from "@/utils/notification.utils"
 
 const HomeController = () => {
   const { theme, setTheme } = useTheme()
   const { data, isLoading } = useOpData()
   const { handleRedirect } = useNavigation()
+  const { data: notificationData } = useNotify()
 
   const [orderSagas, setOrderSagas] = useState<boolean>(
     getFromLocalStorage(StorageKeys.ORDER_SAGAS) ?? false
@@ -26,6 +29,17 @@ const HomeController = () => {
   const [hideGrayscale, setHideGrayscale] = useState<boolean>(
     getFromLocalStorage(StorageKeys.HIDE_GRAYSCALE) ?? false
   )
+
+  const opSaga = useMemo(() => {
+    if (!data || !orderSagas) {
+      return data
+    }
+
+    return {
+      ...data,
+      sagas: [...(data.sagas ?? [])].reverse(),
+    }
+  }, [data, orderSagas])
 
   const currentTheme: ResolvedTheme = theme === "light" ? "light" : "dark"
 
@@ -42,18 +56,18 @@ const HomeController = () => {
     }
   )
 
-  const opSaga = useMemo(() => {
-    if (!data || !orderSagas) {
-      return data
+  const [currentOnePieceSagas, setCurrentOnePieceSagas] = useState(opSaga)
+
+  const activeNotifications = useMemo(() => {
+    if (!notificationData?.notifications) {
+      return undefined
     }
 
     return {
-      ...data,
-      sagas: [...(data.sagas ?? [])].reverse(),
+      ...notificationData,
+      notifications: filterActiveNotifications(notificationData.notifications),
     }
-  }, [data, orderSagas])
-
-  const [currentOnePieceSagas, setCurrentOnePieceSagas] = useState(opSaga)
+  }, [notificationData])
 
   const handleRedirectToSagaDetails = useCallback(
     (sagaId: string) => {
@@ -61,6 +75,10 @@ const HomeController = () => {
     },
     [handleRedirect]
   )
+
+  const handleRedirectNotifyButton = useCallback((path: string) => {
+    handleRedirect(path)
+  }, [])
 
   const handleRedirectToArcDetails = useCallback(
     (sagaId: string, arcId: string) => {
@@ -155,12 +173,14 @@ const HomeController = () => {
       hideGrayscale={hideGrayscale}
       onePieceSagas={currentOnePieceSagas}
       handleToggleTheme={handleToggleTheme}
+      notificationData={activeNotifications}
       handleHideGrayscale={handleHideGrayscale}
       handleToggleSettings={handleToggleSettings}
       handleToggleOrderList={handleToggleOrderList}
       handleCloseWelcomeModal={handleCloseWelcomeModal}
       handleHideCompletedSagas={handleHideCompletedSagas}
       renderModalOnePaceWelcome={renderModalOnePaceWelcome}
+      handleRedirectNotifyButton={handleRedirectNotifyButton}
       handleRedirectToArcDetails={handleRedirectToArcDetails}
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
