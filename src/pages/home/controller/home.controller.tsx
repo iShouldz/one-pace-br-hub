@@ -79,6 +79,16 @@ const HomeController = () => {
     saveToLocalStorage(StorageKeys.MODAL_WELCOME, true)
   }, [])
 
+  const handleRedirectToForm = useCallback(() => {
+    handleRedirect("https://forms.gle/F9BZtrJ8pjywnhqw7", { external: true })
+  }, [handleRedirect])
+
+  const handleRedirectToIssuesGithub = useCallback(() => {
+    handleRedirect("https://github.com/iShouldz/one-pace-br-hub/issues/new", {
+      external: true,
+    })
+  }, [handleRedirect])
+
   useSeo({
     title: "One Pace BR Hub | One Pace Legendado PT-BR",
     description:
@@ -112,6 +122,7 @@ const HomeController = () => {
       notificationData={activeNotifications}
       closedNotifications={closedNotifications}
       handleHideGrayscale={handleHideGrayscale}
+      handleRedirectToForm={handleRedirectToForm}
       handleToggleSettings={handleToggleSettings}
       handleToggleOrderList={handleToggleOrderList}
       handleCloseWelcomeModal={handleCloseWelcomeModal}
@@ -121,6 +132,7 @@ const HomeController = () => {
       handleRedirectToArcDetails={handleRedirectToArcDetails}
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
+      handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
       handleToggleCloseNotifications={handleToggleCloseNotifications}
     />
   )

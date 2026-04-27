@@ -45,6 +45,7 @@ const HomeView = ({
   handleToggleTheme,
   closedNotifications,
   handleHideGrayscale,
+  handleRedirectToForm,
   handleToggleSettings,
   handleToggleOrderList,
   handleCloseWelcomeModal,
@@ -53,6 +54,7 @@ const HomeView = ({
   handleRedirectToArcDetails,
   handleRedirectNotifyButton,
   handleRedirectToSagaDetails,
+  handleRedirectToIssuesGithub,
   handleRedirectToSubtitleRepo,
   handleToggleCloseNotifications,
 }: IHomeView) => {
@@ -142,9 +144,11 @@ const HomeView = ({
             hideGrayscale={hideGrayscale}
             handleToggleTheme={handleToggleTheme}
             handleHideGrayscale={handleHideGrayscale}
+            handleRedirectToForm={handleRedirectToForm}
             handleToggleSettings={handleToggleSettings}
             handleToggleOrderList={handleToggleOrderList}
             handleHideCompletedSagas={handleHideCompletedSagas}
+            handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
           />
           <header className="m-4 flex justify-end">
             <ButtonGroup

@@ -38,11 +38,13 @@ export interface IHomeView {
   closedNotifications: boolean
   handleToggleTheme: () => void
   handleHideGrayscale: () => void
+  handleRedirectToForm: () => void
   handleToggleSettings: () => void
   handleToggleOrderList: () => void
   renderModalOnePaceWelcome: boolean
   handleCloseWelcomeModal: () => void
   handleHideCompletedSagas: () => void
+  handleRedirectToIssuesGithub: () => void
   handleRedirectToSubtitleRepo: () => void
   onePieceSagas: OpDataResponse | undefined
   handleToggleCloseNotifications: () => void

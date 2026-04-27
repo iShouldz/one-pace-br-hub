@@ -21,15 +21,16 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar"
-import { MenuIcon, SettingsIcon, InfoIcon } from "lucide-react"
+import { MenuIcon, SettingsIcon, InfoIcon, BookOpenText } from "lucide-react"
 
 import { Separator } from "../ui/separator"
 import ShowComponent from "@/components/config-menu/show/show.component"
 import AboutComponent from "./about/about.component"
 import TorrentServerComponet from "./torrent-server/torrent-server.component"
 import type { ResolvedTheme } from "../theme-provider"
+import FeedbackComponent from "./feedback/feedback.component"
 
-type ConfigContentKey = "Exibição" | "Provedor torrent" | "Sobre"
+type ConfigContentKey = "Exibição" | "Provedor torrent" | "Sobre" | "Feedback"
 
 const data = {
   nav: [
@@ -37,6 +38,7 @@ const data = {
       name: "Exibição",
       icon: <SettingsIcon />,
     },
+    { name: "Feedback", icon: <BookOpenText /> },
     {
       name: "Provedor torrent",
       icon: <MenuIcon />,
@@ -54,9 +56,11 @@ interface ISettingsDialog {
   currentTheme: ResolvedTheme
   handleToggleTheme: () => void
   handleHideGrayscale: () => void
+  handleRedirectToForm: () => void
   handleToggleSettings: () => void
   handleToggleOrderList: () => void
   handleHideCompletedSagas: () => void
+  handleRedirectToIssuesGithub: () => void
 }
 
 export function SettingsDialog({
@@ -65,9 +69,11 @@ export function SettingsDialog({
   hideGrayscale,
   handleToggleTheme,
   handleHideGrayscale,
+  handleRedirectToForm,
   handleToggleSettings,
   handleToggleOrderList,
   handleHideCompletedSagas,
+  handleRedirectToIssuesGithub,
 }: ISettingsDialog) {
   const [currentSeleted, setCurrentSelected] =
     React.useState<ConfigContentKey>("Exibição")
@@ -83,6 +89,12 @@ export function SettingsDialog({
         handleHideGrayscale={handleHideGrayscale}
         handleToggleOrderList={handleToggleOrderList}
         handleHideCompletedSagas={handleHideCompletedSagas}
+      />
+    ),
+    Feedback: (
+      <FeedbackComponent
+        handleRedirectToForm={handleRedirectToForm}
+        handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
       />
     ),
   }
