@@ -17,7 +17,7 @@ export class ApiError extends Error {
 }
 
 const fetchOpData = async (): Promise<OpDataResponse> => {
-  const response = await fetch("https://api.npoint.io/cbc6cf2bcd44b0272298", {
+  const response = await fetch("https://api.npoint.io/d245f183e278d15443bf", {
     headers: { Accept: "application/json" },
   })
 
