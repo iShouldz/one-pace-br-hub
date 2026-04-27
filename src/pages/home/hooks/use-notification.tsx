@@ -5,9 +5,11 @@ import { useCallback, useMemo, useState } from "react"
 
 const useNotification = () => {
   const { data: notificationData } = useNotify()
-  const [closedNotifications, setClosedNotifications] = useState<boolean>(
-    sessionStorage.getItem(StorageKeys.CLOSED_NOTIFICATIONS) === "true"
-  )
+  const [closedNotifications, setClosedNotifications] = useState<boolean>(() => {
+    const value = sessionStorage.getItem(StorageKeys.CLOSED_NOTIFICATIONS)
+    if (value === null) return true
+    return value === "true"
+  })
 
   const handleToggleCloseNotifications = useCallback(() => {
     setClosedNotifications((prevState) => {

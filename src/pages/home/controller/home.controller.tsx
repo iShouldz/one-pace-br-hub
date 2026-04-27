@@ -31,8 +31,6 @@ const HomeController = () => {
     handleHideCompletedSagas,
   } = useDialogControl()
 
-  
-
   const [renderModalOnePaceWelcome, setRenderModalOnePaceWelcome] = useState(
     () => {
       const hasShowModal = getFromLocalStorage(StorageKeys.MODAL_WELCOME)
@@ -53,9 +51,12 @@ const HomeController = () => {
     [handleRedirect]
   )
 
-  const handleRedirectNotifyButton = useCallback((path: string) => {
-    handleRedirect(path)
-  }, [handleRedirect])
+  const handleRedirectNotifyButton = useCallback(
+    (path: string) => {
+      handleRedirect(path)
+    },
+    [handleRedirect]
+  )
 
   const handleRedirectToArcDetails = useCallback(
     (sagaId: string, arcId: string) => {
