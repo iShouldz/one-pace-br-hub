@@ -12,12 +12,9 @@ import useNotification from "../hooks/use-notification"
 
 const HomeController = () => {
   const { handleRedirect } = useNavigation()
+
   const {
-    activeNotifications,
-    closedNotifications,
-    handleToggleCloseNotifications,
-  } = useNotification()
-  const {
+    data,
     isLoading,
     openSettings,
     showAllSagas,
@@ -30,6 +27,12 @@ const HomeController = () => {
     handleToggleOrderList,
     handleHideCompletedSagas,
   } = useDialogControl()
+
+  const {
+    activeNotifications,
+    closedNotifications,
+    handleToggleCloseNotifications,
+  } = useNotification({ data })
 
   const [renderModalOnePaceWelcome, setRenderModalOnePaceWelcome] = useState(
     () => {

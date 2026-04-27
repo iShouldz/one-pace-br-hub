@@ -1,4 +1,4 @@
-import { ApiError } from "@/pages/home/hooks/use-op-data"
+import { ApiError, type OpDataResponse } from "@/pages/home/hooks/use-op-data"
 import { QueryKeys } from "@/utils/enum/query-keys.util"
 import { useQuery } from "@tanstack/react-query"
 
@@ -15,7 +15,7 @@ export interface notificationData {
 export type NotificationResponse = {
   notifications: notificationData[]
 }
-const useNotify = () => {
+const useNotify = ({ data }: { data: OpDataResponse | undefined }) => {
   const fetchOpNotificationData = async (): Promise<NotificationResponse> => {
     const response = await fetch("https://api.npoint.io/07e239c98b2a606ae5b9", {
       headers: { Accept: "application/json" },
@@ -31,6 +31,7 @@ const useNotify = () => {
   const query = useQuery({
     queryKey: [QueryKeys.OP_NOTIFICATION],
     queryFn: fetchOpNotificationData,
+    enabled: data?.enabledNotify ?? false,
   })
 
   return {
