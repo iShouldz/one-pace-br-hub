@@ -33,9 +33,9 @@ const FeedbackComponent = ({
       <header className="flex flex-col gap-1">
         <h2 className="text-md font-semibold">Feedback</h2>
         <p className="text-xs text-muted-foreground">
-          Sua opinião é muito importante para nós! Se você encontrou algum bug
-          ou tem sugestões de melhorias, você pode reportar. Você pode abrir uma
-          issue no GitHub ou preencher o formulário de feedback.
+          Se você encontrou algum bug ou tem sugestões de melhorias, você pode
+          reportar. Você pode abrir uma issue no GitHub ou preencher o
+          formulário de feedback.
         </p>
       </header>
 

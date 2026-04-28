@@ -22,7 +22,7 @@ const AboutComponent = () => {
   return (
     <>
       <img
-        src="images/one-pace-logo.webp"
+        src="/images/one-pace-logo.webp"
         alt="One Pace Logo"
         loading="lazy"
         className="w-full max-w-full object-contain"
