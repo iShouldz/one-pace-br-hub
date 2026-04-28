@@ -21,7 +21,13 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar"
-import { MenuIcon, SettingsIcon, InfoIcon, BookOpenText } from "lucide-react"
+import {
+  MenuIcon,
+  SettingsIcon,
+  InfoIcon,
+  BookOpenText,
+  BookCheck,
+} from "lucide-react"
 
 import { Separator } from "../ui/separator"
 import ShowComponent from "@/components/config-menu/show/show.component"
@@ -29,8 +35,14 @@ import AboutComponent from "./about/about.component"
 import TorrentServerComponet from "./torrent-server/torrent-server.component"
 import type { ResolvedTheme } from "../theme-provider"
 import FeedbackComponent from "./feedback/feedback.component"
+import UsefullLinksComponent from "./usefull-links/usefull-links.component"
 
-type ConfigContentKey = "Exibição" | "Provedor torrent" | "Sobre" | "Feedback"
+type ConfigContentKey =
+  | "Exibição"
+  | "Provedor torrent"
+  | "Sobre"
+  | "Feedback"
+  | "Ler mangá online"
 
 const data = {
   nav: [
@@ -43,6 +55,7 @@ const data = {
       name: "Provedor torrent",
       icon: <MenuIcon />,
     },
+    { name: "Ler mangá online", icon: <BookCheck /> },
     {
       name: "Sobre",
       icon: <InfoIcon />,
@@ -81,6 +94,7 @@ export function SettingsDialog({
   const configContent: Record<ConfigContentKey, React.ReactElement> = {
     Sobre: <AboutComponent />,
     "Provedor torrent": <TorrentServerComponet />,
+    "Ler mangá online": <UsefullLinksComponent />,
     Exibição: (
       <ShowComponent
         currentTheme={currentTheme}

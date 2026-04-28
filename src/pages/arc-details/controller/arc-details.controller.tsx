@@ -128,6 +128,7 @@ const ArcDetailsController = () => {
     arcId,
     sagaId,
     magnetLinks,
+    onePieceSagas,
     fetchPageContent,
     extractMagnetLinks,
     getCachedLinksForArc,

@@ -2,7 +2,7 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import SagaList from "../components/SagaList/saga-list.component"
 import SagaListLoading from "../components/SagaList/saga-list-loading.component"
 import type { IHomeView } from "../types"
-import { ArrowUpRight, InfoIcon, X } from "lucide-react"
+import { ArrowUpRight, InfoIcon, Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { SettingsDialog } from "@/components/config-menu/settings-dialog"
@@ -13,7 +13,6 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 import WelcomeModalComponent from "../components/welcome-modal/welcome-modal.component"
-import MenuSettingsComponent from "../components/menu-settings/menu-settings.component"
 
 const HomeView = ({
   isLoading,
@@ -36,7 +35,6 @@ const HomeView = ({
   handleRedirectNotifyButton,
   handleRedirectToSagaDetails,
   handleRedirectToIssuesGithub,
-  handleRedirectToSubtitleRepo,
   handleToggleCloseNotifications,
 }: IHomeView) => {
   return (
@@ -92,12 +90,15 @@ const HomeView = ({
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
           />
 
-          <header className="m-4 flex justify-end">
-            <MenuSettingsComponent
-              handleToggleSettings={handleToggleSettings}
-              handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
-            />
-          </header>
+          <Button
+            variant="ghost"
+            onClick={handleToggleSettings}
+            className="fixed top-3 left-3 z-40 bg-white/60 shadow-sm ring-1 ring-black/10 backdrop-blur-md dark:bg-black/40 dark:ring-white/10"
+            aria-label="Abrir menu"
+          >
+            Menu{" "}
+            <Menu className="size-5 text-neutral-700 dark:text-neutral-200" />
+          </Button>
 
           <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[50svh] items-center">
             <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
