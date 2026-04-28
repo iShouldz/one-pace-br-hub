@@ -9,3 +9,13 @@ export interface IArcBlockComponent {
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
 }
+
+export interface IWelcomeModalComponentProps {
+  renderModalOnePaceWelcome: boolean
+  handleCloseWelcomeModal: () => void
+}
+
+export interface IMenuSettingsComponentProps {
+  handleToggleSettings: () => void
+  handleRedirectToSubtitleRepo: () => void
+}
