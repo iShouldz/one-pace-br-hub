@@ -1,4 +1,4 @@
-import type { IArc } from "../home/types"
+import type { IArc, IInformationProps } from "../home/types"
 
 export interface IArcDetailsView {
   arcId?: string
@@ -26,4 +26,23 @@ export interface IQbittorrentClientConfig {
   username: string
   password?: string
   savePath?: string
+}
+
+export interface IScrappingModalProps {
+  magnetLinks: string[]
+  isLoadingMagnets: boolean
+  hasDriveDownload: boolean
+  arcId: string | undefined
+  sagaId: string | undefined
+  manualDownloadLink?: string
+  handleSendToQbittorrent: () => Promise<void>
+  handleCopyMagnetLinksClick: () => Promise<void>
+  qbittorrentConfig: IQbittorrentClientConfig | null
+  handleDownloadEpisodesAndMarkDone: () => Promise<void>
+  handleRedirectButtonAction: (path?: string | undefined) => void
+}
+
+export interface IInformationsListComponentProps {
+  informations: IInformationProps[]
+  handleRedirectButtonAction: (path?: string | undefined) => void
 }
