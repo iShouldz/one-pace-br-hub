@@ -9,6 +9,7 @@ export interface IArcDetailsView {
   handleDownloadSubtitles: () => void
   handleRedirectToSagaList: () => void
   handleSendToQbittorrent: () => Promise<void>
+  handleTriggerDownload: (path?: string) => void
   handleDownloadEpisodes: () => Promise<string[]>
   handleCopyMagnetLinksClick: () => Promise<void>
   qbittorrentConfig: IQbittorrentClientConfig | null

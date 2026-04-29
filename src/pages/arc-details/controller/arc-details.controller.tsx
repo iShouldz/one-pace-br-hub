@@ -174,6 +174,34 @@ const ArcDetailsController = () => {
     [handleRedirect]
   )
 
+  const handleTriggerDownload = useCallback(
+    (path?: string) => {
+      const completedArcs: IOnePaceArc[] =
+        getFromLocalStorage(StorageKeys.COMPLETED_ONE_PACE) || []
+
+      const sagaIndex = completedArcs.findIndex((saga) => saga.id === sagaId)
+
+      if (sagaIndex === -1) {
+        completedArcs.push({
+          id: sagaId!,
+          arcos: [arcId!],
+        } as any)
+      } else {
+        const sagaObj = completedArcs[sagaIndex]
+        if (!sagaObj.arcos.includes(arcId!)) {
+          sagaObj.arcos.push(arcId!)
+        }
+      }
+
+      saveToLocalStorage(StorageKeys.COMPLETED_ONE_PACE, completedArcs)
+
+      window.dispatchEvent(new Event("completed-one-pace-updated"))
+
+      handleRedirectButtonAction(path)
+    },
+    [handleRedirectButtonAction]
+  )
+
   if (isPending) {
     return <ArcDetailsLoading />
   }
@@ -194,7 +222,7 @@ const ArcDetailsController = () => {
       />
     )
   }
-  
+
   return (
     <ArcDetailsView
       arcId={arcId}
@@ -203,6 +231,7 @@ const ArcDetailsController = () => {
       magnetLinks={magnetLinks}
       qbittorrentConfig={qbittorrentConfig}
       handleRedirectToHome={handleRedirectToHome}
+      handleTriggerDownload={handleTriggerDownload}
       handleCopyMagnetLinks={handleCopyMagnetLinks}
       handleDownloadEpisodes={handleDownloadEpisodes}
       handleSendToQbittorrent={handleSendToQbittorrent}

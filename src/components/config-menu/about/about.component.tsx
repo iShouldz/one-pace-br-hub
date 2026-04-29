@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/field"
 import {
   Item,
+  ItemActions,
   ItemContent,
   ItemDescription,
   ItemMedia,
@@ -27,6 +28,25 @@ const AboutComponent = () => {
         loading="lazy"
         className="w-full max-w-full object-contain"
       />
+      <Item variant={"outline"}>
+        <ItemContent>
+          <ItemTitle>Shouldz</ItemTitle>
+          <ItemDescription>Desenvolvedor • Criador do projeto</ItemDescription>
+        </ItemContent>
+        <ItemActions>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() =>
+              handleRedirect("https://github.com/iShouldz", {
+                external: true,
+              })
+            }
+          >
+            Perfil <ArrowUpRight />
+          </Button>
+        </ItemActions>
+      </Item>
 
       <Field orientation="horizontal">
         <FieldContent>
@@ -58,7 +78,7 @@ const AboutComponent = () => {
           <FieldTitle>Quero ajudar com as legendas</FieldTitle>
           <FieldDescription className="flex flex-col gap-2">
             Para garantir organização e facilitar a manutenção, nossas legendas
-            são hospedadas em um repositório separado no GitHub.Se você
+            são hospedadas em um repositório separado no GitHub. Se você
             encontrar erros ou notar que faltam legendas para episódios
             recentes, sinta-se à vontade para contribuir abrindo um Pull
             Request. Para acelerar o processo, você pode utilizar Inteligência
@@ -104,14 +124,15 @@ const AboutComponent = () => {
         <ItemContent>
           <ItemTitle>Sobre o Projeto</ItemTitle>
           <ItemDescription>
-            O One Pace BR é um hub unificado criado para facilitar o acesso ao
-            projeto One Pace. Centralizamos o conteúdo e as legendas em
-            português em um só lugar, eliminando a necessidade de buscas
-            externas ou trackers de torrent. Desenvolvido com foco na
-            experiência do usuário por Shouldz.
+            O One Pace BR é um hub unificado criado para facilitar o acesso do
+            público brasileiro e demais falantes da língua portuguesa ao projeto
+            One Pace. Centralizamos o conteúdo e as legendas em PT-BR em um só
+            lugar, eliminando a necessidade de buscas em sites externos ou
+            garimpo em trackers de torrent.
           </ItemDescription>
         </ItemContent>
       </Item>
+
       <ButtonGroup>
         <Button
           onClick={() =>
@@ -120,7 +141,7 @@ const AboutComponent = () => {
             )
           }
         >
-          Repositorio das Legendas One Pace BR Hub
+          Repositório das Legendas One Pace BR Hub
         </Button>
       </ButtonGroup>
     </>

@@ -15,8 +15,8 @@ import {
 import type { IWelcomeModalComponentProps } from "../types"
 
 const WelcomeModalComponent = ({
-  renderModalOnePaceWelcome,
   handleCloseWelcomeModal,
+  renderModalOnePaceWelcome,
 }: IWelcomeModalComponentProps) => {
   return (
     <Dialog
@@ -43,7 +43,7 @@ const WelcomeModalComponent = ({
                   para ficar mais alinhado ao ritmo do mangá original de
                   Eiichiro Oda. A equipe realiza isso removendo cenas de filler
                   não presentes no material original, corrigindo erros de
-                  animação e ajustando legendas
+                  animação e ajustando legendas.
                 </FieldDescription>
               </FieldContent>
             </Field>
@@ -52,12 +52,12 @@ const WelcomeModalComponent = ({
                 <FieldTitle>O que é o One Pace BR Hub?</FieldTitle>
                 <FieldDescription>
                   Esse projeto é um agregador de legendas para o projeto One
-                  Pace. O projeto possui legendas hospedadas no Github, com
-                  repositorio abaixo. Você pode colaborar com as legendas, caso
-                  as ultimas legendas dos episodios mais recentes não estejam
-                  disponiveis, ou mesmo corrigir alguma legenda que esteja com
-                  erro. Para isso, basta acessar o repositorio e seguir as
-                  instruções do README para contribuir.
+                  Pace. O projeto possui legendas hospedadas no Github, você
+                  pode encontrar esse repositorio no menu do site. Você pode
+                  colaborar com as legendas, caso as ultimas legendas dos
+                  episodios mais recentes não estejam disponiveis, ou mesmo
+                  corrigir alguma legenda que esteja com erro. Para isso, basta
+                  abrir um Pull Request no repositorio do Github.
                 </FieldDescription>
               </FieldContent>
             </Field>

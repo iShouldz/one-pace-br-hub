@@ -1,3 +1,4 @@
+import type { NotificationResponse } from "@/hooks/use-notify/use-notify"
 import type { IArc } from "../types"
 
 export interface IArcBlockComponent {
@@ -18,4 +19,11 @@ export interface IWelcomeModalComponentProps {
 export interface IMenuSettingsComponentProps {
   handleToggleSettings: () => void
   handleRedirectToSubtitleRepo: () => void
+}
+
+export interface INotificationListComponentProps {
+  closedNotifications: boolean
+  handleToggleCloseNotifications: () => void
+  handleRedirectNotifyButton: (path: string) => void
+  notificationData: NotificationResponse | undefined
 }

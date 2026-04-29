@@ -2,17 +2,13 @@ import BackgroundHeaderComponent from "@/components/background-header/background
 import SagaList from "../components/SagaList/saga-list.component"
 import SagaListLoading from "../components/SagaList/saga-list-loading.component"
 import type { IHomeView } from "../types"
-import { ArrowUpRight, InfoIcon, Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { SettingsDialog } from "@/components/config-menu/settings-dialog"
-import {
-  Alert,
-  AlertAction,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert"
+
 import WelcomeModalComponent from "../components/welcome-modal/welcome-modal.component"
+import NotificationListComponent from "../components/notification-list/notification-list.component"
 
 const HomeView = ({
   isLoading,
@@ -40,38 +36,12 @@ const HomeView = ({
   return (
     <>
       <BackgroundHeaderComponent>
-        <div className="flex w-full justify-center">
-          {notificationData &&
-            closedNotifications &&
-            notificationData.notifications.map((notification) => (
-              <Alert
-                className="relative z-20 m-2 flex w-300 items-center justify-center"
-                key={notification.title}
-              >
-                <InfoIcon />
-                <AlertTitle>{notification.title}</AlertTitle>
-                <AlertDescription className="flex items-center justify-center">
-                  {notification.description}{" "}
-                </AlertDescription>
-                <Button
-                  variant="ghost"
-                  onClick={() =>
-                    handleRedirectNotifyButton(notification.buttonUrl)
-                  }
-                >
-                  {notification.buttonText} <ArrowUpRight />
-                </Button>
-                <AlertAction>
-                  <Button
-                    variant="ghost"
-                    onClick={handleToggleCloseNotifications}
-                  >
-                    <X />
-                  </Button>
-                </AlertAction>
-              </Alert>
-            ))}
-        </div>
+        <NotificationListComponent
+          notificationData={notificationData}
+          closedNotifications={closedNotifications}
+          handleRedirectNotifyButton={handleRedirectNotifyButton}
+          handleToggleCloseNotifications={handleToggleCloseNotifications}
+        />
 
         <WelcomeModalComponent
           handleCloseWelcomeModal={handleCloseWelcomeModal}
@@ -102,7 +72,7 @@ const HomeView = ({
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
           />
 
-          <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[50svh] items-center">
+          <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[60svh] items-center">
             <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
               <div className="flex justify-center">
                 <img
@@ -118,7 +88,7 @@ const HomeView = ({
           {isLoading ? (
             <SagaListLoading />
           ) : (
-            <section className="md:pt-[35svh] lg:pt-[45svh]">
+            <section className="md:pt-[35svh] lg:pt-[55svh]">
               <SagaList
                 showAllSagas={showAllSagas}
                 onePieceSagas={onePieceSagas}

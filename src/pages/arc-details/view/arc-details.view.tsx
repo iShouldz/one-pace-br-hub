@@ -27,6 +27,7 @@ const ArcDetailsView = ({
   magnetLinks,
   qbittorrentConfig,
   handleRedirectToHome,
+  handleTriggerDownload,
   handleDownloadEpisodes,
   handleSendToQbittorrent,
   handleDownloadSubtitles,
@@ -130,7 +131,7 @@ const ArcDetailsView = ({
                   manualDownloadLink={data?.linkDownload}
                   handleSendToQbittorrent={handleSendToQbittorrent}
                   handleCopyMagnetLinksClick={handleCopyMagnetLinksClick}
-                  handleRedirectButtonAction={handleRedirectButtonAction}
+                  handleRedirectButtonAction={handleTriggerDownload}
                 />
 
                 {hasDriveDownload && (
@@ -139,7 +140,7 @@ const ArcDetailsView = ({
                     type="button"
                     disabled={!data?.linkDownload}
                     onClick={() =>
-                      handleRedirectButtonAction(data?.linkDownload)
+                      handleTriggerDownload(data?.linkDownload)
                     }
                   >
                     <DownloadIcon /> Episodios

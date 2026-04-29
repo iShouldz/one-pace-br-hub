@@ -53,9 +53,9 @@ const ScrappingModalComponent = ({
         <DialogHeader>
           <DialogTitle>Scrapping</DialogTitle>
           <DialogDescription className="flex flex-col gap-4">
-            Esse arco provavelmente nao esta concluido ou nao foi feito um
+            Esse arco provavelmente não esta concluido ou não foi feito um
             bundle unico. Vamos fazer o scrapping dos episodios para facilitar o
-            download massivo dos episodios para voce. Caso selecione o download
+            download massivo dos episodios para você. Caso selecione o download
             multiplo, adicionaremos ao seu clipboard os links torrents.
             <Item variant="muted">
               <ItemMedia variant="icon">
