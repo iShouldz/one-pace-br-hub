@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T17:04:56.644Z",
+  "generatedAt": "2026-04-29T00:03:46.997Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -21,8 +21,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:04:56.645Z",
-      "lastSuccessAt": "2026-04-24T17:04:56.645Z"
+      "lastAttemptAt": "2026-04-29T00:03:46.998Z",
+      "lastSuccessAt": "2026-04-29T00:03:46.998Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -56,8 +56,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:04:57.821Z",
-      "lastSuccessAt": "2026-04-24T17:04:57.821Z"
+      "lastAttemptAt": "2026-04-29T00:03:49.047Z",
+      "lastSuccessAt": "2026-04-29T00:03:49.047Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -78,8 +78,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:04:58.557Z",
-      "lastSuccessAt": "2026-04-24T17:04:58.557Z"
+      "lastAttemptAt": "2026-04-29T00:03:49.787Z",
+      "lastSuccessAt": "2026-04-29T00:03:49.787Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -117,8 +117,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:04:59.266Z",
-      "lastSuccessAt": "2026-04-24T17:04:59.266Z"
+      "lastAttemptAt": "2026-04-29T00:03:50.523Z",
+      "lastSuccessAt": "2026-04-29T00:03:50.523Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -133,8 +133,27 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:00.008Z",
-      "lastSuccessAt": "2026-04-24T17:05:00.008Z"
+      "lastAttemptAt": "2026-04-29T00:03:51.278Z",
+      "lastSuccessAt": "2026-04-29T00:03:51.278Z"
+    },
+    "little-garden": {
+      "arcId": "little-garden",
+      "title": "Little Garden",
+      "sourceUrl": "https://nyaa.si/?f=0&c=0_0&q=Little+Garden+one+pace+1080p",
+      "pages": 4,
+      "links": [
+        "magnet:?xt=urn%3Abtih%3Aa075d87248f3bb9c222c097dc31ad7926d5bade9&dn=%5BOne+Pace%5D%5B115-117%5D+Little+Garden+01+%5B1080p%5D%5BBCE915AA%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A707378a82ffb792bcbb455a8ac4e2b68de3e5721&dn=%5BOne+Pace%5D%5B117-119%5D+Little+Garden+02+%5B1080p%5D%5B64714640%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A5bbbc6cf59dd1c083e3148531012061620922701&dn=%5BOne+Pace%5D%5B119-122%5D+Little+Garden+03+%5B1080p%5D%5B0AB937B1%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3Ae46bfdfc8074fab365bbb634c2cbe0b585621400&dn=%5BOne+Pace%5D%5B123-126%5D+Little+Garden+04+%5B1080p%5D%5B8BE7A415%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A8cb820566a5bf341343f1340a6014104788767c8&dn=%5BOne+Pace%5D%5B127-129%5D+Little+Garden+05+%5B1080p%5D%5B51105EBB%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
+      ],
+      "linkCount": 5,
+      "status": "ok",
+      "via": "nyaa-rss-aggregated",
+      "message": null,
+      "lastAttemptAt": "2026-04-29T00:03:52.012Z",
+      "lastSuccessAt": "2026-04-29T00:03:52.012Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -167,8 +186,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:00.715Z",
-      "lastSuccessAt": "2026-04-24T17:05:00.715Z"
+      "lastAttemptAt": "2026-04-29T00:03:52.788Z",
+      "lastSuccessAt": "2026-04-29T00:03:52.788Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -208,8 +227,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:01.435Z",
-      "lastSuccessAt": "2026-04-24T17:05:01.435Z"
+      "lastAttemptAt": "2026-04-29T00:03:53.543Z",
+      "lastSuccessAt": "2026-04-29T00:03:53.543Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -230,8 +249,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:02.156Z",
-      "lastSuccessAt": "2026-04-24T17:05:02.156Z"
+      "lastAttemptAt": "2026-04-29T00:03:54.417Z",
+      "lastSuccessAt": "2026-04-29T00:03:54.417Z"
     },
     "wano": {
       "arcId": "wano",
@@ -303,8 +322,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:02.868Z",
-      "lastSuccessAt": "2026-04-24T17:05:02.868Z"
+      "lastAttemptAt": "2026-04-29T00:03:55.149Z",
+      "lastSuccessAt": "2026-04-29T00:03:55.149Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
@@ -318,8 +337,8 @@
       "status": "ok",
       "via": "nyaa-view-download-url",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:03.618Z",
-      "lastSuccessAt": "2026-04-24T17:05:03.618Z"
+      "lastAttemptAt": "2026-04-29T00:03:55.947Z",
+      "lastSuccessAt": "2026-04-29T00:03:55.947Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -352,8 +371,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-04-24T17:05:04.119Z",
-      "lastSuccessAt": "2026-04-24T17:05:04.119Z"
+      "lastAttemptAt": "2026-04-29T00:03:56.462Z",
+      "lastSuccessAt": "2026-04-29T00:03:56.462Z"
     }
   }
 }
