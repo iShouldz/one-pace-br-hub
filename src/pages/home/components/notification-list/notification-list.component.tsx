@@ -7,40 +7,69 @@ import {
 } from "@/components/ui/alert"
 import { ArrowUpRight, InfoIcon, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getNotificationId } from "@/utils/notification.utils"
 
 const NotificationListComponent = ({
   notificationData,
-  closedNotifications,
   handleRedirectNotifyButton,
-  handleToggleCloseNotifications,
+  handleCloseNotification,
 }: INotificationListComponentProps) => {
+  if (!notificationData?.notifications?.length) {
+    return null
+  }
+
+  const totalNotifications = notificationData.notifications.length
+
   return (
-    <div className="flex w-full justify-center">
-      {notificationData &&
-        closedNotifications &&
-        notificationData.notifications.map((notification) => (
-          <Alert
-            className="relative z-20 m-2 flex w-300 items-center justify-center"
-            key={notification.title}
-          >
-            <InfoIcon />
-            <AlertTitle>{notification.title}</AlertTitle>
-            <AlertDescription className="flex items-center justify-center">
-              {notification.description}{" "}
-            </AlertDescription>
-            <Button
-              variant="ghost"
-              onClick={() => handleRedirectNotifyButton(notification.buttonUrl)}
+    <div className="flex w-full justify-center pt-4">
+      <div className="flex w-full max-w-md flex-col items-center">
+        {notificationData.notifications.map((notification, index) => {
+          const stackIndex = Math.min(index, 3)
+          const opacity = 1 - stackIndex * 0.08
+          const scale = 1 - stackIndex * 0.02
+
+          return (
+            <Alert
+              className={`relative flex w-300 origin-top items-center shadow-lg shadow-black/10 backdrop-blur-md transition-all ${
+                index > 0 ? "-mt-12" : ""
+              }`}
+              key={getNotificationId(notification)}
+              style={{
+                zIndex: totalNotifications - index,
+                opacity,
+                transform: `scale(${scale})`,
+              }}
             >
-              {notification.buttonText} <ArrowUpRight />
-            </Button>
-            <AlertAction>
-              <Button variant="ghost" onClick={handleToggleCloseNotifications}>
-                <X />
-              </Button>
-            </AlertAction>
-          </Alert>
-        ))}
+              <InfoIcon className="size-5 shrink-0" />
+              <AlertTitle className="min-w-0 max-w-[40%] truncate">
+                {notification.title}
+              </AlertTitle>
+              <AlertDescription className="flex min-w-0 max-w-[87%] items-center gap-2">
+                <span className="min-w-0 truncate">
+                  {notification.description}
+                </span>
+                <Button
+                  variant="ghost"
+                  onClick={() =>
+                    handleRedirectNotifyButton(notification.buttonUrl)
+                  }
+                >
+                  {notification.buttonText} <ArrowUpRight />
+                </Button>
+              </AlertDescription>
+
+              <AlertAction>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleCloseNotification(notification)}
+                >
+                  <X />
+                </Button>
+              </AlertAction>
+            </Alert>
+          )
+        })}
+      </div>
     </div>
   )
 }

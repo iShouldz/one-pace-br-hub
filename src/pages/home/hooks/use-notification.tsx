@@ -1,27 +1,61 @@
 import useNotify from "@/hooks/use-notify/use-notify"
 import { StorageKeys } from "@/utils/enum/storage-keys.utils"
-import { filterActiveNotifications } from "@/utils/notification.utils"
+import {
+  filterActiveNotifications,
+  getNotificationId,
+  type INotification,
+} from "@/utils/notification.utils"
 import { useCallback, useMemo, useState } from "react"
 import type { OpDataResponse } from "./use-op-data"
 
+const readClosedNotificationIds = (): string[] => {
+  if (typeof window === "undefined") {
+    return []
+  }
+
+  try {
+    const stored = sessionStorage.getItem(StorageKeys.CLOSED_NOTIFICATIONS)
+    if (!stored) {
+      return []
+    }
+
+    const parsed = JSON.parse(stored)
+    if (!Array.isArray(parsed)) {
+      return []
+    }
+
+    return parsed.filter((item) => typeof item === "string")
+  } catch {
+    return []
+  }
+}
+
 const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
   const { data: notificationData } = useNotify({ data })
-  const [closedNotifications, setClosedNotifications] = useState<boolean>(
-    () => {
-      const value = sessionStorage.getItem(StorageKeys.CLOSED_NOTIFICATIONS)
-      if (value === null) return true
-      return value === "true"
-    }
+  const [closedNotifications, setClosedNotifications] = useState<string[]>(
+    readClosedNotificationIds
   )
 
-  const handleToggleCloseNotifications = useCallback(() => {
+  const handleCloseNotification = useCallback((notification: INotification) => {
+    const notificationId = getNotificationId(notification)
+
     setClosedNotifications((prevState) => {
-      const newStatus = !prevState
-      sessionStorage.setItem(
-        StorageKeys.CLOSED_NOTIFICATIONS,
-        String(newStatus)
-      )
-      return newStatus
+      if (prevState.includes(notificationId)) {
+        return prevState
+      }
+
+      const nextState = [...prevState, notificationId]
+      if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem(
+            StorageKeys.CLOSED_NOTIFICATIONS,
+            JSON.stringify(nextState)
+          )
+        } catch {
+          // Ignore sessionStorage errors so the UI can still update.
+        }
+      }
+      return nextState
     })
   }, [])
 
@@ -30,16 +64,26 @@ const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
       return undefined
     }
 
+    const active = filterActiveNotifications(notificationData.notifications)
+    if (!closedNotifications.length) {
+      return {
+        ...notificationData,
+        notifications: active,
+      }
+    }
+
+    const closedSet = new Set(closedNotifications)
     return {
       ...notificationData,
-      notifications: filterActiveNotifications(notificationData.notifications),
+      notifications: active.filter(
+        (notification) => !closedSet.has(getNotificationId(notification))
+      ),
     }
-  }, [notificationData])
+  }, [notificationData, closedNotifications])
 
   return {
     activeNotifications,
-    closedNotifications,
-    handleToggleCloseNotifications,
+    handleCloseNotification,
   }
 }
 

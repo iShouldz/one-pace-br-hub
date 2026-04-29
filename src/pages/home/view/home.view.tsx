@@ -19,11 +19,11 @@ const HomeView = ({
   onePieceSagas,
   notificationData,
   handleToggleTheme,
-  closedNotifications,
   handleHideGrayscale,
   handleRedirectToForm,
   handleToggleSettings,
   handleToggleOrderList,
+  handleCloseNotification,
   handleCloseWelcomeModal,
   handleHideCompletedSagas,
   renderModalOnePaceWelcome,
@@ -31,16 +31,14 @@ const HomeView = ({
   handleRedirectNotifyButton,
   handleRedirectToSagaDetails,
   handleRedirectToIssuesGithub,
-  handleToggleCloseNotifications,
 }: IHomeView) => {
   return (
     <>
       <BackgroundHeaderComponent>
         <NotificationListComponent
           notificationData={notificationData}
-          closedNotifications={closedNotifications}
           handleRedirectNotifyButton={handleRedirectNotifyButton}
-          handleToggleCloseNotifications={handleToggleCloseNotifications}
+          handleCloseNotification={handleCloseNotification}
         />
 
         <WelcomeModalComponent

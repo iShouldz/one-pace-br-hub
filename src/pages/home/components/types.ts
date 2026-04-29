@@ -1,6 +1,8 @@
 import type { NotificationResponse } from "@/hooks/use-notify/use-notify"
 import type { IArc } from "../types"
 
+type NotificationItem = NotificationResponse["notifications"][number]
+
 export interface IArcBlockComponent {
   id: string
   arcs: IArc[]
@@ -22,8 +24,7 @@ export interface IMenuSettingsComponentProps {
 }
 
 export interface INotificationListComponentProps {
-  closedNotifications: boolean
-  handleToggleCloseNotifications: () => void
+  handleCloseNotification: (notification: NotificationItem) => void
   handleRedirectNotifyButton: (path: string) => void
   notificationData: NotificationResponse | undefined
 }

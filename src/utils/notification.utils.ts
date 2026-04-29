@@ -8,6 +8,10 @@ export interface INotification {
   buttonUrl: string
 }
 
+export const getNotificationId = (notification: INotification): string => {
+  return `${notification.notifyCreatedAt}-${notification.title}`
+}
+
 const SECONDS_PER_DAY = 86400
 
 export const isNotificationActive = (notification: INotification): boolean => {

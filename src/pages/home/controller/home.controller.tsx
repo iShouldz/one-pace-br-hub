@@ -28,11 +28,9 @@ const HomeController = () => {
     handleHideCompletedSagas,
   } = useDialogControl()
 
-  const {
-    activeNotifications,
-    closedNotifications,
-    handleToggleCloseNotifications,
-  } = useNotification({ data })
+  const { activeNotifications, handleCloseNotification } = useNotification({
+    data,
+  })
 
   const [renderModalOnePaceWelcome, setRenderModalOnePaceWelcome] = useState(
     () => {
@@ -120,7 +118,6 @@ const HomeController = () => {
       onePieceSagas={currentOnePieceSagas}
       handleToggleTheme={handleToggleTheme}
       notificationData={activeNotifications}
-      closedNotifications={closedNotifications}
       handleHideGrayscale={handleHideGrayscale}
       handleRedirectToForm={handleRedirectToForm}
       handleToggleSettings={handleToggleSettings}
@@ -133,7 +130,7 @@ const HomeController = () => {
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
       handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
-      handleToggleCloseNotifications={handleToggleCloseNotifications}
+      handleCloseNotification={handleCloseNotification}
     />
   )
 }
