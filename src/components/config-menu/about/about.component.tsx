@@ -31,7 +31,7 @@ const AboutComponent = () => {
       <Item variant={"outline"}>
         <ItemContent>
           <ItemTitle>Shouldz</ItemTitle>
-          <ItemDescription>Desenvolvedor • Criador do projeto</ItemDescription>
+          <ItemDescription>Desenvolvedor</ItemDescription>
         </ItemContent>
         <ItemActions>
           <Button
