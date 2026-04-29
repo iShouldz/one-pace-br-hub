@@ -1,61 +1,38 @@
+<div align="center">
+
+<img src="public/images/one-pace-logo.webp" alt="One Pace BR Hub"  />
+
 # One Pace BR Hub
 
-Hub brasileiro com organização de sagas/arcos do One Pace e suporte a legendas PT-BR.
+Hub brasileiro dedicado a centralizar e organizar as sagas e arcos do projeto **One Pace**, com foco em apoiar a comunidade que acompanha o conteúdo com **legendas em PT-BR**.
 
-## Executar localmente
+</div>
 
-```bash
-npm install
-npm run dev
-```
+---
 
-## Build
+## Sobre o projeto
 
-```bash
-npm run typecheck
-npm run build
-```
+O **One Pace BR Hub** nasceu da necessidade de ter um ponto de referência simples e acessível para navegar pelo conteúdo do One Pace de forma organizada, em português, com o objetivo de facilitar a descoberta do que assistir e em qual ordem.
 
-## SEO e indexacao (ja implementado)
+A proposta é ser um “hub”: um lugar que ajuda a comunidade a encontrar e acompanhar as sagas/arcos, mantendo tudo bem estruturado e fácil de compartilhar.
 
-- Metadados dinamicos por rota (home, saga e arco).
-- Canonical dinamico por URL.
-- Open Graph e Twitter Cards dinamicos.
-- JSON-LD basico por pagina.
-- `robots.txt` com sitemap declarado.
-- `sitemap.xml` com home, paginas de saga e principais paginas East Blue.
-- Fallback SPA para Cloudflare Pages via `public/_redirects`.
+## Objetivos
 
-## Configuracao obrigatoria de dominio
+- **Centralizar** informações e organização de sagas/arcos do One Pace em um único lugar.
+- **Apoiar a comunidade BR**, especialmente quem consome conteúdo com legendas PT-BR.
+- **Facilitar o acesso e a navegação**, tornando mais rápido encontrar o arco/saga desejado.
+- **Manter um projeto aberto e evolutivo**, que possa crescer com contribuições e melhorias ao longo do tempo.
 
-Defina o dominio oficial em variavel de ambiente para gerar canonicals absolutos corretos:
+## Status e contribuição
 
-```bash
-VITE_SITE_URL=https://seu-dominio.com
-```
+O projeto está em evolução contínua. Sugestões, correções e melhorias são bem-vindas.
 
-No Cloudflare Pages:
+- Abra uma **Issue** para reportar problemas ou sugerir mudanças.
+- Envie um **Pull Request** se quiser contribuir diretamente.
 
-1. Acesse Project > Settings > Environment variables.
-2. Crie `VITE_SITE_URL` para `Production` (e `Preview`, se quiser).
-3. Faça novo deploy.
+## Aviso
 
-## Passos manuais para indexar no Google
+Este projeto é **feito por fãs** e não possui afiliação oficial com *One Piece*, *Toei Animation*, *Shueisha* ou com a equipe original do **One Pace**.  
+Todo crédito de personagens, histórias e materiais relacionados pertence aos seus respectivos detentores.
 
-1. Garanta que o site esta publico e sem login.
-2. Confirme que estas URLs abrem normalmente:
-	- `/robots.txt`
-	- `/sitemap.xml`
-	- `/saga/east-blue`
-3. No Google Search Console:
-	- Adicione a propriedade do dominio.
-	- Envie o sitemap: `https://seu-dominio.com/sitemap.xml`.
-	- Use "Inspecao de URL" e solicite indexacao para:
-	  - home
-	  - `/saga/east-blue`
-	  - 3-5 sagas principais
-4. Aguarde rastreamento (normalmente alguns dias).
-
-## Observacao importante
-
-Os arquivos `public/robots.txt` e `public/sitemap.xml` usam o dominio `https://one-pace-br-hub.pages.dev` como padrao. Se voce usar dominio customizado, atualize esses arquivos para o dominio final antes de publicar.
+---
