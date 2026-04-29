@@ -199,7 +199,7 @@ const ArcDetailsController = () => {
 
       handleRedirectButtonAction(path)
     },
-    [handleRedirectButtonAction]
+    [handleRedirectButtonAction, sagaId, arcId]
   )
 
   if (isPending) {
