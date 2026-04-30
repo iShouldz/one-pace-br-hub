@@ -37,8 +37,8 @@ const HomeView = ({
       <BackgroundHeaderComponent>
         <NotificationListComponent
           notificationData={notificationData}
-          handleRedirectNotifyButton={handleRedirectNotifyButton}
           handleCloseNotification={handleCloseNotification}
+          handleRedirectNotifyButton={handleRedirectNotifyButton}
         />
 
         <WelcomeModalComponent

@@ -11,8 +11,8 @@ import { getNotificationId } from "@/utils/notification.utils"
 
 const NotificationListComponent = ({
   notificationData,
-  handleRedirectNotifyButton,
   handleCloseNotification,
+  handleRedirectNotifyButton,
 }: INotificationListComponentProps) => {
   if (!notificationData?.notifications?.length) {
     return null
@@ -30,7 +30,7 @@ const NotificationListComponent = ({
 
           return (
             <Alert
-              className={`relative flex w-300 origin-top items-center shadow-lg shadow-black/10 backdrop-blur-md transition-all ${
+              className={`relative flex min-h-14 gap-3 w-300 origin-top items-center shadow-lg shadow-black/10 backdrop-blur-md transition-all ${
                 index > 0 ? "-mt-12" : ""
               }`}
               key={getNotificationId(notification)}
@@ -40,14 +40,17 @@ const NotificationListComponent = ({
                 transform: `scale(${scale})`,
               }}
             >
-              <InfoIcon className="size-5 shrink-0" />
-              <AlertTitle className="min-w-0 max-w-[40%] truncate">
+              <AlertTitle className="max-w-[40%] min-w-0 truncate flex items-center gap-2">
+                <InfoIcon className="size-5 shrink-0" />
                 {notification.title}
               </AlertTitle>
-              <AlertDescription className="flex min-w-0 max-w-[87%] items-center gap-2">
+              <AlertDescription className="flex max-w-[87%] min-w-0 items-center gap-2">
                 <span className="min-w-0 truncate">
                   {notification.description}
                 </span>
+              </AlertDescription>
+
+              <AlertAction className="flex items-center ">
                 <Button
                   variant="ghost"
                   onClick={() =>
@@ -56,9 +59,6 @@ const NotificationListComponent = ({
                 >
                   {notification.buttonText} <ArrowUpRight />
                 </Button>
-              </AlertDescription>
-
-              <AlertAction>
                 <Button
                   variant="ghost"
                   onClick={() => handleCloseNotification(notification)}
