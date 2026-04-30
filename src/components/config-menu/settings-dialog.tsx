@@ -36,11 +36,13 @@ import TorrentServerComponet from "./torrent-server/torrent-server.component"
 import type { ResolvedTheme } from "../theme-provider"
 import FeedbackComponent from "./feedback/feedback.component"
 import UsefullLinksComponent from "./usefull-links/usefull-links.component"
+import StremioComponent from "./stremio/stremio.component"
 
-type ConfigContentKey =
+export type ConfigContentKey =
   | "Exibição"
   | "Provedor torrent"
   | "Sobre"
+  | "Stremio Addon"
   | "Feedback"
   | "Ler mangá online"
 
@@ -51,6 +53,16 @@ const data = {
       icon: <SettingsIcon />,
     },
     { name: "Feedback", icon: <BookOpenText /> },
+    {
+      name: "Stremio Addon",
+      icon: (
+        <img
+          src="/images/icons/stremio.webp"
+          alt="stremio"
+          className="size-4.5 opacity-80 grayscale"
+        />
+      ),
+    },
     {
       name: "Provedor torrent",
       icon: <MenuIcon />,
@@ -74,6 +86,7 @@ interface ISettingsDialog {
   handleToggleOrderList: () => void
   handleHideCompletedSagas: () => void
   handleRedirectToIssuesGithub: () => void
+  defaultOptionOpenConfig?: ConfigContentKey
 }
 
 export function SettingsDialog({
@@ -85,16 +98,19 @@ export function SettingsDialog({
   handleRedirectToForm,
   handleToggleSettings,
   handleToggleOrderList,
+  defaultOptionOpenConfig,
   handleHideCompletedSagas,
   handleRedirectToIssuesGithub,
 }: ISettingsDialog) {
-  const [currentSeleted, setCurrentSelected] =
-    React.useState<ConfigContentKey>("Exibição")
+  const [currentSeleted, setCurrentSelected] = React.useState<ConfigContentKey>(
+    defaultOptionOpenConfig ?? "Exibição"
+  )
 
   const configContent: Record<ConfigContentKey, React.ReactElement> = {
     Sobre: <AboutComponent />,
     "Provedor torrent": <TorrentServerComponet />,
     "Ler mangá online": <UsefullLinksComponent />,
+    "Stremio Addon": <StremioComponent />,
     Exibição: (
       <ShowComponent
         currentTheme={currentTheme}
@@ -112,6 +128,16 @@ export function SettingsDialog({
       />
     ),
   }
+
+  React.useEffect(() => {
+    if (!openSettings) {
+      return
+    }
+
+    const nextOption = defaultOptionOpenConfig ?? "Exibição"
+
+    setCurrentSelected(nextOption)
+  }, [defaultOptionOpenConfig, openSettings])
 
   return (
     <Dialog open={openSettings} onOpenChange={handleToggleSettings}>

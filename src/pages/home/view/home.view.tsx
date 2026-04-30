@@ -9,6 +9,7 @@ import { SettingsDialog } from "@/components/config-menu/settings-dialog"
 
 import WelcomeModalComponent from "../components/welcome-modal/welcome-modal.component"
 import NotificationListComponent from "../components/notification-list/notification-list.component"
+import HeaderComponent from "../components/Header/header.component"
 
 const HomeView = ({
   isLoading,
@@ -22,15 +23,18 @@ const HomeView = ({
   handleHideGrayscale,
   handleRedirectToForm,
   handleToggleSettings,
+  handleOpenSettingsMenu,
   handleToggleOrderList,
   handleCloseNotification,
   handleCloseWelcomeModal,
+  defaultOptionOpenConfig,
   handleHideCompletedSagas,
   renderModalOnePaceWelcome,
   handleRedirectToArcDetails,
   handleRedirectNotifyButton,
   handleRedirectToSagaDetails,
   handleRedirectToIssuesGithub,
+  handleTriggerStremioAddonHeader,
 }: IHomeView) => {
   return (
     <>
@@ -48,13 +52,17 @@ const HomeView = ({
 
         <Button
           variant="ghost"
-          onClick={handleToggleSettings}
+          onClick={handleOpenSettingsMenu}
           className="fixed top-5 left-3 z-50 bg-white/60 shadow-sm ring-1 ring-black/10 backdrop-blur-md dark:bg-black/40 dark:ring-white/10"
           aria-label="Abrir menu"
         >
           Menu{" "}
           <Menu className="size-5 text-neutral-700 dark:text-neutral-200" />
         </Button>
+
+        <HeaderComponent
+          handleTriggerStremioAddonHeader={handleTriggerStremioAddonHeader}
+        />
 
         <main className="relative z-10">
           <SettingsDialog
@@ -66,6 +74,7 @@ const HomeView = ({
             handleRedirectToForm={handleRedirectToForm}
             handleToggleSettings={handleToggleSettings}
             handleToggleOrderList={handleToggleOrderList}
+            defaultOptionOpenConfig={defaultOptionOpenConfig}
             handleHideCompletedSagas={handleHideCompletedSagas}
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
           />

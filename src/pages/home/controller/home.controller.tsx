@@ -9,6 +9,7 @@ import useSeo from "@/hooks/use-seo"
 
 import useDialogControl from "../hooks/use-dialog-control"
 import useNotification from "../hooks/use-notification"
+import type { ConfigContentKey } from "@/components/config-menu/settings-dialog"
 
 const HomeController = () => {
   const { handleRedirect } = useNavigation()
@@ -27,6 +28,8 @@ const HomeController = () => {
     handleToggleOrderList,
     handleHideCompletedSagas,
   } = useDialogControl()
+  const [defaultOptionOpenConfig, setDefaultOptionOpenConfig] =
+    useState<ConfigContentKey>("Exibição")
 
   const { activeNotifications, handleCloseNotification } = useNotification({
     data,
@@ -87,6 +90,16 @@ const HomeController = () => {
     })
   }, [handleRedirect])
 
+  const handleOpenSettingsMenu = useCallback(() => {
+    setDefaultOptionOpenConfig("Exibição")
+    handleToggleSettings()
+  }, [handleToggleSettings])
+
+  const handleTriggerStremioAddonHeader = useCallback(() => {
+    setDefaultOptionOpenConfig("Stremio Addon")
+    handleToggleSettings()
+  }, [handleToggleSettings])
+
   useSeo({
     title: "One Pace BR Hub | One Pace Legendado PT-BR",
     description:
@@ -121,7 +134,10 @@ const HomeController = () => {
       handleHideGrayscale={handleHideGrayscale}
       handleRedirectToForm={handleRedirectToForm}
       handleToggleSettings={handleToggleSettings}
+      handleOpenSettingsMenu={handleOpenSettingsMenu}
       handleToggleOrderList={handleToggleOrderList}
+      defaultOptionOpenConfig={defaultOptionOpenConfig}
+      handleCloseNotification={handleCloseNotification}
       handleCloseWelcomeModal={handleCloseWelcomeModal}
       handleHideCompletedSagas={handleHideCompletedSagas}
       renderModalOnePaceWelcome={renderModalOnePaceWelcome}
@@ -130,7 +146,7 @@ const HomeController = () => {
       handleRedirectToSagaDetails={handleRedirectToSagaDetails}
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
       handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
-      handleCloseNotification={handleCloseNotification}
+      handleTriggerStremioAddonHeader={handleTriggerStremioAddonHeader}
     />
   )
 }

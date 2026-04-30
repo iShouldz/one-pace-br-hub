@@ -1,6 +1,7 @@
 import type { ResolvedTheme } from "@/components/theme-provider"
 import type { OpDataResponse } from "./hooks/use-op-data"
 import type { NotificationResponse } from "@/hooks/use-notify/use-notify"
+import type { ConfigContentKey } from "@/components/config-menu/settings-dialog"
 
 export type IArc = {
   id: string
@@ -39,6 +40,7 @@ export interface IHomeView {
   handleHideGrayscale: () => void
   handleRedirectToForm: () => void
   handleToggleSettings: () => void
+  handleOpenSettingsMenu: () => void
   handleToggleOrderList: () => void
   renderModalOnePaceWelcome: boolean
   handleCloseWelcomeModal: () => void
@@ -46,6 +48,8 @@ export interface IHomeView {
   handleRedirectToIssuesGithub: () => void
   handleRedirectToSubtitleRepo: () => void
   onePieceSagas: OpDataResponse | undefined
+  defaultOptionOpenConfig: ConfigContentKey
+  handleTriggerStremioAddonHeader: () => void
   handleCloseNotification: (
     notification: NotificationResponse["notifications"][number]
   ) => void
