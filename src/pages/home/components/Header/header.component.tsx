@@ -33,27 +33,6 @@ const HeaderComponent = ({
           <Button
             variant="ghost"
             size="icon-sm"
-            onClick={handleRedirectToStremioAddon}
-            aria-label="stremio"
-            className="hover:text-foreground"
-          >
-            <img
-              src="/images/icons/stremio.webp"
-              alt=""
-              className="size-5 opacity-80"
-            />
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Addon PT BR - Stremio</p>
-        </TooltipContent>
-      </Tooltip>
-
-      <Tooltip>
-        <TooltipTrigger>
-          <Button
-            variant="ghost"
-            size="icon-sm"
             onClick={handleRedirectToSubtitleRepo}
             aria-label="github"
             className="hover:text-foreground"
@@ -72,6 +51,27 @@ const HeaderComponent = ({
         </TooltipTrigger>
         <TooltipContent>
           <p>Repositorio das legendas</p>
+        </TooltipContent>
+      </Tooltip>
+
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleRedirectToStremioAddon}
+            aria-label="stremio"
+            className="hover:text-foreground"
+          >
+            <img
+              src="/images/icons/stremio.webp"
+              alt=""
+              className="size-5 opacity-80"
+            />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Addon PT BR - Stremio</p>
         </TooltipContent>
       </Tooltip>
 
