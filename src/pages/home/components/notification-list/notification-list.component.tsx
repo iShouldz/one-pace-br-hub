@@ -30,7 +30,7 @@ const NotificationListComponent = ({
 
           return (
             <Alert
-              className={`relative flex min-h-14 gap-3 w-300 origin-top items-center shadow-lg shadow-black/10 backdrop-blur-md transition-all ${
+              className={`relative flex min-h-14 w-300 origin-top items-center gap-3 shadow-lg shadow-black/10 backdrop-blur-md transition-all ${
                 index > 0 ? "-mt-12" : ""
               }`}
               key={getNotificationId(notification)}
@@ -40,7 +40,7 @@ const NotificationListComponent = ({
                 transform: `scale(${scale})`,
               }}
             >
-              <AlertTitle className="max-w-[40%] min-w-0 truncate flex items-center gap-2">
+              <AlertTitle className="flex max-w-[40%] min-w-0 items-center gap-2 truncate">
                 <InfoIcon className="size-5 shrink-0" />
                 {notification.title}
               </AlertTitle>
@@ -50,15 +50,17 @@ const NotificationListComponent = ({
                 </span>
               </AlertDescription>
 
-              <AlertAction className="flex items-center ">
-                <Button
-                  variant="ghost"
-                  onClick={() =>
-                    handleRedirectNotifyButton(notification.buttonUrl)
-                  }
-                >
-                  {notification.buttonText} <ArrowUpRight />
-                </Button>
+              <AlertAction className="flex items-center">
+                {notification?.buttonText && (
+                  <Button
+                    variant="ghost"
+                    onClick={() =>
+                      handleRedirectNotifyButton(notification?.buttonUrl)
+                    }
+                  >
+                    {notification.buttonText} <ArrowUpRight />
+                  </Button>
+                )}
                 <Button
                   variant="ghost"
                   onClick={() => handleCloseNotification(notification)}

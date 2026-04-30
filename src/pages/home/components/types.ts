@@ -25,6 +25,6 @@ export interface IMenuSettingsComponentProps {
 
 export interface INotificationListComponentProps {
   handleCloseNotification: (notification: NotificationItem) => void
-  handleRedirectNotifyButton: (path: string) => void
+  handleRedirectNotifyButton: (path?: string) => void
   notificationData: NotificationResponse | undefined
 }

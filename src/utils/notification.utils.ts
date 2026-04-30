@@ -1,20 +1,14 @@
-export interface INotification {
-  title: string
-  description: string
-  type: string
-  notifyCreatedAt: number
-  notifyRunnedByDays: number
-  buttonText: string
-  buttonUrl: string
-}
+import type { notificationData } from "@/hooks/use-notify/use-notify"
 
-export const getNotificationId = (notification: INotification): string => {
+export const getNotificationId = (notification: notificationData): string => {
   return `${notification.notifyCreatedAt}-${notification.title}`
 }
 
 const SECONDS_PER_DAY = 86400
 
-export const isNotificationActive = (notification: INotification): boolean => {
+export const isNotificationActive = (
+  notification: notificationData
+): boolean => {
   const nowInSeconds = Math.floor(Date.now() / 1000)
   const daysSinceCreation =
     (nowInSeconds - notification.notifyCreatedAt) / SECONDS_PER_DAY
@@ -23,7 +17,7 @@ export const isNotificationActive = (notification: INotification): boolean => {
 }
 
 export const filterActiveNotifications = (
-  notifications: INotification[]
-): INotification[] => {
+  notifications: notificationData[]
+): notificationData[] => {
   return notifications.filter(isNotificationActive)
 }

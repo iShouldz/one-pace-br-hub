@@ -56,7 +56,8 @@ const HomeController = () => {
   )
 
   const handleRedirectNotifyButton = useCallback(
-    (path: string) => {
+    (path?: string) => {
+      if (!path) return
       handleRedirect(path)
     },
     [handleRedirect]

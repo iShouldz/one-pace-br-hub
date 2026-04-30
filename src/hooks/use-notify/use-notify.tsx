@@ -8,8 +8,8 @@ export interface notificationData {
   type: string
   notifyCreatedAt: number
   notifyRunnedByDays: number
-  buttonText: string
-  buttonUrl: string
+  buttonText?: string
+  buttonUrl?: string
 }
 
 export type NotificationResponse = {

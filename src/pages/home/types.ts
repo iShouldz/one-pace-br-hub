@@ -53,7 +53,7 @@ export interface IHomeView {
   handleCloseNotification: (
     notification: NotificationResponse["notifications"][number]
   ) => void
-  handleRedirectNotifyButton: (path: string) => void
+  handleRedirectNotifyButton: (path?: string) => void
   notificationData: NotificationResponse | undefined
   handleRedirectToSagaDetails: (sagaId: string) => void
   handleRedirectToArcDetails: (sagaId: string, arcId: string) => void
