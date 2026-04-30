@@ -46,14 +46,10 @@ const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
 
         const nextState = [...prevState, notificationId]
         if (typeof window !== "undefined") {
-          try {
-            sessionStorage.setItem(
-              StorageKeys.CLOSED_NOTIFICATIONS,
-              JSON.stringify(nextState)
-            )
-          } catch {
-            // Ignore sessionStorage errors so the UI can still update.
-          }
+          sessionStorage.setItem(
+            StorageKeys.CLOSED_NOTIFICATIONS,
+            JSON.stringify(nextState)
+          )
         }
         return nextState
       })
