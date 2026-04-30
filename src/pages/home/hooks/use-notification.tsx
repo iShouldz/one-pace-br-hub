@@ -1,9 +1,8 @@
-import useNotify from "@/hooks/use-notify/use-notify"
+import useNotify, { type notificationData } from "@/hooks/use-notify/use-notify"
 import { StorageKeys } from "@/utils/enum/storage-keys.utils"
 import {
   filterActiveNotifications,
   getNotificationId,
-  type INotification,
 } from "@/utils/notification.utils"
 import { useCallback, useMemo, useState } from "react"
 import type { OpDataResponse } from "./use-op-data"
@@ -36,28 +35,31 @@ const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
     readClosedNotificationIds
   )
 
-  const handleCloseNotification = useCallback((notification: INotification) => {
-    const notificationId = getNotificationId(notification)
+  const handleCloseNotification = useCallback(
+    (notification: notificationData) => {
+      const notificationId = getNotificationId(notification)
 
-    setClosedNotifications((prevState) => {
-      if (prevState.includes(notificationId)) {
-        return prevState
-      }
-
-      const nextState = [...prevState, notificationId]
-      if (typeof window !== "undefined") {
-        try {
-          sessionStorage.setItem(
-            StorageKeys.CLOSED_NOTIFICATIONS,
-            JSON.stringify(nextState)
-          )
-        } catch {
-          // Ignore sessionStorage errors so the UI can still update.
+      setClosedNotifications((prevState) => {
+        if (prevState.includes(notificationId)) {
+          return prevState
         }
-      }
-      return nextState
-    })
-  }, [])
+
+        const nextState = [...prevState, notificationId]
+        if (typeof window !== "undefined") {
+          try {
+            sessionStorage.setItem(
+              StorageKeys.CLOSED_NOTIFICATIONS,
+              JSON.stringify(nextState)
+            )
+          } catch {
+            // Ignore sessionStorage errors so the UI can still update.
+          }
+        }
+        return nextState
+      })
+    },
+    []
+  )
 
   const activeNotifications = useMemo(() => {
     if (!notificationData?.notifications) {
