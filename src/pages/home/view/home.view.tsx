@@ -79,7 +79,7 @@ const HomeView = ({
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
           />
 
-          <section className="pointer-events-none absolute inset-x-0 top-0 flex h-[60svh] items-center">
+          <section className="pointer-events-none absolute inset-x-0 top-0 flex lg:h-[60svh] items-center md:h-[30svh]">
             <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
               <div className="flex justify-center">
                 <img
@@ -95,7 +95,7 @@ const HomeView = ({
           {isLoading ? (
             <SagaListLoading />
           ) : (
-            <section className="md:pt-[35svh] lg:pt-[55svh]">
+            <section className="md:pt-[25svh] lg:pt-[55svh]">
               <SagaList
                 showAllSagas={showAllSagas}
                 onePieceSagas={onePieceSagas}

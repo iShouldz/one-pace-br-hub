@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { ButtonGroup } from "@/components/ui/button-group"
 import {
   Field,
   FieldContent,
@@ -48,7 +47,8 @@ const FeedbackComponent = ({
                   <FieldTitle>{item.title}</FieldTitle>
                   <FieldDescription>{item.description}</FieldDescription>
                 </FieldContent>
-                <ButtonGroup>
+
+                <div>
                   <Button onClick={handleRedirectToIssuesGithub}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const FeedbackComponent = ({
                     <BookOpenText />
                     Reportar via formulário Google
                   </Button>
-                </ButtonGroup>
+                </div>
               </Field>
             </FieldLabel>
           ))}
