@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/images/one-pace-logo.webp" alt="One Pace BR Hub"  />
+![readme](public/images/one-pace-logo.webp)
 
 # One Pace BR Hub
 
