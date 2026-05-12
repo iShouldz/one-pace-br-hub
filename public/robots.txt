@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://one-pace-br.pages.dev/sitemap.xml
+Sitemap: https://onepacebr.shouldz.com.br/sitemap.xml
