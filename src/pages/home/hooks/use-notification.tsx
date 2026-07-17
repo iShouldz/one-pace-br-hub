@@ -7,6 +7,8 @@ import {
 import { useCallback, useMemo, useState } from "react"
 import type { OpDataResponse } from "./use-op-data"
 
+type NotificationWithInstanceId = notificationData & { instanceId: string }
+
 const readClosedNotificationIds = (): string[] => {
   if (typeof window === "undefined") {
     return []
@@ -30,14 +32,55 @@ const readClosedNotificationIds = (): string[] => {
 }
 
 const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
-  const { data: notificationData } = useNotify({ data })
+  const { data: notificationResponse } = useNotify({ data })
   const [closedNotifications, setClosedNotifications] = useState<string[]>(
     readClosedNotificationIds
   )
 
+  const activeNotifications = useMemo(() => {
+    if (!notificationResponse?.notifications) {
+      return undefined
+    }
+
+    const active = filterActiveNotifications(notificationResponse.notifications)
+    const closedSet = new Set(closedNotifications)
+    const signatureCounts = new Map<string, number>()
+
+    const notifications = active.reduce<NotificationWithInstanceId[]>(
+      (accumulator, notification) => {
+        const signature = getNotificationId(notification)
+        const occurrence = signatureCounts.get(signature) ?? 0
+        signatureCounts.set(signature, occurrence + 1)
+
+        const instanceId = `${signature}:${occurrence}`
+        if (closedSet.has(instanceId)) {
+          return accumulator
+        }
+
+        accumulator.push({
+          ...notification,
+          instanceId,
+        })
+
+        return accumulator
+      },
+      []
+    )
+
+    return {
+      ...notificationResponse,
+      notifications,
+    }
+  }, [notificationResponse, closedNotifications])
+
   const handleCloseNotification = useCallback(
     (notification: notificationData) => {
       const notificationId = getNotificationId(notification)
+
+      if (!notificationId || notificationId === "undefined") {
+        console.error("Notificação sem ID válido:", notification)
+        return
+      }
 
       setClosedNotifications((prevState) => {
         if (prevState.includes(notificationId)) {
@@ -56,28 +99,6 @@ const useNotification = ({ data }: { data: OpDataResponse | undefined }) => {
     },
     []
   )
-
-  const activeNotifications = useMemo(() => {
-    if (!notificationData?.notifications) {
-      return undefined
-    }
-
-    const active = filterActiveNotifications(notificationData.notifications)
-    if (!closedNotifications.length) {
-      return {
-        ...notificationData,
-        notifications: active,
-      }
-    }
-
-    const closedSet = new Set(closedNotifications)
-    return {
-      ...notificationData,
-      notifications: active.filter(
-        (notification) => !closedSet.has(getNotificationId(notification))
-      ),
-    }
-  }, [notificationData, closedNotifications])
 
   return {
     activeNotifications,

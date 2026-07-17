@@ -111,6 +111,7 @@ interface ISettingsDialog {
   handleHideCompletedSagas: () => void
   handleRedirectToIssuesGithub: () => void
   defaultOptionOpenConfig?: ConfigContentKey
+  handleRedirectToIssuesGithubSubttitle: () => void
 }
 
 export function SettingsDialog({
@@ -125,6 +126,7 @@ export function SettingsDialog({
   defaultOptionOpenConfig,
   handleHideCompletedSagas,
   handleRedirectToIssuesGithub,
+  handleRedirectToIssuesGithubSubttitle,
 }: ISettingsDialog) {
   const [currentSeleted, setCurrentSelected] = React.useState<ConfigContentKey>(
     defaultOptionOpenConfig ?? "Exibição"
@@ -149,6 +151,9 @@ export function SettingsDialog({
       <FeedbackComponent
         handleRedirectToForm={handleRedirectToForm}
         handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
+        handleRedirectToIssuesGithubSubttitle={
+          handleRedirectToIssuesGithubSubttitle
+        }
       />
     ),
   }

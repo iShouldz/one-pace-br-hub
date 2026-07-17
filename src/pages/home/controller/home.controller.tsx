@@ -90,6 +90,11 @@ const HomeController = () => {
       external: true,
     })
   }, [handleRedirect])
+  const handleRedirectToIssuesGithubSubttitle = useCallback(() => {
+    handleRedirect("https://github.com/iShouldz/one-pace-br-hub-legendas/issues/new", {
+      external: true,
+    })
+  }, [handleRedirect])
 
   const handleOpenSettingsMenu = useCallback(() => {
     setDefaultOptionOpenConfig("Exibição")
@@ -135,8 +140,8 @@ const HomeController = () => {
       handleHideGrayscale={handleHideGrayscale}
       handleRedirectToForm={handleRedirectToForm}
       handleToggleSettings={handleToggleSettings}
-      handleOpenSettingsMenu={handleOpenSettingsMenu}
       handleToggleOrderList={handleToggleOrderList}
+      handleOpenSettingsMenu={handleOpenSettingsMenu}
       defaultOptionOpenConfig={defaultOptionOpenConfig}
       handleCloseNotification={handleCloseNotification}
       handleCloseWelcomeModal={handleCloseWelcomeModal}
@@ -148,6 +153,7 @@ const HomeController = () => {
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
       handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
       handleTriggerStremioAddonHeader={handleTriggerStremioAddonHeader}
+      handleRedirectToIssuesGithubSubttitle={handleRedirectToIssuesGithubSubttitle}
     />
   )
 }

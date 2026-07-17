@@ -10,6 +10,7 @@ export interface notificationData {
   notifyRunnedByDays: number
   buttonText?: string
   buttonUrl?: string
+  instanceId?: string
 }
 
 export type NotificationResponse = {

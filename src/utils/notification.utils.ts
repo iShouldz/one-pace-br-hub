@@ -1,7 +1,11 @@
 import type { notificationData } from "@/hooks/use-notify/use-notify"
 
+const getNotificationSignature = (notification: notificationData): string => {
+  return [notification.notifyCreatedAt, notification.title].join("|")
+}
+
 export const getNotificationId = (notification: notificationData): string => {
-  return `${notification.notifyCreatedAt}-${notification.title}`
+  return notification.instanceId ?? getNotificationSignature(notification)
 }
 
 const SECONDS_PER_DAY = 86400

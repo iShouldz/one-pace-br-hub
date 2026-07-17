@@ -50,6 +50,7 @@ export interface IHomeView {
   onePieceSagas: OpDataResponse | undefined
   defaultOptionOpenConfig: ConfigContentKey
   handleTriggerStremioAddonHeader: () => void
+  handleRedirectToIssuesGithubSubttitle: () => void
   handleCloseNotification: (
     notification: NotificationResponse["notifications"][number]
   ) => void

@@ -35,6 +35,7 @@ const HomeView = ({
   handleRedirectToSagaDetails,
   handleRedirectToIssuesGithub,
   handleTriggerStremioAddonHeader,
+  handleRedirectToIssuesGithubSubttitle,
 }: IHomeView) => {
   return (
     <>
@@ -77,6 +78,7 @@ const HomeView = ({
             defaultOptionOpenConfig={defaultOptionOpenConfig}
             handleHideCompletedSagas={handleHideCompletedSagas}
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
+            handleRedirectToIssuesGithubSubttitle={handleRedirectToIssuesGithubSubttitle}
           />
 
           <section className="pointer-events-none absolute inset-x-0 top-0 flex lg:h-[60svh] items-center md:h-[30svh]">
