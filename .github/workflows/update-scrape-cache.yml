@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BRANCH_BYPASS_TOKEN || github.token }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,12 +28,12 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "cache-bot"
+          git config user.email "cache-bot@users.noreply.github.com"
           if git diff --quiet -- public/data/scrape-cache.json; then
             echo "No changes to commit"
             exit 0
           fi
           git add public/data/scrape-cache.json
           git commit -m "chore: update scrape cache"
-          git push
+          git push origin HEAD:${GITHUB_REF_NAME}
