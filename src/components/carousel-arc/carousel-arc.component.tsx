@@ -23,7 +23,7 @@ const CarouselArcComponent = ({
         {arcs?.map((arc) => (
           <CarouselItem
             key={arc.id}
-            className="basis-[74%] pl-2 sm:basis-[48%] md:basis-[54%] md:pl-3 lg:basis-[26%] xl:basis-[20%]"
+            className="basis-[74%] pl-2 sm:basis-[48%] md:basis-[48%] md:pl-3 lg:basis-[26%] xl:basis-[20%]"
           >
             <CardArcComponent
               arc={arc}
