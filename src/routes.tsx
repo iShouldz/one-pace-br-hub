@@ -5,13 +5,19 @@ import SagaDetailsController from "./pages/saga-details/controller/saga-details.
 import ArcDetailsController from "./pages/arc-details/controller/arc-details.controller"
 import ErrorPage from "./pages/error/error.page"
 import ReleaseController from "./pages/releases/controller/releases.controller"
+import AppShell from "./components/app-shell/app-shell.component"
 
 export const routes = createBrowserRouter([
-  { path: "*", element: <ErrorPage /> },
-  { path: RoutesUrl.ERROR, element: <ErrorPage /> },
-  { path: RoutesUrl.HOME, element: <HomeController /> },
-  { path: RoutesUrl.RELEASES, element: <ReleaseController /> },
-  { path: RoutesUrl.ARC_DETAILS, element: <ArcDetailsController /> },
-  { path: RoutesUrl.SAGA_DETAILS, element: <SagaDetailsController /> },
-  { path: RoutesUrl.ARC_DETAILS_LEGACY, element: <ArcDetailsController /> },
+  {
+    element: <AppShell />,
+    children: [
+      { path: "*", element: <ErrorPage /> },
+      { path: RoutesUrl.ERROR, element: <ErrorPage /> },
+      { path: RoutesUrl.HOME, element: <HomeController /> },
+      { path: RoutesUrl.RELEASES, element: <ReleaseController /> },
+      { path: RoutesUrl.ARC_DETAILS, element: <ArcDetailsController /> },
+      { path: RoutesUrl.SAGA_DETAILS, element: <SagaDetailsController /> },
+      { path: RoutesUrl.ARC_DETAILS_LEGACY, element: <ArcDetailsController /> },
+    ],
+  },
 ])
