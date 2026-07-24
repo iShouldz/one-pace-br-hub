@@ -1,8 +1,10 @@
 export const RoutesUrl = {
   HOME: "/",
+  ERROR: "/error",
+  RELEASES: "/releases",
   SAGA_DETAILS: "/saga/:sagaId",
-  ARC_DETAILS: "/saga/:sagaId/:arcId",
   ARC_DETAILS_LEGACY: "/arc/:arcId",
+  ARC_DETAILS: "/saga/:sagaId/:arcId",
 }
 
 export const routePath = {

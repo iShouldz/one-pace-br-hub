@@ -78,10 +78,12 @@ const HomeView = ({
             defaultOptionOpenConfig={defaultOptionOpenConfig}
             handleHideCompletedSagas={handleHideCompletedSagas}
             handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
-            handleRedirectToIssuesGithubSubttitle={handleRedirectToIssuesGithubSubttitle}
+            handleRedirectToIssuesGithubSubttitle={
+              handleRedirectToIssuesGithubSubttitle
+            }
           />
 
-          <section className="pointer-events-none absolute inset-x-0 top-0 flex lg:h-[60svh] items-center md:h-[30svh]">
+          <section className="pointer-events-none absolute inset-x-0 top-0 flex items-center md:h-[30svh] lg:h-[60svh]">
             <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
               <div className="flex justify-center">
                 <img
