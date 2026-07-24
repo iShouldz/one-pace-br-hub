@@ -5,6 +5,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import useNavigation from "@/hooks/use-navigation/use-navigation"
+import { RoutesUrl } from "@/utils/enum/routes.utils"
+import { Logs } from "lucide-react"
 import { useCallback } from "react"
 
 const HeaderComponent = ({
@@ -26,8 +28,28 @@ const HeaderComponent = ({
     handleRedirect("https://github.com/iShouldz/one-pace-br-hub-legendas")
   }, [handleRedirect])
 
+  const handleRedirectToChangelog = useCallback(() => {
+    handleRedirect(RoutesUrl.RELEASES)
+  }, [handleRedirect])
+
   return (
     <header className="fixed top-6 right-6 z-50 flex items-center gap-1 rounded-full border border-border/40 bg-background/50 p-1 text-muted-foreground/80 opacity-80 backdrop-blur-md transition-opacity hover:opacity-100">
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleRedirectToChangelog}
+            aria-label="changelog"
+            className="hover:text-foreground"
+          >
+            <Logs />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Novidades do Hub</p>
+        </TooltipContent>
+      </Tooltip>
       <Tooltip>
         <TooltipTrigger>
           <Button
