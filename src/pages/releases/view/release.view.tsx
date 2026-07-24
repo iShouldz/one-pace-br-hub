@@ -13,7 +13,7 @@ const ReleaseView = ({ entries, isLoading }: IReleaseView) => {
     <>
       <BackgroundHeaderComponent>
         <main className="relative z-10">
-          <section className="md:pt-[25svh] lg:pt-[5svh]">
+          <section className="pt-[5svh]">
             {isLoading ? (
               <Changelog1Skeleton count={3} />
             ) : (
