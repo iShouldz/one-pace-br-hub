@@ -1,4 +1,3 @@
-
 const BLOCKED_STATUSES = new Set([401, 403, 429, 503])
 const RETRYABLE_STATUSES = new Set([429, 503])
 const DEFAULT_MAX_RSS_PAGES = 4
@@ -142,7 +141,11 @@ const fetchFromUpstreamScraper = async (
   context: any,
   targetUrl: string,
   requestedPages: number
-): Promise<{ body: string; contentType: string; fallbackHeader: string } | null> => {
+): Promise<{
+  body: string
+  contentType: string
+  fallbackHeader: string
+} | null> => {
   const upstreamBaseUrl = getStringEnv(context, "SCRAPE_UPSTREAM_URL")
   if (!upstreamBaseUrl) return null
 
@@ -153,7 +156,8 @@ const fetchFromUpstreamScraper = async (
     return null
   }
 
-  parsedUpstream.pathname = parsedUpstream.pathname.replace(/\/+$/, "") + "/api/scrape"
+  parsedUpstream.pathname =
+    parsedUpstream.pathname.replace(/\/+$/, "") + "/api/scrape"
   parsedUpstream.searchParams.set("url", targetUrl)
   parsedUpstream.searchParams.set("pages", String(requestedPages))
 
@@ -209,10 +213,7 @@ const fetchNyaaAggregatedRss = async (
   const allItems: string[] = []
   const seenHashes = new Set<string>()
 
-  const safeMaxPages = Math.max(
-    1,
-    Math.min(MAX_RSS_PAGES_HARD_LIMIT, maxPages)
-  )
+  const safeMaxPages = Math.max(1, Math.min(MAX_RSS_PAGES_HARD_LIMIT, maxPages))
 
   for (let page = 1; page <= safeMaxPages; page++) {
     const rssUrl = getNyaaRssUrlByPage(parsedTarget, page)
@@ -348,7 +349,10 @@ export async function onRequest(context: any) {
           return response
         }
 
-        const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
+        const rssXml = await fetchNyaaAggregatedRss(
+          parsedTarget,
+          requestedPages
+        )
         if (rssXml) {
           const response = buildCachedResponse(
             rssXml,
@@ -380,19 +384,23 @@ export async function onRequest(context: any) {
               "text/plain; charset=utf-8",
               "nyaa-html-view-download-urls"
             )
-            if (cache) context.waitUntil?.(cache.put(cacheKey, response.clone()))
+            if (cache)
+              context.waitUntil?.(cache.put(cacheKey, response.clone()))
             return response
           }
         }
 
         // Se RSS falhar, retorna erro claro
-        return new Response("Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes", {
-          status: 503,
-          headers: {
-            "Content-Type": "text/plain; charset=utf-8",
-            "Access-Control-Allow-Origin": "*",
-          },
-        })
+        return new Response(
+          "Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes",
+          {
+            status: 503,
+            headers: {
+              "Content-Type": "text/plain; charset=utf-8",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
       }
     }
 
@@ -415,7 +423,8 @@ export async function onRequest(context: any) {
           "text/plain; charset=utf-8",
           "nyaa-view-download-url"
         )
-        if (cache) context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
+        if (cache)
+          context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
         return cachedResponse
       }
 
@@ -427,7 +436,8 @@ export async function onRequest(context: any) {
           "application/rss+xml; charset=utf-8",
           "nyaa-rss-aggregated"
         )
-        if (cache) context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
+        if (cache)
+          context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
         return cachedResponse
       }
 
@@ -452,7 +462,8 @@ export async function onRequest(context: any) {
             "text/plain; charset=utf-8",
             "nyaa-html-view-download-urls"
           )
-          if (cache) context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
+          if (cache)
+            context.waitUntil?.(cache.put(cacheKey, cachedResponse.clone()))
           return cachedResponse
         }
       }

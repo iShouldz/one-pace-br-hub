@@ -119,14 +119,16 @@ export const setSeo = ({
     selector: "meta[name='robots']",
     attribute: "name",
     value: "robots",
-    content: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+    content:
+      "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
   })
 
   upsertMeta({
     selector: "meta[name='googlebot']",
     attribute: "name",
     value: "googlebot",
-    content: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+    content:
+      "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
   })
 
   upsertMeta({

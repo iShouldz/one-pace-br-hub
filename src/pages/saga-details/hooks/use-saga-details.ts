@@ -13,7 +13,9 @@ class ApiError extends Error {
   }
 }
 
-const fetchSagaDetails = async (sagaId: string): Promise<SagaDetailsResponse> => {
+const fetchSagaDetails = async (
+  sagaId: string
+): Promise<SagaDetailsResponse> => {
   if (!sagaId?.trim()) {
     throw new ApiError("ID da saga invalido", 400)
   }

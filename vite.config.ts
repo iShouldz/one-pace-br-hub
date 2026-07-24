@@ -213,20 +213,29 @@ function scrapeProxyPlugin() {
 
             // Para queries (?q=...), sempre usa RSS (HTML de busca não serve)
             if (hasSearchQuery) {
-              const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
+              const rssXml = await fetchNyaaAggregatedRss(
+                parsedTarget,
+                requestedPages
+              )
               if (rssXml) {
                 res.statusCode = 200
-                res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
+                res.setHeader(
+                  "Content-Type",
+                  "application/rss+xml; charset=utf-8"
+                )
                 res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
                 res.end(rssXml)
                 return
               }
 
-              const htmlFallbackResponse = await fetch(parsedTarget.toString(), {
-                method: "GET",
-                redirect: "follow",
-                headers: buildScrapeHeaders(parsedTarget, "html"),
-              })
+              const htmlFallbackResponse = await fetch(
+                parsedTarget.toString(),
+                {
+                  method: "GET",
+                  redirect: "follow",
+                  headers: buildScrapeHeaders(parsedTarget, "html"),
+                }
+              )
 
               if (htmlFallbackResponse.ok) {
                 const html = await htmlFallbackResponse.text()
@@ -236,7 +245,10 @@ function scrapeProxyPlugin() {
                   const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
                   res.statusCode = 200
                   res.setHeader("Content-Type", "text/plain; charset=utf-8")
-                  res.setHeader("X-Scrape-Fallback", "nyaa-html-view-download-urls")
+                  res.setHeader(
+                    "X-Scrape-Fallback",
+                    "nyaa-html-view-download-urls"
+                  )
                   res.end(downloadUrls)
                   return
                 }
@@ -245,7 +257,9 @@ function scrapeProxyPlugin() {
               // Se RSS falhar, retorna erro claro
               res.statusCode = 503
               res.setHeader("Content-Type", "text/plain; charset=utf-8")
-              res.end("Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes")
+              res.end(
+                "Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes"
+              )
               return
             }
           }
@@ -268,11 +282,17 @@ function scrapeProxyPlugin() {
               return
             }
 
-            const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
+            const rssXml = await fetchNyaaAggregatedRss(
+              parsedTarget,
+              requestedPages
+            )
 
             if (rssXml) {
               res.statusCode = 200
-              res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
+              res.setHeader(
+                "Content-Type",
+                "application/rss+xml; charset=utf-8"
+              )
               res.setHeader("X-Scrape-Fallback", "nyaa-rss-aggregated")
               res.end(rssXml)
               return
@@ -292,7 +312,10 @@ function scrapeProxyPlugin() {
                 const downloadUrls = buildNyaaDownloadUrls(parsedTarget, ids)
                 res.statusCode = 200
                 res.setHeader("Content-Type", "text/plain; charset=utf-8")
-                res.setHeader("X-Scrape-Fallback", "nyaa-html-view-download-urls")
+                res.setHeader(
+                  "X-Scrape-Fallback",
+                  "nyaa-html-view-download-urls"
+                )
                 res.end(downloadUrls)
                 return
               }
@@ -421,7 +444,6 @@ function scrapeProxyPlugin() {
           })
         }
       })
-
     },
   }
 }

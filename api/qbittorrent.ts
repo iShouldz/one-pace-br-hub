@@ -52,13 +52,16 @@ export default async function handler(req: any, res: any) {
       password: config.password,
     })
 
-    const loginResponse = await fetch(`${normalizedBaseUrl}/api/v2/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-      },
-      body: loginBody.toString(),
-    })
+    const loginResponse = await fetch(
+      `${normalizedBaseUrl}/api/v2/auth/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        },
+        body: loginBody.toString(),
+      }
+    )
 
     if (!loginResponse.ok) {
       res.status(loginResponse.status).json({
@@ -94,14 +97,17 @@ export default async function handler(req: any, res: any) {
       addBody.append("savepath", config.savePath.trim())
     }
 
-    const addResponse = await fetch(`${normalizedBaseUrl}/api/v2/torrents/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        Cookie: sidCookie,
-      },
-      body: addBody.toString(),
-    })
+    const addResponse = await fetch(
+      `${normalizedBaseUrl}/api/v2/torrents/add`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Cookie: sidCookie,
+        },
+        body: addBody.toString(),
+      }
+    )
 
     if (!addResponse.ok) {
       const errorText = await addResponse.text().catch(() => "")

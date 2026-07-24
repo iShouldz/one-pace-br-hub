@@ -139,9 +139,7 @@ const ArcDetailsView = ({
                     size="lg"
                     type="button"
                     disabled={!data?.linkDownload}
-                    onClick={() =>
-                      handleTriggerDownload(data?.linkDownload)
-                    }
+                    onClick={() => handleTriggerDownload(data?.linkDownload)}
                   >
                     <DownloadIcon /> Episodios
                   </Button>

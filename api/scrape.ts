@@ -223,7 +223,10 @@ export default async function handler(req: any, res: any) {
       }
 
       if (hasSearchQuery) {
-        const rssXml = await fetchNyaaAggregatedRss(parsedTarget, requestedPages)
+        const rssXml = await fetchNyaaAggregatedRss(
+          parsedTarget,
+          requestedPages
+        )
         if (rssXml) {
           res.status(200)
           res.setHeader("Content-Type", "application/rss+xml; charset=utf-8")
@@ -257,7 +260,8 @@ export default async function handler(req: any, res: any) {
         }
 
         res.status(503).json({
-          error: "Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes",
+          error:
+            "Nenhum torrent encontrado na busca ou Nyaa limitou as requisicoes",
         })
         return
       }

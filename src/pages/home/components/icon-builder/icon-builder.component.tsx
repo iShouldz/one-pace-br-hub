@@ -1,9 +1,4 @@
-import {
-  AlertCircle,
-  CheckCircle2,
-  InfoIcon,
-  SearchAlert,
-} from "lucide-react"
+import { AlertCircle, CheckCircle2, InfoIcon, SearchAlert } from "lucide-react"
 
 const IconBuilderComponent = ({ type }: { type?: string }) => {
   switch (type) {

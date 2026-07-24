@@ -91,9 +91,12 @@ const HomeController = () => {
     })
   }, [handleRedirect])
   const handleRedirectToIssuesGithubSubttitle = useCallback(() => {
-    handleRedirect("https://github.com/iShouldz/one-pace-br-hub-legendas/issues/new", {
-      external: true,
-    })
+    handleRedirect(
+      "https://github.com/iShouldz/one-pace-br-hub-legendas/issues/new",
+      {
+        external: true,
+      }
+    )
   }, [handleRedirect])
 
   const handleOpenSettingsMenu = useCallback(() => {
@@ -153,7 +156,9 @@ const HomeController = () => {
       handleRedirectToSubtitleRepo={handleRedirectToSubtitleRepo}
       handleRedirectToIssuesGithub={handleRedirectToIssuesGithub}
       handleTriggerStremioAddonHeader={handleTriggerStremioAddonHeader}
-      handleRedirectToIssuesGithubSubttitle={handleRedirectToIssuesGithubSubttitle}
+      handleRedirectToIssuesGithubSubttitle={
+        handleRedirectToIssuesGithubSubttitle
+      }
     />
   )
 }

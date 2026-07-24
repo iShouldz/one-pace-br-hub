@@ -4,7 +4,10 @@ const SagaListLoading = () => {
   return (
     <section className="flex flex-col gap-16 md:pt-[35svh] lg:pt-[65svh]">
       {Array.from({ length: 6 }).map((_, index) => (
-        <div className="mx-auto flex w-full flex-col gap-8 px-5 sm:px-8" key={index}>
+        <div
+          className="mx-auto flex w-full flex-col gap-8 px-5 sm:px-8"
+          key={index}
+        >
           <div className="flex flex-col gap-4">
             <Skeleton className="h-10 w-64" />
             <Skeleton className="h-6 w-96" />
