@@ -6,7 +6,7 @@ import {
   useState,
 } from "react"
 import { Outlet } from "react-router"
-import { Menu } from "lucide-react"
+import { ChevronLeft, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -24,6 +24,7 @@ import useNavigation from "@/hooks/use-navigation/use-navigation"
 
 type AppShellContextValue = {
   isLoading: boolean
+  handleBack: () => void
   isHomePage: boolean
   currentTheme: "light" | "dark"
   openSettings: boolean
@@ -61,7 +62,7 @@ export const AppShellProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const { handleRedirect } = useNavigation()
+  const { handleRedirect, handleBack } = useNavigation()
   const {
     data,
     isLoading,
@@ -140,6 +141,7 @@ export const AppShellProvider = ({
   const value = useMemo<AppShellContextValue>(
     () => ({
       isLoading,
+      handleBack,
       currentTheme,
       openSettings,
       hideGrayscale,
@@ -184,6 +186,7 @@ export const AppShellProvider = ({
       hideGrayscale,
       isLoading,
       isHomePage,
+      handleBack,
       openSettings,
       renderModalOnePaceWelcome,
     ]
@@ -228,6 +231,7 @@ const AppShellLayout = () => {
     renderModalOnePaceWelcome,
     handleCloseWelcomeModal,
     isHomePage,
+    handleBack,
   } = useAppShell()
 
   return (
@@ -247,15 +251,28 @@ const AppShellLayout = () => {
             renderModalOnePaceWelcome={renderModalOnePaceWelcome}
           />
 
-          <Button
-            variant="ghost"
-            onClick={handleOpenSettingsMenu}
-            className="fixed top-5 left-3 z-50 bg-white/60 shadow-sm ring-1 ring-black/10 backdrop-blur-md dark:bg-black/40 dark:ring-white/10"
-            aria-label="Abrir menu"
-          >
-            Menu{" "}
-            <Menu className="size-5 text-neutral-700 dark:text-neutral-200" />
-          </Button>
+          <div className="fixed top-5 left-3 flex gap-2">
+            {!isHomePage && (
+              <Button
+                variant="ghost"
+                onClick={handleBack}
+                className="z-50 bg-white/60 shadow-sm ring-1 ring-black/10 backdrop-blur-md dark:bg-black/40 dark:ring-white/10"
+                aria-label="Abrir menu"
+              >
+                <ChevronLeft />
+              </Button>
+            )}
+
+            <Button
+              variant="ghost"
+              onClick={handleOpenSettingsMenu}
+              className="z-50 bg-white/60 shadow-sm ring-1 ring-black/10 backdrop-blur-md dark:bg-black/40 dark:ring-white/10"
+              aria-label="Abrir menu"
+            >
+              Menu{" "}
+              <Menu className="size-5 text-neutral-700 dark:text-neutral-200" />
+            </Button>
+          </div>
 
           <HeaderComponent
             handleTriggerStremioAddonHeader={handleTriggerStremioAddonHeader}
