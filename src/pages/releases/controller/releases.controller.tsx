@@ -12,7 +12,7 @@ const ReleaseController = () => {
     if (isError) {
       handleRedirect(RoutesUrl.ERROR)
     }
-  }, [isError])
+  }, [isError, handleRedirect])
 
   return (
     <ReleaseView entries={data?.logs} isLoading={isLoading} isError={isError} />
