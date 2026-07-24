@@ -28,7 +28,7 @@ const HomeView = ({
       {isLoading ? (
         <SagaListLoading />
       ) : (
-        <section className="md:pt-[25svh] lg:pt-[55svh]">
+        <section className="md:pt-[25svh] lg:pt-[65svh] z-50 relative">
           <SagaList
             showAllSagas={showAllSagas}
             onePieceSagas={onePieceSagas}
