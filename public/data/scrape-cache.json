@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T15:38:17.931Z",
+  "generatedAt": "2026-07-24T15:43:22.279Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -21,8 +21,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:17.932Z",
-      "lastSuccessAt": "2026-07-17T15:38:17.932Z"
+      "lastAttemptAt": "2026-07-24T15:43:22.280Z",
+      "lastSuccessAt": "2026-07-24T15:43:22.280Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -56,8 +56,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:18.872Z",
-      "lastSuccessAt": "2026-07-17T15:38:18.872Z"
+      "lastAttemptAt": "2026-07-24T15:43:23.524Z",
+      "lastSuccessAt": "2026-07-24T15:43:23.524Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -78,8 +78,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:19.527Z",
-      "lastSuccessAt": "2026-07-17T15:38:19.527Z"
+      "lastAttemptAt": "2026-07-24T15:43:24.193Z",
+      "lastSuccessAt": "2026-07-24T15:43:24.193Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -117,8 +117,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:20.179Z",
-      "lastSuccessAt": "2026-07-17T15:38:20.179Z"
+      "lastAttemptAt": "2026-07-24T15:43:24.844Z",
+      "lastSuccessAt": "2026-07-24T15:43:24.844Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -133,8 +133,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:20.862Z",
-      "lastSuccessAt": "2026-07-17T15:38:20.862Z"
+      "lastAttemptAt": "2026-07-24T15:43:25.541Z",
+      "lastSuccessAt": "2026-07-24T15:43:25.541Z"
     },
     "little-garden": {
       "arcId": "little-garden",
@@ -143,7 +143,7 @@
       "pages": 4,
       "links": [
         "magnet:?xt=urn%3Abtih%3Aa075d87248f3bb9c222c097dc31ad7926d5bade9&dn=%5BOne+Pace%5D%5B115-117%5D+Little+Garden+01+%5B1080p%5D%5BBCE915AA%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A707378a82ffb792bcbb455a8ac4e2b68de3e5721&dn=%5BOne+Pace%5D%5B117-119%5D+Little+Garden+02+%5B1080p%5D%5B64714640%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A0d757a463b05e4df2a36976d4754bde48daa683b&dn=%5BOne+Pace%5D%5B117-119%5D+Little+Garden+02+%5B1080p%5D%5B1E643507%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A5bbbc6cf59dd1c083e3148531012061620922701&dn=%5BOne+Pace%5D%5B119-122%5D+Little+Garden+03+%5B1080p%5D%5B0AB937B1%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A73e0d240e57bf1143a5684a654eee46275a13ef5&dn=%5BOne+Pace%5D%5B123-126%5D+Little+Garden+04+%5B1080p%5D%5BCA509241%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A8cb820566a5bf341343f1340a6014104788767c8&dn=%5BOne+Pace%5D%5B127-129%5D+Little+Garden+05+%5B1080p%5D%5B51105EBB%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
@@ -152,8 +152,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:21.513Z",
-      "lastSuccessAt": "2026-07-17T15:38:21.513Z"
+      "lastAttemptAt": "2026-07-24T15:43:26.698Z",
+      "lastSuccessAt": "2026-07-24T15:43:26.698Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -186,8 +186,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:22.171Z",
-      "lastSuccessAt": "2026-07-17T15:38:22.171Z"
+      "lastAttemptAt": "2026-07-24T15:43:27.341Z",
+      "lastSuccessAt": "2026-07-24T15:43:27.341Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -227,8 +227,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:22.806Z",
-      "lastSuccessAt": "2026-07-17T15:38:22.806Z"
+      "lastAttemptAt": "2026-07-24T15:43:27.968Z",
+      "lastSuccessAt": "2026-07-24T15:43:27.968Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -249,8 +249,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:23.528Z",
-      "lastSuccessAt": "2026-07-17T15:38:23.528Z"
+      "lastAttemptAt": "2026-07-24T15:43:28.642Z",
+      "lastSuccessAt": "2026-07-24T15:43:28.642Z"
     },
     "wano": {
       "arcId": "wano",
@@ -324,8 +324,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:24.181Z",
-      "lastSuccessAt": "2026-07-17T15:38:24.181Z"
+      "lastAttemptAt": "2026-07-24T15:43:29.298Z",
+      "lastSuccessAt": "2026-07-24T15:43:29.298Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
@@ -339,8 +339,8 @@
       "status": "ok",
       "via": "nyaa-view-download-url",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:24.919Z",
-      "lastSuccessAt": "2026-07-17T15:38:24.919Z"
+      "lastAttemptAt": "2026-07-24T15:43:29.995Z",
+      "lastSuccessAt": "2026-07-24T15:43:29.995Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -374,8 +374,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-07-17T15:38:25.420Z",
-      "lastSuccessAt": "2026-07-17T15:38:25.420Z"
+      "lastAttemptAt": "2026-07-24T15:43:30.496Z",
+      "lastSuccessAt": "2026-07-24T15:43:30.496Z"
     }
   }
 }
