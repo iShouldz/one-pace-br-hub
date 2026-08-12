@@ -3,6 +3,8 @@ import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 const sendJson = (res: any, statusCode: number, payload: unknown) => {
   res.statusCode = statusCode
   res.setHeader("Content-Type", "application/json; charset=utf-8")
@@ -86,14 +88,11 @@ const getNyaaRssUrlByPage = (target: URL, page: number): URL => {
 const extractRssItems = (xml: string): string[] => {
   return Array.from(xml.matchAll(/<item>[\s\S]*?<\/item>/g)).map(
     (match) => match[0]
-  )
+  );
 }
 
 const extractInfoHash = (itemXml: string): string => {
-  return (
-    itemXml.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] ||
-    ""
-  )
+  return (itemXml.match(/<nyaa:infoHash>([a-fA-F0-9]{40})<\/nyaa:infoHash>/)?.[1] || "");
 }
 
 const extractNyaaViewIds = (html: string): string[] => {
@@ -445,12 +444,12 @@ function scrapeProxyPlugin() {
         }
       })
     },
-  }
+  };
 }
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), scrapeProxyPlugin()],
+  plugins: [react(), tailwindcss(), scrapeProxyPlugin(), cloudflare()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
