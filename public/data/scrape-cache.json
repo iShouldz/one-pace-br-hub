@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T17:40:30.269Z",
+  "generatedAt": "2026-09-25T18:35:30.443Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -17,15 +17,15 @@
         "magnet:?xt=urn%3Abtih%3Ad12effbcce07e669155bec4c2aaccaffaff790eb&dn=%5BOne+Pace%5D%5B141-145%5D+Drum+Island+05+%5B1080p%5D%5BE7044DBE%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3Add3f76effa3ffa50dab6f54141f8584b4b4ef80c&dn=%5BOne+Pace%5D%5B145-148%5D+Drum+Island+06+%5B1080p%5D%5BC63FCD71%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A646d5e5f2dc2adf95076b85816f6d6364b7217cf&dn=%5BOne+Pace%5D%5B149-152%5D+Drum+Island+07+%5B1080p%5D%5BD549B6DF%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A1518c0345ff6e7e8ae4a2f4811e07179982f310d&dn=%5BOne+Pace%5D%5B153-155%5D+Drum+Island+08+%5B1080p%5D%5BF8FCF23F%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A1854d3a4591289a1648c9775800f296812e4e480&dn=%5BOne+Pace%5D%5B153-155%5D+Drum+Island+08+%5B1080p%5D%5BFA5C67B1%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3Aa464ed705df4d6e5c82182720fcb680aff526df9&dn=%5BOne+Pace%5D%5B153-155%2C+142%5D+Drum+Island+08+%5B1080p%5D%5B9794072D%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
       ],
       "linkCount": 11,
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:30.270Z",
-      "lastSuccessAt": "2026-09-18T17:40:30.270Z"
+      "lastAttemptAt": "2026-09-25T18:35:30.443Z",
+      "lastSuccessAt": "2026-09-25T18:35:30.443Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -59,8 +59,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:31.328Z",
-      "lastSuccessAt": "2026-09-18T17:40:31.328Z"
+      "lastAttemptAt": "2026-09-25T18:35:31.396Z",
+      "lastSuccessAt": "2026-09-25T18:35:31.396Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -81,8 +81,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:32.021Z",
-      "lastSuccessAt": "2026-09-18T17:40:32.021Z"
+      "lastAttemptAt": "2026-09-25T18:35:32.102Z",
+      "lastSuccessAt": "2026-09-25T18:35:32.102Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -120,8 +120,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:32.682Z",
-      "lastSuccessAt": "2026-09-18T17:40:32.682Z"
+      "lastAttemptAt": "2026-09-25T18:35:32.798Z",
+      "lastSuccessAt": "2026-09-25T18:35:32.798Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -136,8 +136,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:33.375Z",
-      "lastSuccessAt": "2026-09-18T17:40:33.375Z"
+      "lastAttemptAt": "2026-09-25T18:35:33.469Z",
+      "lastSuccessAt": "2026-09-25T18:35:33.469Z"
     },
     "little-garden": {
       "arcId": "little-garden",
@@ -155,8 +155,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:34.041Z",
-      "lastSuccessAt": "2026-09-18T17:40:34.041Z"
+      "lastAttemptAt": "2026-09-25T18:35:34.123Z",
+      "lastSuccessAt": "2026-09-25T18:35:34.123Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -189,8 +189,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:34.707Z",
-      "lastSuccessAt": "2026-09-18T17:40:34.707Z"
+      "lastAttemptAt": "2026-09-25T18:35:34.774Z",
+      "lastSuccessAt": "2026-09-25T18:35:34.774Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -230,8 +230,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:35.362Z",
-      "lastSuccessAt": "2026-09-18T17:40:35.362Z"
+      "lastAttemptAt": "2026-09-25T18:35:35.451Z",
+      "lastSuccessAt": "2026-09-25T18:35:35.451Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -252,8 +252,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:36.150Z",
-      "lastSuccessAt": "2026-09-18T17:40:36.150Z"
+      "lastAttemptAt": "2026-09-25T18:35:36.075Z",
+      "lastSuccessAt": "2026-09-25T18:35:36.075Z"
     },
     "wano": {
       "arcId": "wano",
@@ -321,14 +321,15 @@
         "magnet:?xt=urn%3Abtih%3Acf8c8201209a4c17b43911b02163834f1fe4db86&dn=%5BOne+Pace%5D%5B1005-1006%5D+Wano+58+%5B1080p%5D%5BA0FCAB46%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A8591276ee893656f5cc68805f0e0d1578f3f5486&dn=%5BOne+Pace%5D%5B1007-1008%5D+Wano+59+%5B1080p%5D%5B2ED1FD82%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
         "magnet:?xt=urn%3Abtih%3A27afaf13601c48f68e9832517848ee416973f9ed&dn=%5BOne+Pace%5D%5B1009-1010%5D+Wano+60+%5B1080p%5D%5B27E7EE1C%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
-        "magnet:?xt=urn%3Abtih%3A5a7292f7b9455dbb511a944862f7394f7982b5e9&dn=%5BOne+Pace%5D%5B1011-1012%5D+Wano+61+%5B1080p%5D%5B1EF3F26C%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
+        "magnet:?xt=urn%3Abtih%3A5a7292f7b9455dbb511a944862f7394f7982b5e9&dn=%5BOne+Pace%5D%5B1011-1012%5D+Wano+61+%5B1080p%5D%5B1EF3F26C%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce",
+        "magnet:?xt=urn%3Abtih%3A6d6dc2ce4bf05c8e8291a4aa33dcb5387bb71019&dn=%5BOne+Pace%5D%5B1012-1013%5D+Wano+62+Extended+%5B1080p%5D%5B3EC45BF1%5D.mkv&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce"
       ],
-      "linkCount": 61,
+      "linkCount": 62,
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:36.812Z",
-      "lastSuccessAt": "2026-09-18T17:40:36.812Z"
+      "lastAttemptAt": "2026-09-25T18:35:36.721Z",
+      "lastSuccessAt": "2026-09-25T18:35:36.721Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
@@ -342,8 +343,8 @@
       "status": "ok",
       "via": "nyaa-view-download-url",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:37.559Z",
-      "lastSuccessAt": "2026-09-18T17:40:37.559Z"
+      "lastAttemptAt": "2026-09-25T18:35:37.428Z",
+      "lastSuccessAt": "2026-09-25T18:35:37.428Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -377,8 +378,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-09-18T17:40:38.060Z",
-      "lastSuccessAt": "2026-09-18T17:40:38.060Z"
+      "lastAttemptAt": "2026-09-25T18:35:37.929Z",
+      "lastSuccessAt": "2026-09-25T18:35:37.929Z"
     }
   }
 }
