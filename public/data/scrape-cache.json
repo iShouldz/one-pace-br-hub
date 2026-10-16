@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T19:32:02.141Z",
+  "generatedAt": "2026-10-16T18:02:41.969Z",
   "source": "github-actions",
   "arcs": {
     "drum-island": {
@@ -24,8 +24,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:02.141Z",
-      "lastSuccessAt": "2026-10-09T19:32:02.141Z"
+      "lastAttemptAt": "2026-10-16T18:02:41.969Z",
+      "lastSuccessAt": "2026-10-16T18:02:41.969Z"
     },
     "alabasta": {
       "arcId": "alabasta",
@@ -59,8 +59,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:03.290Z",
-      "lastSuccessAt": "2026-10-09T19:32:03.290Z"
+      "lastAttemptAt": "2026-10-16T18:02:43.137Z",
+      "lastSuccessAt": "2026-10-16T18:02:43.137Z"
     },
     "jaya": {
       "arcId": "jaya",
@@ -81,8 +81,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:03.954Z",
-      "lastSuccessAt": "2026-10-09T19:32:03.954Z"
+      "lastAttemptAt": "2026-10-16T18:02:43.831Z",
+      "lastSuccessAt": "2026-10-16T18:02:43.831Z"
     },
     "skypea": {
       "arcId": "skypea",
@@ -120,8 +120,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:04.591Z",
-      "lastSuccessAt": "2026-10-09T19:32:04.591Z"
+      "lastAttemptAt": "2026-10-16T18:02:44.498Z",
+      "lastSuccessAt": "2026-10-16T18:02:44.498Z"
     },
     "long-long-ring": {
       "arcId": "long-long-ring",
@@ -136,8 +136,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:05.249Z",
-      "lastSuccessAt": "2026-10-09T19:32:05.249Z"
+      "lastAttemptAt": "2026-10-16T18:02:45.196Z",
+      "lastSuccessAt": "2026-10-16T18:02:45.196Z"
     },
     "little-garden": {
       "arcId": "little-garden",
@@ -155,8 +155,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:05.887Z",
-      "lastSuccessAt": "2026-10-09T19:32:05.887Z"
+      "lastAttemptAt": "2026-10-16T18:02:45.908Z",
+      "lastSuccessAt": "2026-10-16T18:02:45.908Z"
     },
     "water-seven": {
       "arcId": "water-seven",
@@ -189,8 +189,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:06.522Z",
-      "lastSuccessAt": "2026-10-09T19:32:06.522Z"
+      "lastAttemptAt": "2026-10-16T18:02:46.579Z",
+      "lastSuccessAt": "2026-10-16T18:02:46.579Z"
     },
     "enies-lobby": {
       "arcId": "enies-lobby",
@@ -230,8 +230,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:07.183Z",
-      "lastSuccessAt": "2026-10-09T19:32:07.183Z"
+      "lastAttemptAt": "2026-10-16T18:02:47.236Z",
+      "lastSuccessAt": "2026-10-16T18:02:47.236Z"
     },
     "post-war": {
       "arcId": "post-war",
@@ -252,8 +252,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:07.802Z",
-      "lastSuccessAt": "2026-10-09T19:32:07.802Z"
+      "lastAttemptAt": "2026-10-16T18:02:47.895Z",
+      "lastSuccessAt": "2026-10-16T18:02:47.895Z"
     },
     "wano": {
       "arcId": "wano",
@@ -328,8 +328,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:08.435Z",
-      "lastSuccessAt": "2026-10-09T19:32:08.435Z"
+      "lastAttemptAt": "2026-10-16T18:02:48.565Z",
+      "lastSuccessAt": "2026-10-16T18:02:48.565Z"
     },
     "wano-onigashima-paced": {
       "arcId": "wano-onigashima-paced",
@@ -343,8 +343,8 @@
       "status": "ok",
       "via": "nyaa-view-download-url",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:09.148Z",
-      "lastSuccessAt": "2026-10-09T19:32:09.148Z"
+      "lastAttemptAt": "2026-10-16T18:02:49.307Z",
+      "lastSuccessAt": "2026-10-16T18:02:49.307Z"
     },
     "egghead": {
       "arcId": "egghead",
@@ -379,8 +379,8 @@
       "status": "ok",
       "via": "nyaa-rss-aggregated",
       "message": null,
-      "lastAttemptAt": "2026-10-09T19:32:09.649Z",
-      "lastSuccessAt": "2026-10-09T19:32:09.649Z"
+      "lastAttemptAt": "2026-10-16T18:02:49.808Z",
+      "lastSuccessAt": "2026-10-16T18:02:49.808Z"
     }
   }
 }
